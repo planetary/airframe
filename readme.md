@@ -7,4 +7,4 @@
 - [Breakpoint](http://breakpoint-sass.com/)
 
 **Getting started:**
-1. Run 'compass watch' to begin compiling sass as you develop
+- Run 'compass watch' to begin compiling sass as you develop
