@@ -1,0 +1,67 @@
+// base font size
+$base-font-size: 16px;
+// base line height
+$base-line-height: 25px;
+
+// apply the above to <body>
+@include establish-baseline;
+
+// typefaces
+$sans:              Helvetica, sans-serif;
+$serif:             Georgia, serif;
+$mono:              Courier, monospace;
+
+// bold
+strong{
+    font-weight: 500;
+}
+
+// italics
+em{
+    font-style: italic;
+}
+
+// headers
+h1{
+
+}
+
+h2{
+
+}
+
+h3{
+
+}
+
+h4{
+
+}
+
+// paragraphs
+p{
+
+}
+
+// quotes
+blockquote{
+
+}
+
+// lists
+ul{
+    list-style:disc inside;
+}
+
+ol{
+    list-style: decimal inside;
+}
+
+// code
+code{
+    font-family: $mono;
+}
+
+pre{
+
+}
