@@ -1,0 +1,26 @@
+{
+  "name": "Airframe",
+  "version": "0.0.0",
+  "description": "A project starter kit",
+  "main": "dist/index.html",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/planetarycorp/airframe.git"
+  },
+  "author": "Planetary",
+  "bugs": {
+    "url": "https://github.com/planetarycorp/airframe/issues"
+  },
+  "homepage": "https://github.com/planetarycorp/airframe",
+  "devDependencies": {
+    "gulp": "~3.8.6",
+    "gulp-compass": "~1.2.0",
+    "gulp-minify-css": "~0.3.7",
+    "gulp-concat": "~2.3.4",
+    "gulp-livereload": "~2.1.0",
+    "tiny-lr": "0.0.9",
+    "gulp-embedlr": "~0.5.2",
+    "bower": "~1.3.8",
+    "gulp-bower": "0.0.6"
+  }
+}
