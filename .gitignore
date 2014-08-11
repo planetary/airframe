@@ -4,6 +4,9 @@ dist
 # node libraries
 node_modules
 
+# bower packages
+bower_components
+
 # sass cache files
 .sass-cache
 
