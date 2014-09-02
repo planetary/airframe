@@ -74,6 +74,3 @@ gulp.task('watch', function() {
 })
 
 gulp.task('default', ['bower', 'scripts', 'styles', 'html'])
-
-gulp.task('watch', ['watch'])
-
