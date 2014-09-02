@@ -6,7 +6,8 @@ uglify = require('gulp-uglify'),
 compass = require('gulp-compass'),
 concat = require('gulp-concat'),
 minifyCSS = require('gulp-minify-css'),
-bower = require('gulp-bower');
+bower = require('gulp-bower'),
+fs = require('fs');
 
 var destPath = "dist/";
 var srcPath = "src/";
@@ -37,6 +38,12 @@ gulp.task('bower', function() {
 
   var jsFilter = gulpFilter('*.js');
   var cssFilter = gulpFilter('*.css');
+
+  var check = fs.existsSync('./bower_components');
+  if (!check) {
+    console.log('No bower components installed.');
+    return;
+  }
 
   return gulp.src(mainBowerFiles({debugging:true}))
 
