@@ -11,9 +11,13 @@ $sans:              Helvetica, sans-serif;
 $serif:             Georgia, serif;
 $mono:              Courier, monospace;
 
+body{
+	font-family: $sans;
+}
+
 // bold
 strong{
-    font-weight: 500;
+    font-weight: bold;
 }
 
 // italics
@@ -23,19 +27,19 @@ em{
 
 // headers
 h1{
-
+	font-size: 180%;
 }
 
 h2{
-
+	font-size: 160%;
 }
 
 h3{
-
+	font-size: 140%;
 }
 
 h4{
-
+	font-size: 120%;
 }
 
 // paragraphs
