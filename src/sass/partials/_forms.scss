@@ -1,0 +1,46 @@
+/* Global styles
+   ------------- */
+
+// Normalize font size, set block defaults
+input, textarea, select, button, label {
+  display:block;
+  font-size: $scale-normal;
+  line-height:$base-line-height;
+  margin-bottom:1em;
+}
+
+/* Individual element styles
+   ------------------------- */
+
+label{
+  margin-bottom: .5em;
+}
+
+input[type="text"], input[type="email"], input[type="password"], textarea{
+  padding: 0.25em 0.5em;
+  background: $white;
+  border: 1px solid $grayLight;
+  min-width:16em;
+  border-radius: $corner-radius;
+}
+
+input[type="checkbox"], input[type="radio"]{
+  display: inline-block;
+}
+
+.form--radio + .form--radio, .form--checkbox + .form--checkbox{
+  // group similar elements
+  margin-top: -0.5em;
+}
+
+select{
+  //ed. note: select boxes are weird.
+  outline:none;
+  background:$white;
+  color: $black;
+  border: 1px solid $grayLight;
+  padding: 0.25em 0.5em;
+  height:2em;
+  border-radius: $corner-radius;
+  min-width:16em;
+}

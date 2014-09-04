@@ -1,10 +1,16 @@
 // grays
-$black:             #000;
-$grayDarker:        lighten($black, 15%);
-$grayDark:          lighten($black, 25%);
-$gray:              lighten($black, 50%);
-$grayLight:         lighten($black, 70%);
-$grayLighter:       lighten($black, 90%);
-$white:             #eee;
+$black:             rgb(060, 060, 060);
+$white:             rgb(255,255,255);
+
+$grayDarker:        mix($white, $black, 15%);
+$grayDark:          mix($white, $black, 25%);
+$gray:              mix($white, $black, 50%);
+$grayLight:         mix($white, $black, 80%);
+$grayLighter:       mix($white, $black, 90%);
+
 
 // project-specific colors
+
+$blue:              #0074D9;
+$green:             #2ECC40;
+$red:               #FF4136;

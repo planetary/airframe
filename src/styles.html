@@ -9,63 +9,94 @@
 	<meta http-equiv="cleartype" content="on">
 	<title>Airframe Project Styles</title>
 	<link rel="stylesheet" href="css/main.css">
-	<!-- Style Guide specific styles -->
-	<style type="text/css">
-	body {
-		padding: 50px !important;
-	}
-	</style>
+	<link rel="stylesheet" href="css/styleguide.css">
 </head>
 <body>
-	<p>
-		<h1>Header 1</h1>
-		<h2>Header 2</h2>
-		<h3>Header 3</h3>
-		<h4>Header 4</h4>
-		<p>Lorem ipsum dolor sit amet, <strong>an diam duis aliquid mea</strong>, <em>pro erat nihil assentior ex</em>, pro quod atqui id. Pro at agam epicuri mandamus, has ad mundi ubique essent. Torquatos mediocritatem vix in, cum at aeque dolores, ei mundi partem philosophia pro. Mea id diam velit aperiri, ne constituto percipitur delicatissimi sit, eos iriure gubergren id.</p>
-		<p>Vim at dicta docendi ancillae. Duo id suas fabulas, sed sumo saepe epicurei in. Cu nec dicunt delicata, per suscipit qualisque definitionem an. Error facilisis persequeris an vel, ut laoreet corrumpit intellegat sea. Nam cu commodo suscipit euripidis. Graeco verear bonorum cum ei, at feugait scribentur instructior his. Ad nec tempor equidem molestiae, facilisi pertinax ex est, mei ei laoreet conclusionemque.</p>
-	</p>
-	<p>
-		<blockquote>
-			<p>Example of a quote.</p>
-		</blockquote>
-	</p>
-	<p>
-		<a href="#">Link</a>
-	</p>
-	<p>
-		<input type="text" value="Text input">
-	</p>
-	<p>
-		<textarea>Textarea</textarea>
-	</p>
-	<p>
-		<label><input type="checkbox"> Checkbox</label>
-	</p>
-	<p>
-		<label><input type="radio" name="radio"> Radio 1</label>
-	</p>
-	<p>
-		<label><input type="radio" name="radio"> Radio 2</label>
-	</p>
-	<p>
-		<select>
-			<option selected>Select</option>
-			<option>Option</option>
-		</select>
-	</p>
-	<p>
-		<button class="button">Button</button>
-	</p>
-	<script src="js/main.js"></script>
-	<!-- Google Analytics: change UA-XXXXX-X to be this site's ID. -->
-	<script>
-	(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-		function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-	e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-	e.src='//www.google-analytics.com/analytics.js';
-	r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-	ga('create','UA-XXXXX-X');ga('send','pageview');
-	</script>
+	<div class="g--container">
+		<div class="sg--component">
+			<span class="sg--component-label">Typefaces</span>
+			<div class="type--sans">Amazingly few discoteques provide jukeboxes.</div>
+			<div class="type--serif">Amazingly few discoteques provide jukeboxes.</div>
+			<div class="type--mono">Amazingly few discoteques provide jukeboxes.</div>
+		</div>
+		<div class="sg--component">
+			<span class="sg--component-label">Headers</span>
+			<h1>Header 1</h1>
+			<h2>Header 2</h2>
+			<h3>Header 3</h3>
+			<h4>Header 4</h4>
+		</div>
+		<div class="sg--component">
+			<span class="sg--component-label">Body Copy</span>
+			<p>The locomotive whistled vigorously; the engineer, reversing the steam, backed the train for nearly a mile&mdash;retiring, like a jumper, in order to take a longer leap.  Then, with another whistle, he began to move forward; the train increased its speed, and soon its rapidity became frightful; a prolonged screech issued from the locomotive; the piston worked up and down twenty strokes to the second.  They perceived that the whole train, rushing on at the rate of a hundred miles an hour, hardly bore upon the rails at all.</p>
+
+			<p>And they passed over!  It was like a flash.  No one saw the bridge. The train leaped, so to speak, from one bank to the other, and the engineer could not stop it until it had gone five miles beyond the station.  But scarcely had the train passed the river, when the bridge, completely ruined, fell with a crash into the rapids of Medicine Bow.</p>
+		</div>
+		
+		<div class="sg--component">
+			<span class="sg--component-label">Blockquote</span>
+			<blockquote>
+				<p>Example of a quote.</p>
+			</blockquote>
+		</div>
+
+		<div class="sg--component">
+			<span class="sg--component-label">Form</span>
+			<form action="">
+				<label for="dummyinput">
+					Label
+				</label>
+				<input type="text" placeholder="Text input" id="dummyinput">
+				<textarea placeholder="Text Area"></textarea>
+				<label class="form--checkbox">
+					<input type="checkbox"> Checkbox
+				</label>
+				<label class="form--radio">
+					<input type="radio" name="radio"> Radio 1
+				</label>
+				<label class="form--radio">
+					<input type="radio" name="radio"> Radio 2
+				</label>
+				<select>
+					<option selected>Select</option>
+					<option>Option</option>
+				</select>
+				<button class="button">Button</button>
+			</form>
+		</div>
+
+
+		<div class="sg--component">
+			<span class="sg--component-label">Kitchen Sink</span>
+			<h1>HTML Ipsum Presents</h1>
+				       
+			<p><strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. <em>Aenean ultricies mi vitae est.</em> Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, <code>commodo vitae</code>, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. <a href="#">Donec non enim</a> in turpis pulvinar facilisis. Ut felis.</p>
+
+			<h2>Header Level 2</h2>
+				       
+			<ol>
+			   <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+			   <li>Aliquam tincidunt mauris eu risus.</li>
+			</ol>
+
+			<blockquote><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis, tellus est malesuada tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est.</p></blockquote>
+
+			<h3>Header Level 3</h3>
+
+			<ul>
+			   <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+			   <li>Aliquam tincidunt mauris eu risus.</li>
+			</ul>
+
+			<pre><code>
+#header h1 a { 
+	display: block; 
+	width: 300px; 
+	height: 80px; 
+}
+			</code></pre>
+		</div>
+
+	</div>
 </body>
 </html>

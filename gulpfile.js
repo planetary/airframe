@@ -27,7 +27,7 @@ gulp.task('styles', function() {
     sass: srcPath + 'sass',
     image: srcPath + 'img',
     css: destPath + 'css',
-    require: ['susy', 'breakpoint']
+    require: ['susy', 'breakpoint', 'modular-scale']
   }))
   .pipe(minifyCSS())
   .pipe(gulp.dest(destPath + 'css'))

@@ -1,0 +1,11 @@
+.button{
+  padding: .25em 1em;
+  background: $grayLighter;
+  border:1px solid $grayLight;
+  border-radius: $corner-radius;
+}
+
+.button:hover{
+  cursor:pointer;
+  background: lighten($grayLight, 10%);
+}
