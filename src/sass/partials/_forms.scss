@@ -4,6 +4,7 @@
 // Normalize font size, set block defaults
 input, textarea, select, button, label {
   display:block;
+  font-family: $sans;
   font-size: $scale-normal;
   line-height:$base-line-height;
   margin-bottom:1em;

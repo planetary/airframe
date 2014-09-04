@@ -24,7 +24,6 @@ $mono:              Courier, monospace;
 }
 
 // modular scale for font sizes
-
 $ms-base: 1em;
 $ms-ratio: $fifth;
 
@@ -36,9 +35,18 @@ $scale-small:       ms(-1);
 $scale-xsmall:      ms(-2);
 $scale-tiny:        ms(-3);
 
+
+// global type baselines
 body{
 	font-family: $sans;
   color: $black;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+          font-feature-settings: "kern";
+  -webkit-font-feature-settings: "kern";
+     -moz-font-feature-settings: "kern";
+     -moz-font-feature-settings: "kern=1";
+  font-kerning: normal;
 }
 
 // bold

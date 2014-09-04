@@ -12,6 +12,13 @@ fs = require('fs');
 var destPath = "dist/";
 var srcPath = "src/";
 
+
+//this will handle errors for us
+function handleError(err) {
+  console.log(err.toString());
+  this.emit('end');
+}
+
 //concat, minify js
 gulp.task('scripts', function() {
   gulp.src([srcPath + '**/*.js'])
@@ -29,6 +36,7 @@ gulp.task('styles', function() {
     css: destPath + 'css',
     require: ['susy', 'breakpoint', 'modular-scale']
   }))
+  .on('error', handleError)
   .pipe(minifyCSS())
   .pipe(gulp.dest(destPath + 'css'))
 })

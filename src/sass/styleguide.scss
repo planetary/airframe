@@ -26,6 +26,7 @@ Style Guide v0.1 - September 3 2014
 }
 
 .sg--component-label{
+  display:block;
   font-size: $scale-small;
   color: $gray;
 }
