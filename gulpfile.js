@@ -7,7 +7,8 @@ compass = require('gulp-compass'),
 concat = require('gulp-concat'),
 minifyCSS = require('gulp-minify-css'),
 bower = require('gulp-bower'),
-fs = require('fs');
+fs = require('fs'),
+jade = require('gulp-jade');
 
 var destPath = "dist/";
 var srcPath = "src/";
@@ -77,15 +78,19 @@ gulp.task('bower', function() {
 
 });
 
-gulp.task('html', function() {
-  gulp.src(srcPath + '*.html')
-  .pipe(gulp.dest(destPath))
-})
+//compile jade files
+gulp.task('templates', function() {
+  gulp.src(srcPath + 'jade/views/**/*.jade')
+    .pipe(jade({
+      'basedir': srcPath + 'jade'
+    }))
+    .pipe(gulp.dest(destPath))
+});
 
 gulp.task('watch', function() {
   gulp.watch(srcPath + 'js/**', ['scripts']);
   gulp.watch(srcPath + 'sass/**', ['styles']);
-  gulp.watch(srcPath + '**/*.html', ['html']);
+  gulp.watch(srcPath + '**/*.jade', ['templates']);
 })
 
-gulp.task('default', ['bower', 'scripts', 'styles', 'html'])
+gulp.task('default', ['bower', 'scripts', 'styles', 'templates'])
