@@ -7,50 +7,50 @@ textarea,
 select,
 button,
 label {
-  display: block;
-  font-family: $sans;
-  font-size: $scale-normal;
-  line-height: $base-line-height;
-  margin-bottom: 1em;
+    display: block;
+    font-family: $sans;
+    font-size: $scale-normal;
+    line-height: $base-line-height;
+    margin-bottom: 1em;
 }
 
 /* Individual element styles
    ------------------------- */
 
 label {
-  margin-bottom: .5em;
+    margin-bottom: .5em;
 }
 
 input[type="text"],
 input[type="email"],
 input[type="password"],
 textarea {
-  padding: .25em .5em;
-  background: $white;
-  border: 1px solid $gray-light;
-  min-width: 16em;
-  border-radius: $corner-radius;
+    padding: .25em .5em;
+    background: $white;
+    border: 1px solid $gray-light;
+    min-width: 16em;
+    border-radius: $corner-radius;
 }
 
 input[type="checkbox"],
 input[type="radio"] {
-  display: inline-block;
+    display: inline-block;
 }
 
 .form--radio + .form--radio,
 .form--checkbox + .form--checkbox {
-  // group similar elements
-  margin-top: -.5em;
+    // group similar elements
+    margin-top: -.5em;
 }
 
 select {
-  //ed. note: select boxes are weird.
-  outline: none;
-  background: $white;
-  color: $black;
-  border: 1px solid $gray-light;
-  padding: .25em .5em;
-  height: 2em;
-  border-radius: $corner-radius;
-  min-width: 16em;
+    //ed. note: select boxes are weird.
+    outline: none;
+    background: $white;
+    color: $black;
+    border: 1px solid $gray-light;
+    padding: .25em .5em;
+    height: 2em;
+    border-radius: $corner-radius;
+    min-width: 16em;
 }

@@ -2,9 +2,9 @@
    --------------- */
 
 $susy: (
-  columns: 12,
-  gutters: 1/4,
-  column-width: 4em
+    columns: 12,
+    gutters: 1/4,
+    column-width: 4em
 );
 
 // Rounded corners, because why not
@@ -14,5 +14,5 @@ $corner-radius: 4px;
 /* Grid utility classes
    -------------------- */
 .g--container {
-  @include container;
+    @include container;
 }

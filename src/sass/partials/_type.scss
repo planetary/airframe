@@ -12,15 +12,15 @@ $serif:       Georgia, serif;
 $mono:        Courier, monospace;
 
 .type--sans {
-  font-family: $sans;
+    font-family: $sans;
 }
 
 .type--serif {
-  font-family: $serif;
+    font-family: $serif;
 }
 
 .type--mono {
-  font-family: $mono;
+    font-family: $mono;
 }
 
 // modular scale for font sizes
@@ -38,24 +38,24 @@ $scale-tiny:    ms(-3);
 
 // global type baselines
 body {
-  font-family: $sans;
-  color: $black;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  font-feature-settings: "kern";
-  -webkit-font-feature-settings: "kern";
-  -moz-font-feature-settings: "kern" 1;
-  font-kerning: normal;
+    font-family: $sans;
+    color: $black;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "kern";
+    -webkit-font-feature-settings: "kern";
+    -moz-font-feature-settings: "kern" 1;
+    font-kerning: normal;
 }
 
 // bold
 strong {
-  font-weight: bold;
+    font-weight: bold;
 }
 
 // italics
 em {
-  font-style: italic;
+    font-style: italic;
 }
 
 // headers
@@ -63,54 +63,54 @@ h1,
 h2,
 h3,
 h4 {
-  font-weight: 700;
-  @include adjust-leading-to(1);
-  margin-bottom: 1rem;
+    font-weight: 700;
+    @include adjust-leading-to(1);
+    margin-bottom: 1rem;
 }
 
 h1 {
-  font-size: $scale-huge;
+    font-size: $scale-huge;
 }
 
 h2 {
-  font-size: $scale-xlarge;
+    font-size: $scale-xlarge;
 }
 
 h3 {
-  font-size: $scale-large;
+    font-size: $scale-large;
 }
 
 h4 {
-  font-size: $scale-normal;
+    font-size: $scale-normal;
 }
 
 // paragraphs
 p {
-  margin-bottom: 1em;
+    margin-bottom: 1em;
 }
 
 // links
 a {
-  color: $blue;
+    color: $blue;
 }
 
 // quotes
 blockquote {
-  margin: 1em 0;
-  border-left: 2px solid $gray-light;
-  padding-left: 1em;
+    margin: 1em 0;
+    border-left: 2px solid $gray-light;
+    padding-left: 1em;
 }
 
 // lists
 ul {
-  list-style: disc inside;
+    list-style: disc inside;
 }
 
 ol {
-  list-style: decimal inside;
+    list-style: decimal inside;
 }
 
 // code
 code {
-  font-family: $mono;
+    font-family: $mono;
 }
