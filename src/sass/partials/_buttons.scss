@@ -1,42 +1,50 @@
-.btn{
-  padding: 0.3em 1em 0.2em;
-  background: $grayLighter;
-  color:$black;
-  border:1px solid;
-  border-color: darken($grayLighter, 5%);
+.btn {
+  padding: .3em 1em .2em;
+  background: $gray-lighter;
+  color: $black;
+  border: 1px solid;
+  border-color: darken($gray-lighter, 5%);
   border-radius: $corner-radius;
-  text-decoration:none;
-  display:inline-block;
-  &:hover{
-    cursor:pointer;
-    background: lighten($grayLighter, 2.5%);
+  text-decoration: none;
+  display: inline-block;
+
+  &:hover {
+    cursor: pointer;
+    background: lighten($gray-lighter, 2.5%);
   }
+
 }
 
 
-.btn--primary{
+.btn--primary {
   background: $blue;
   border-color: darken($blue, 5%);
   color: $white;
-  &:hover{
+
+  &:hover {
     background: lighten($blue, 2.5%);
   }
+
 }
 
-.btn--warning{
+.btn--warning {
   background: $red;
   border-color: darken($red, 5%);
   color: $white;
-  &:hover{
+
+  &:hover {
     background: lighten($red, 2.5%);
   }
+
 }
 
-.btn--action{
+.btn--action {
   background: $green;
   border-color: darken($green, 5%);
   color: $white;
-  &:hover{
+
+  &:hover {
     background: lighten($green, 2.5%);
   }
+
 }

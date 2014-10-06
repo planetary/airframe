@@ -7,19 +7,19 @@ $base-line-height: 25px;
 @include establish-baseline;
 
 // typefaces
-$sans:              Helvetica, sans-serif;
-$serif:             Georgia, serif;
-$mono:              Courier, monospace;
+$sans:        Helvetica, sans-serif;
+$serif:       Georgia, serif;
+$mono:        Courier, monospace;
 
-.type--sans{
+.type--sans {
   font-family: $sans;
 }
 
-.type--serif{
+.type--serif {
   font-family: $serif;
 }
 
-.type--mono{
+.type--mono {
   font-family: $mono;
 }
 
@@ -27,92 +27,90 @@ $mono:              Courier, monospace;
 $ms-base: 1em;
 $ms-ratio: $fifth;
 
-$scale-huge:        ms(3); 
-$scale-xlarge:      ms(2);
-$scale-large:       ms(1);
-$scale-normal:      ms(0);
-$scale-small:       ms(-1);
-$scale-xsmall:      ms(-2);
-$scale-tiny:        ms(-3);
+$scale-huge:    ms(3); 
+$scale-xlarge:    ms(2);
+$scale-large:     ms(1);
+$scale-normal:    ms(0);
+$scale-small:     ms(-1);
+$scale-xsmall:    ms(-2);
+$scale-tiny:    ms(-3);
 
 
 // global type baselines
-body{
-	font-family: $sans;
+body {
+  font-family: $sans;
   color: $black;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-          font-feature-settings: "kern";
+  font-feature-settings: "kern";
   -webkit-font-feature-settings: "kern";
-     -moz-font-feature-settings: "kern";
-     -moz-font-feature-settings: "kern=1";
+  -moz-font-feature-settings: "kern" 1;
   font-kerning: normal;
 }
 
 // bold
-strong{
-    font-weight: bold;
+strong {
+  font-weight: bold;
 }
 
 // italics
-em{
-    font-style: italic;
+em {
+  font-style: italic;
 }
 
 // headers
-h1,h2,h3,h4 {
+h1,
+h2,
+h3,
+h4 {
   font-weight: 700;
-	@include adjust-leading-to(1);
+  @include adjust-leading-to(1);
   margin-bottom: 1rem;
 }
 
-h1{
-	font-size: $scale-huge;
+h1 {
+  font-size: $scale-huge;
 }
 
-h2{
-	font-size: $scale-xlarge;
+h2 {
+  font-size: $scale-xlarge;
 }
 
-h3{
-	font-size: $scale-large;
+h3 {
+  font-size: $scale-large;
 }
 
-h4{
-	font-size: $scale-normal;
+h4 {
+  font-size: $scale-normal;
 }
 
 // paragraphs
-p{
-	margin-bottom: 1em;
+p {
+  margin-bottom: 1em;
 }
 
 // links
-a{
+a {
   color: $blue;
 }
 
 // quotes
-blockquote{
-  margin:1em 0;
-  border-left: 2px solid $grayLight;
-  padding-left:1em;
+blockquote {
+  margin: 1em 0;
+  border-left: 2px solid $gray-light;
+  padding-left: 1em;
 }
 
 // lists
-ul{
-    list-style:disc inside;
+ul {
+  list-style: disc inside;
 }
 
-ol{
-    list-style: decimal inside;
+ol {
+  list-style: decimal inside;
 }
 
 // code
-code{
-    font-family: $mono;
-}
-
-pre{
-
+code {
+  font-family: $mono;
 }

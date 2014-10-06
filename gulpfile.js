@@ -8,7 +8,8 @@ concat = require('gulp-concat'),
 minifyCSS = require('gulp-minify-css'),
 bower = require('gulp-bower'),
 fs = require('fs'),
-jade = require('gulp-jade');
+jade = require('gulp-jade'),
+scsslint = require('gulp-scss-lint');
 
 var destPath = "dist/";
 var srcPath = "src/";
@@ -87,9 +88,17 @@ gulp.task('templates', function() {
     .pipe(gulp.dest(destPath))
 });
 
+// linting tasks to check for manifest adherance
+gulp.task('scss-lint', function() {
+  gulp.src(srcPath + '/sass/**/*.scss')
+    .pipe(scsslint({
+        'config': 'lint.yml',
+    }));
+});
+
 gulp.task('watch', function() {
   gulp.watch(srcPath + 'js/**', ['scripts']);
-  gulp.watch(srcPath + 'sass/**', ['styles']);
+  gulp.watch(srcPath + 'sass/**', ['scss-lint', 'styles']);
   gulp.watch(srcPath + '**/*.jade', ['templates']);
 })
 
