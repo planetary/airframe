@@ -18,14 +18,14 @@ label {
    ------------------------- */
 
 label {
-    margin-bottom: .5em;
+    margin-bottom: 0.5em;
 }
 
 input[type="text"],
 input[type="email"],
 input[type="password"],
 textarea {
-    padding: .25em .5em;
+    padding: 0.25em 0.5em;
     background: $white;
     border: 1px solid $gray-light;
     min-width: 16em;
@@ -40,7 +40,7 @@ input[type="radio"] {
 .form--radio + .form--radio,
 .form--checkbox + .form--checkbox {
     // group similar elements
-    margin-top: -.5em;
+    margin-top: -0.5em;
 }
 
 select {
@@ -49,7 +49,7 @@ select {
     background: $white;
     color: $black;
     border: 1px solid $gray-light;
-    padding: .25em .5em;
+    padding: 0.25em 0.5em;
     height: 2em;
     border-radius: $corner-radius;
     min-width: 16em;
