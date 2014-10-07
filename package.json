@@ -14,7 +14,6 @@
   "homepage": "https://github.com/planetarycorp/airframe",
   "devDependencies": {
     "gulp": "~3.8.6",
-    "gulp-compass": "~1.2.0",
     "gulp-minify-css": "~0.3.7",
     "gulp-concat": "~2.3.4",
     "gulp-livereload": "~2.1.0",
@@ -29,6 +28,10 @@
     "gulp-jade": "~0.8.0",
     "gulp-scss-lint": "~0.1.4",
     "gulp-image": "~0.4.8",
-    "gulp-newer": "~0.3.0"
+    "gulp-newer": "~0.3.0",
+    "gulp-ruby-sass": "^0.7.1"
+  },
+  "scripts": {
+    "postinstall": "node_modules/.bin/bower install"
   }
 }

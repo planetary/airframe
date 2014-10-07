@@ -1,5 +1,3 @@
-@import "compass";
-@import "compass/reset";
-@import "susy";
-@import "breakpoint";
-@import "modular-scale";
+@import "susy/sass/susy";
+@import "breakpoint-sass/stylesheets/breakpoint";
+@import "modular-scale/stylesheets/modular-scale";

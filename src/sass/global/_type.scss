@@ -3,9 +3,6 @@ $base-font-size: 16px;
 // base line height
 $base-line-height: 25px;
 
-// apply the above to <body>
-@include establish-baseline;
-
 // typefaces
 $sans:        Helvetica, sans-serif;
 $serif:       Georgia, serif;
@@ -64,7 +61,6 @@ h2,
 h3,
 h4 {
     font-weight: 700;
-    @include adjust-leading-to(1);
     margin-bottom: 1rem;
 }
 
