@@ -9,7 +9,9 @@ minifyCSS = require('gulp-minify-css'),
 bower = require('gulp-bower'),
 fs = require('fs'),
 jade = require('gulp-jade'),
-scsslint = require('gulp-scss-lint');
+scsslint = require('gulp-scss-lint'),
+newer = require('gulp-newer'),
+image = require('gulp-image');
 
 var destPath = "dist/";
 var srcPath = "src/";
@@ -88,6 +90,14 @@ gulp.task('templates', function() {
     .pipe(gulp.dest(destPath))
 });
 
+//optimize images
+gulp.task('img', function () {
+  return gulp.src([srcPath + 'img/**'])
+  .pipe(newer(destPath + 'img'))
+  .pipe(image())
+  .pipe(gulp.dest(destPath + 'img'));
+});
+
 // linting tasks to check for manifest adherance
 gulp.task('scss-lint', function() {
     gulp.src(srcPath + '/sass/**/*.scss')
@@ -100,6 +110,7 @@ gulp.task('watch', function() {
     gulp.watch(srcPath + 'js/**', ['scripts']);
     gulp.watch(srcPath + 'sass/**', ['scss-lint', 'styles']);
     gulp.watch(srcPath + '**/*.jade', ['templates']);
+    gulp.watch(srcPath + 'img/**', ['img']);
 })
 
-gulp.task('default', ['bower', 'scripts', 'styles', 'templates'])
+gulp.task('default', ['bower', 'scripts', 'styles', 'templates', 'img'])

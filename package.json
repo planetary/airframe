@@ -27,6 +27,8 @@
     "gulp-uglify": "~0.3.1",
     "gulp-rename": "~1.2.0",
     "gulp-jade": "~0.8.0",
-    "gulp-scss-lint": "~0.1.4"
+    "gulp-scss-lint": "~0.1.4",
+    "gulp-image": "~0.4.8",
+    "gulp-newer": "~0.3.0"
   }
 }
