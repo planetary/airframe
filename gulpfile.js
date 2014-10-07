@@ -11,7 +11,8 @@ var gulp = require('gulp'),
     jade = require('gulp-jade'),
     scsslint = require('gulp-scss-lint'),
     newer = require('gulp-newer'),
-    image = require('gulp-image');
+    image = require('gulp-image'),
+    prefix = require('gulp-autoprefixer');
 
 var destPath = "dist/";
 var srcPath = "src/";
@@ -41,6 +42,7 @@ gulp.task('styles', function() {
     }))
     .on('error', handleError)
     .pipe(minifyCSS())
+    .pipe(prefix())
     .pipe(gulp.dest(destPath + 'css'))
 })
 
