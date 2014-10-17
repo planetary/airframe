@@ -12,7 +12,9 @@ var gulp = require('gulp'),
     scsslint = require('gulp-scss-lint'),
     newer = require('gulp-newer'),
     image = require('gulp-image'),
-    prefix = require('gulp-autoprefixer');
+    prefix = require('gulp-autoprefixer'),
+    gutil = require('gulp-util'),
+    colors = gutil.colors;
 
 var destPath = "dist/";
 var srcPath = "src/";
@@ -100,10 +102,27 @@ gulp.task('img', function () {
 });
 
 // linting tasks to check for manifest adherance
+
+var myCustomReporter = function (file) {
+    if (!file.scsslint.success) {
+        gutil.log(colors.red(file.scsslint.issues.length + ' issues found in ' + file.path));
+
+        file.scsslint.issues.forEach(function (issue) {
+            var severity = issue.severity === 'warning' ? 'W' : 'E';
+            var logMsg = colors.cyan(file.path) + ':' + colors.magenta(issue.line) + ' [' + severity + '] ' + issue.reason;
+
+            gutil.log(logMsg);
+        });
+    } else {
+        gutil.log(colors.green('Linting passed for ' + file.path));        
+    }
+}
+
 gulp.task('scss-lint', function() {
     gulp.src(srcPath + '/sass/**/*.scss')
     .pipe(scsslint({
         'config': 'lint.yml',
+        'customReport': myCustomReporter
     }));
 });
 

@@ -30,7 +30,8 @@
     "gulp-image": "~0.4.8",
     "gulp-newer": "~0.3.0",
     "gulp-ruby-sass": "^0.7.1",
-    "gulp-autoprefixer": "~1.0.1"
+    "gulp-autoprefixer": "~1.0.1",
+    "gulp-util": "~2.2.14"
   },
   "scripts": {
     "postinstall": "node_modules/.bin/bower install"
