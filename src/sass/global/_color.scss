@@ -1,16 +1,24 @@
 // grays
-$black:             rgb(060, 060, 060);
-$white:             rgb(255, 255, 255);
+$black:             #111;
+$white:             #fff;
 
-$gray-darker:        mix($white, $black, 15%);
-$gray-dark:          mix($white, $black, 25%);
-$gray:               mix($white, $black, 50%);
-$gray-light:         mix($white, $black, 80%);
-$gray-lighter:       mix($white, $black, 90%);
+$gray-darker:        #464646;
+$gray-dark:          #707070;
+$gray:               #959595;
+$gray-light:         #c2c2c2;
+$gray-lighter:       #e1e1e1;
 
 
-// project-specific colors
-
+// colors
+$navy:              #001f3f;
 $blue:              #0074d9;
+$aqua:              #7fdbff;
+$teal:              #39cccc;
+$olive:             #3d9970;
 $green:             #2ecc40;
+$lime:              #01ff70;
+$yellow:            #ffdc00;
+$orange:            #ff851b;
 $red:               #ff4136;
+$fuchsia:           #f012be;
+$purple:            #b10dc9;
