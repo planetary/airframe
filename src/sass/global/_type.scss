@@ -1,7 +1,7 @@
 // base font size
 $base-font-size: 16px;
 // base line height
-$base-line-height: 25px;
+$base-line-height: 26px;
 
 // typefaces
 $sans:        Helvetica, sans-serif;
@@ -66,14 +66,17 @@ h4 {
 
 h1 {
     font-size: $scale-huge;
+    line-height: 1em;
 }
 
 h2 {
     font-size: $scale-xlarge;
+    line-height: 1.5em;
 }
 
 h3 {
     font-size: $scale-large;
+    line-height: 1.5em;
 }
 
 h4 {

@@ -81,7 +81,7 @@ linters:
 
   SelectorFormat:
     enabled: true
-    convention: camel_case # or 'snake_case', or 'camel_case', or a regex pattern
+    convention: hyphenated_lowercase # or 'snake_case', or 'camel_case', or a regex pattern
 
   Shorthand:
     enabled: true
