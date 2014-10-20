@@ -113,15 +113,13 @@ var myCustomReporter = function (file) {
 
             gutil.log(logMsg);
         });
-    } else {
-        gutil.log(colors.green('Linting passed for ' + file.path));        
     }
 }
 
 gulp.task('scss-lint', function() {
     gulp.src(srcPath + '/sass/**/*.scss')
     .pipe(scsslint({
-        'config': 'lint.yml',
+        'config': '.scss-lint.yml',
         'customReport': myCustomReporter
     }));
 });
