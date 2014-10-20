@@ -3,9 +3,9 @@
 
 **Dependencies:**
 - [NodeJS](http://nodejs.org/)
-- [Compass](http://compass-style.org/)
 - [Susy](http://susy.oddbird.net/)
 - [Breakpoint](http://breakpoint-sass.com/)
+- [Modular Scale](https://github.com/Team-Sass/modular-scale)
 
 ### Getting Started
 1. Run `npm install` to install all nodeJS packages

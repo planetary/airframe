@@ -1,10 +1,7 @@
 // base font size
 $base-font-size: 16px;
 // base line height
-$base-line-height: 25px;
-
-// apply the above to <body>
-@include establish-baseline;
+$base-line-height: 26px;
 
 // typefaces
 $sans:        Helvetica, sans-serif;
@@ -38,7 +35,9 @@ $scale-tiny:    ms(-3);
 
 // global type baselines
 body {
-    font-family: $sans;
+    font-size: $base-font-size;
+    line-height: $base-line-height;
+    font-family: $serif;
     color: $black;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
@@ -63,21 +62,24 @@ h1,
 h2,
 h3,
 h4 {
+    font-family: $sans;
     font-weight: 700;
-    @include adjust-leading-to(1);
     margin-bottom: 1rem;
 }
 
 h1 {
     font-size: $scale-huge;
+    line-height: 1em;
 }
 
 h2 {
     font-size: $scale-xlarge;
+    line-height: 1.5em;
 }
 
 h3 {
     font-size: $scale-large;
+    line-height: 1.5em;
 }
 
 h4 {
@@ -96,8 +98,10 @@ a {
 
 // quotes
 blockquote {
+    color: $gray-dark;
+    font-style: italic;
     margin: 1em 0;
-    border-left: 2px solid $gray-light;
+    border-left: 3px solid $gray-light;
     padding-left: 1em;
 }
 

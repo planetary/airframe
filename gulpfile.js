@@ -1,17 +1,22 @@
 var gulp = require('gulp'),
-gulpFilter = require('gulp-filter'),
-mainBowerFiles = require('main-bower-files'),
-rename = require('gulp-rename'),
-uglify = require('gulp-uglify'),
-compass = require('gulp-compass'),
-concat = require('gulp-concat'),
-minifyCSS = require('gulp-minify-css'),
-bower = require('gulp-bower'),
-fs = require('fs'),
-jade = require('gulp-jade'),
-scsslint = require('gulp-scss-lint'),
-newer = require('gulp-newer'),
-image = require('gulp-image');
+    gulpFilter = require('gulp-filter'),
+    mainBowerFiles = require('main-bower-files'),
+    rename = require('gulp-rename'),
+    uglify = require('gulp-uglify'),
+    sass = require('gulp-ruby-sass'),
+    concat = require('gulp-concat'),
+    minifyCSS = require('gulp-minify-css'),
+    bower = require('gulp-bower'),
+    fs = require('fs'),
+    jade = require('gulp-jade'),
+    scsslint = require('gulp-scss-lint'),
+    newer = require('gulp-newer'),
+    image = require('gulp-image'),
+    prefix = require('gulp-autoprefixer'),
+    gutil = require('gulp-util'),
+    colors = gutil.colors,
+    notify = require('gulp-notify'),
+    path = require('path');
 
 var destPath = "dist/";
 var srcPath = "src/";
@@ -34,14 +39,14 @@ gulp.task('scripts', function() {
 //concat, minify css
 gulp.task('styles', function() {
     gulp.src([srcPath + '/sass/**/*.scss'])
-    .pipe(compass({
-        sass: srcPath + 'sass',
-        image: srcPath + 'img',
-        css: destPath + 'css',
-        require: ['susy', 'breakpoint', 'modular-scale']
+    .pipe(sass({
+        sourcemap: true,
+        sourcemapPath: srcPath + '/sass',
+        loadPath: ['bower_components/']
     }))
     .on('error', handleError)
     .pipe(minifyCSS())
+    .pipe(prefix())
     .pipe(gulp.dest(destPath + 'css'))
 })
 
@@ -99,10 +104,28 @@ gulp.task('img', function () {
 });
 
 // linting tasks to check for manifest adherance
+
+var myCustomReporter = function (file) {
+    if (!file.scsslint.success) {
+        gutil.log(colors.red(file.scsslint.issues.length + ' SCSS issue' + (file.scsslint.issues.length == 1 ? '' : 's') + ' found in ') + file.path);
+        var messages = new Array();
+        file.scsslint.issues.forEach(function (issue) {
+            messages.push(":" + issue.line + " " + issue.reason);
+        });
+
+        file.pipe(notify({
+            title: file.scsslint.issues.length + ' SCSS issue' + (file.scsslint.issues.length == 1 ? '' : 's') + ' found',
+            message: messages.join("\n"),
+            "icon": path.join(__dirname, "fail.png"), // case sensitive
+        }));
+    }
+}
+
 gulp.task('scss-lint', function() {
     gulp.src(srcPath + '/sass/**/*.scss')
     .pipe(scsslint({
-        'config': 'lint.yml',
+        'config': '.scss-lint.yml',
+        'customReport': myCustomReporter
     }));
 });
 
@@ -113,4 +136,4 @@ gulp.task('watch', function() {
     gulp.watch(srcPath + 'img/**', ['img']);
 })
 
-gulp.task('default', ['bower', 'scripts', 'styles', 'templates', 'img'])
+gulp.task('default', ['scripts', 'styles', 'templates', 'img'])
