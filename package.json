@@ -31,7 +31,8 @@
     "gulp-newer": "~0.3.0",
     "gulp-ruby-sass": "^0.7.1",
     "gulp-autoprefixer": "~1.0.1",
-    "gulp-util": "~2.2.14"
+    "gulp-util": "~2.2.14",
+    "gulp-notify": "~2.0.0"
   },
   "scripts": {
     "postinstall": "node_modules/.bin/bower install"

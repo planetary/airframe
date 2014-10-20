@@ -14,7 +14,9 @@ var gulp = require('gulp'),
     image = require('gulp-image'),
     prefix = require('gulp-autoprefixer'),
     gutil = require('gulp-util'),
-    colors = gutil.colors;
+    colors = gutil.colors,
+    notify = require('gulp-notify'),
+    path = require('path');
 
 var destPath = "dist/";
 var srcPath = "src/";
@@ -105,14 +107,17 @@ gulp.task('img', function () {
 
 var myCustomReporter = function (file) {
     if (!file.scsslint.success) {
-        gutil.log(colors.red(file.scsslint.issues.length + ' issues found in ' + file.path));
-
+        gutil.log(colors.red(file.scsslint.issues.length + ' SCSS issue' + (file.scsslint.issues.length == 1 ? '' : 's') + ' found in ') + file.path);
+        var messages = new Array();
         file.scsslint.issues.forEach(function (issue) {
-            var severity = issue.severity === 'warning' ? 'W' : 'E';
-            var logMsg = colors.cyan(file.path) + ':' + colors.magenta(issue.line) + ' [' + severity + '] ' + issue.reason;
-
-            gutil.log(logMsg);
+            messages.push(":" + issue.line + " " + issue.reason);
         });
+
+        file.pipe(notify({
+            title: file.scsslint.issues.length + ' SCSS issue' + (file.scsslint.issues.length == 1 ? '' : 's') + ' found',
+            message: messages.join("\n"),
+            "icon": path.join(__dirname, "fail.png"), // case sensitive
+        }));
     }
 }
 
