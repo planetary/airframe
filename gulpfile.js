@@ -16,7 +16,8 @@ var gulp = require('gulp'),
     gutil = require('gulp-util'),
     colors = gutil.colors,
     notify = require('gulp-notify'),
-    path = require('path');
+    path = require('path'),
+    install = require("gulp-install");
 
 var destPath = "dist/";
 var srcPath = "src/";
@@ -49,6 +50,13 @@ gulp.task('styles', function() {
     .pipe(prefix())
     .pipe(gulp.dest(destPath + 'css'))
 })
+
+gulp.task('install-dep', function() {
+
+    gulp.src(['./bower.json', './package.json'])
+        .pipe(install());
+
+});
 
 // grab libraries files from bower_components, minify and push in /dist
 gulp.task('bower', function() {
@@ -136,4 +144,4 @@ gulp.task('watch', function() {
     gulp.watch(srcPath + 'img/**', ['img']);
 })
 
-gulp.task('default', ['scripts', 'styles', 'templates', 'img'])
+gulp.task('default', ['install-dep', 'scripts', 'styles', 'templates', 'img', 'watch'])
