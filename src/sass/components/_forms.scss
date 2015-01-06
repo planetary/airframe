@@ -21,9 +21,9 @@ label {
     margin-bottom: 0.5em;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="password"],
+[type="text"],
+[type="email"],
+[type="password"],
 textarea {
     padding: 0.25em 0.5em;
     background: $white;
@@ -32,8 +32,8 @@ textarea {
     border-radius: $corner-radius;
 }
 
-input[type="checkbox"],
-input[type="radio"] {
+[type="checkbox"],
+[type="radio"] {
     display: inline-block;
 }
 

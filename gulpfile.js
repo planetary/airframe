@@ -3,9 +3,9 @@ var gulp = require('gulp'),
     mainBowerFiles = require('main-bower-files'),
     rename = require('gulp-rename'),
     uglify = require('gulp-uglify'),
-    sass = require('gulp-ruby-sass'),
+    sass = require('gulp-sass'),
     concat = require('gulp-concat'),
-    minifyCSS = require('gulp-minify-css'),
+    csso = require('gulp-csso'),
     bower = require('gulp-bower'),
     fs = require('fs'),
     jade = require('gulp-jade'),
@@ -46,7 +46,7 @@ gulp.task('styles', function() {
         loadPath: ['bower_components/']
     }))
     .on('error', handleError)
-    .pipe(minifyCSS())
+    .pipe(csso())
     .pipe(prefix())
     .pipe(gulp.dest(destPath + 'css'))
 })

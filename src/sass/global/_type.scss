@@ -21,16 +21,16 @@ $mono:        Courier, monospace;
 }
 
 // modular scale for font sizes
-$ms-base: 1em;
-$ms-ratio: $fifth;
+$ms-base: 1rem;
 
-$scale-huge:    ms(3); 
-$scale-xlarge:    ms(2);
-$scale-large:     ms(1);
-$scale-normal:    ms(0);
-$scale-small:     ms(-1);
-$scale-xsmall:    ms(-2);
-$scale-tiny:    ms(-3);
+$scale-huge:        4rem; 
+$scale-xlarge:      3rem;
+$scale-large:       2rem;
+$scale-normal:      1rem;
+$scale-small:       0.5rem;
+$scale-xsmall:      0.25rem;
+$scale-tiny:        0.125rem;
+
 
 
 // global type baselines

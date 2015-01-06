@@ -1,18 +1,77 @@
-/* Global defaults
-   --------------- */
+/* AGS - Airframe grid system
+ * v0.1 */
 
-$susy: (
-    columns: 12,
-    gutters: 1/4,
-    column-width: 4em
-);
+// Grid configuration
+$grid-width: 70rem;
+$columns: 12;
+$gutter: 2%;
 
-// Rounded corners, because why not
-
+$row-spacing: 1rem;
 $corner-radius: 4px;
 
-/* Grid utility classes
-   -------------------- */
-.g--container {
-    @include container;
+// The magic happens here
+@function cw($span-num, $total-num) {
+    $ratio: ($total-num / $span-num);
+    @return ((100% / ($ratio)) - (($ratio) - 1) * ($gutter / ($ratio)));
 }
+
+@mixin row {
+    margin-bottom: $row-spacing;
+
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin span($span) {
+    float: left;
+    width: cw($span, $columns);
+    margin-right: $gutter;
+}
+
+@mixin last {
+    float: right;
+    margin-right: 0;
+}
+
+@mixin visible-grid {
+    background: transparentize($blue, 0.9);
+}
+
+// Helper classes
+
+.g--container {
+    margin: 0 auto;
+    width: $grid-width;
+}
+
+.g--row {
+    @include row;
+}
+
+.g--visible-grid {
+    @include visible-grid;
+}
+
+.g--full {
+    @include span(12);
+}
+
+.g--half {
+    @include span(6);
+}
+
+.g--third {
+    @include span(4);
+}
+
+.g--quarter {
+    @include span(3);
+}
+
+.g--last {
+    @include last;
+}
+
