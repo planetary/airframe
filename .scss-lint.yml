@@ -1,4 +1,6 @@
 # SCSS linting rules. Taken from the default configuration and modified a bit to suit the Planetary Manifest.
+exclude: 'src/sass/vendor/**'
+
 linters:
   BorderZero:
     enabled: true
