@@ -27,7 +27,7 @@ $ms-base: 1.2;
     @if ($i > 0) {
         @return (1rem * $i * $ms-base);
     } @else if ($i < 0) {
-        @return (1rem * $i * (1/ abs($ms-base)));
+        @return (1rem / (abs($i) * $ms-base));
     } @else {
         @return 1rem;
     }
@@ -45,7 +45,8 @@ $scale-tiny:        ms(-3);
 
 
 // global type baselines
-body {
+body, 
+html {
     font-size: $base-font-size;
     line-height: $base-line-height;
     font-family: $serif;

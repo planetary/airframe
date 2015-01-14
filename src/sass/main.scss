@@ -13,12 +13,12 @@ Bootstrap kit v0.1 - September 3 2014
 
 // import any vendor files
 @import "vendor/normalize";
+@import "vendor/includemedia";
 
 // project-wide styles - styles single elements
 @import "global/color";
-@import "global/breakpoints";
-@import "global/grid";
 @import "global/type";
+@import "global/grid";
 
 // component styles - styles groups of elements
 @import "components/forms";
