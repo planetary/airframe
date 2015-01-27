@@ -17,9 +17,7 @@
     + .btn {
         margin-left: 1em;
     }
-
 }
-
 
 .btn--primary {
     background: $blue;
@@ -29,7 +27,6 @@
     &:hover {
         background: lighten($blue, 2.5%);
     }
-
 }
 
 .btn--warning {
@@ -40,7 +37,6 @@
     &:hover {
         background: lighten($red, 2.5%);
     }
-
 }
 
 .btn--action {
@@ -51,5 +47,4 @@
     &:hover {
         background: lighten($green, 2.5%);
     }
-
 }
