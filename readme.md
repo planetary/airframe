@@ -1,5 +1,6 @@
 # Airframe
-## A Project Starter Kit, made with love by [Planetary](http://planetary.io)
+
+> A Project Starter Kit, made with love by [Planetary](http://planetary.io)
 
 ## What does it do?
 
@@ -24,7 +25,7 @@ $ npm install
 Then, run `gulp build` to build the project.
 
 ### Developing
-1. Run `gulp` to continuously watch and re-build the project
+Run `gulp` to continuously watch and re-build the project. Airframe will automatically run a server from the `build` folder at `localhost:4900`.
 
 ### Installing Sublime Text Helpers
 
