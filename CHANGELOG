@@ -1,0 +1,17 @@
+v0.1.1:
+  date: 2015-3-22
+  changes:
+    - Updated the README to include information about Airframe.
+    - Update src/ folder structure to reflect more logical naming
+    - Break Gulpfile into tasks/* and parent loader
+    - Add gulp-notify to introduce build notifications
+    - Add watchify, bulkify, brfs for Javascript compilation conveniences
+    - Change build folder from dist/ to build/
+    - Add ecstatic for self-serving of build folder
+    - Add LICENSE
+    - Sync versioning with slush-airframe
+
+v0.0.1:
+  date: 2014-6-23
+  changes:
+    - Initial release.

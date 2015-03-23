@@ -1,15 +1,30 @@
 # Airframe
 ## A Project Starter Kit, made with love by [Planetary](http://planetary.io)
 
-**Dependencies:**
-- [NodeJS](http://nodejs.org/)
+## What does it do?
+
+Airframe allows you to rapidly prototype sites by providing a lightweight scaffold. It makes suggestions without being too prescriptive.
+
+The scaffold includes `gulp` for compilation, `jade` for templates, `scss` for smart CSS compilation, and `browserify` for Javascript compilation.
+
+In addition to the compilation tasks, Airframe includes:
+* A clear, concise default folder structure that is suggested but not prescribed.
+* A small amount of default SCSS for normalization and to provide basic grid functionality.
+* Two `browserify` transforms: [`bulkify`](https://github.com/substack/bulkify) which allow you to glob entire folders of client-side JS and [`brfs`](https://github.com/substack/brfs) which allows you to use `fs.readFile[Sync]` from client-side JS.
+* A default style guide (at `/styles`) that can be used as a jumping-off point for design.
 
 ### Getting Started
-1. Run `npm install` to install all NodeJS packages
-2. Run `gulp` to build the project.
+
+```bash
+$ git clone git@github.com:planetarycorp/airframe
+$ cd airframe
+$ npm install
+```
+
+Then, run `gulp build` to build the project.
 
 ### Developing
-1. Run `gulp watch` to continuously watch and re-build the project
+1. Run `gulp` to continuously watch and re-build the project
 
 ### Installing Sublime Text Helpers
 

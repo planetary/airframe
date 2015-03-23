@@ -1,14 +1,8 @@
 # built project folder
-dist
+build
 
 # node libraries
 node_modules
-
-# bower packages
-bower_components
-
-# sass cache files
-.sass-cache
 
 # osx noise
 .DS_Store
