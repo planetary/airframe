@@ -3,37 +3,28 @@
 
 // Grid configuration
 $grid-width: 70rem;
-$columns: 12;
 $gutter: 2%;
 
 $row-spacing: 1rem;
 $corner-radius: 4px;
 
-// The magic happens here
-@function cw($span-num, $total-num) {
-    $ratio: ($total-num / $span-num);
-    @return ((100% / ($ratio)) - (($ratio) - 1) * ($gutter / ($ratio)));
-}
-
 @mixin row {
     margin-bottom: $row-spacing;
-
-    &:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
+    padding: 0 $gutter/2;
+    display: flex;
+    flex-flow: row;
+    align-items: stretch;
+    justify-content: center;
 }
 
-@mixin span($span) {
-    float: left;
-    width: cw($span, $columns);
-    margin-right: $gutter;
+@mixin flex-fixed($span) {
+    flex: 0 0 ($span * 100%) - $gutter;
+    margin: 0 ($gutter/2);
 }
 
-@mixin last {
-    float: right;
-    margin-right: 0;
+@mixin flex {
+    flex: 1;
+    margin: 0 ($gutter/2);
 }
 
 @mixin visible-grid {
@@ -56,22 +47,21 @@ $corner-radius: 4px;
 }
 
 .g--full {
-    @include span(12);
+    @include flex-fixed(1);
 }
 
 .g--half {
-    @include span(6);
+    @include flex-fixed(1/2);
 }
 
 .g--third {
-    @include span(4);
+    @include flex-fixed(1/3);
 }
 
 .g--quarter {
-    @include span(3);
+    @include flex-fixed(1/4);
 }
 
-.g--last {
-    @include last;
+.g--auto {
+    @include flex;
 }
-

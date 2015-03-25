@@ -11,7 +11,7 @@ label {
     font-family: $sans;
     font-size: $scale-normal;
     line-height: $base-line-height;
-    margin-bottom: 1em;
+    margin-bottom: 1rem;
 }
 
 
@@ -19,17 +19,17 @@ label {
    ------------------------- */
 
 label {
-    margin-bottom: 0.5em;
+    margin-bottom: 0.5rem;
 }
 
 [type="text"],
 [type="email"],
 [type="password"],
 textarea {
-    padding: 0.25em 0.5em;
+    padding: 0.25rem 0.5rem;
     background: $white;
     border: 1px solid $gray-light;
-    min-width: 16em;
+    min-width: 16rem;
     border-radius: $corner-radius;
 }
 
@@ -41,7 +41,7 @@ textarea {
 .form--radio + .form--radio,
 .form--checkbox + .form--checkbox {
     // group similar elements
-    margin-top: -0.5em;
+    margin-top: -0.5rem;
 }
 
 select {
@@ -50,8 +50,8 @@ select {
     background: $white;
     color: $black;
     border: 1px solid $gray-light;
-    padding: 0.25em 0.5em;
-    height: 2em;
+    padding: 0.25rem 0.5rem;
+    height: 2rem;
     border-radius: $corner-radius;
-    min-width: 16em;
+    min-width: 16rem;
 }
