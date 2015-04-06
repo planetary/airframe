@@ -8,6 +8,6 @@ module.exports = function( gulp, plugins ) {
     } );
 
     gulp.task( 'watch:images', function() {
-        gulp.watch( 'src/img/**/*.scss', [ 'images' ] );
+        gulp.watch( 'src/img/**/*', [ 'images' ] );
     } );
 };
