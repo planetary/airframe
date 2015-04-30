@@ -6,7 +6,7 @@ var handleError = function( err ) {
 
 module.exports = function( gulp, plugins ) {
     // concat, minify css
-    gulp.task( 'styles', function() {
+    gulp.task( 'styles', 'compiles the scss to the build folder', function() {
         gulp.src(['./src/styles/**/*.scss'])
         .pipe( plugins.sourcemaps.init() )
         .pipe( plugins.sass())
@@ -18,7 +18,7 @@ module.exports = function( gulp, plugins ) {
         .pipe( plugins.notify( { message: 'scss compilation complete', onLast: true } ) );
     } );
 
-    gulp.task( 'watch:styles', function() {
+    gulp.task( 'watch:styles', 'watches the scss files and runs the styles task', function() {
         gulp.watch( 'src/styles/**/*.scss', [ 'scss-lint', 'styles' ] );
     } );
 };

@@ -1,5 +1,5 @@
 module.exports = function( gulp, plugins ) {
-    gulp.task( 'watch', [
+    gulp.task( 'watch', 'watches all the files', [
         'watch:templates',
         'watch:styles',
         'watch:js-lint',

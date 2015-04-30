@@ -27,6 +27,28 @@ Then, run `gulp build` to build the project.
 ### Developing
 Run `gulp` to continuously watch and re-build the project. Airframe will automatically run a server from the `build` folder at `localhost:4900`.
 
+### Gulp Tasks
+| Task            | Description                                                                |
+| --------------- | -------------------------------------------------------------------------- |
+| build           |  builds a development version of the site                                  |
+| bundle:dev      |  watches src/scripts/index.js require tree for changes and runs browserify |
+| default         |  builds the site, serves it, and watches files for changes                 |
+| help            |  Display this help text.                                                   |
+| images          |  compresses images and moves them to the build folders                     |
+| js-lint         |  runs jshint against the unbundled scripts                                 |
+| scss-lint       |  lints the scss                                                            |
+| serve           |  serves the build folder on localhost port 4900                            |
+| styles          |  compiles the scss to the build folder                                     |
+| templates       |  compiles the jade templates to the build folder                           |
+| watch           |  watches all the files                                                     |
+| watch:bundle    |  runs browserify, using src/scripts/index.js as an entry point             |
+| watch:images    |  watches the source images for changes and runs the images task            |
+| watch:js-lint   |  watches src/scripts/ for changes and runs the js-lint task                |
+| watch:styles    |  watches the scss files and runs the styles task                           |
+| watch:templates |  watches the templates for changes and runs the templates task             |
+
+Run `gulp help` at any time to see this list of tasks.
+
 ### Installing Sublime Text Helpers
 
 #### SCSS Linting

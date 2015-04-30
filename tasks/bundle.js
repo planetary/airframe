@@ -35,9 +35,9 @@ module.exports = function( gulp, plugins, path ) {
     bundler.transform( 'brfs' );
     bundler.transform( 'bulkify' );
 
-    gulp.task( 'bundle:dev', bundle ); // so you can run `gulp bundle:dev` to build the file
+    gulp.task( 'bundle:dev', 'watches src/scripts/index.js require tree for changes and runs browserify', bundle ); // so you can run `gulp bundle:dev` to build the file
 
-    gulp.task( 'watch:bundle', function() {
+    gulp.task( 'watch:bundle', 'runs browserify, using src/scripts/index.js as an entry point', function() {
         var watcher = watchify( bundler );
         watcher.on( 'update', bundle ); // on any dep update, runs the bundler
         bundle();

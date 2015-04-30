@@ -8,7 +8,7 @@ module.exports = function( gulp, plugins ) {
     };
 
     // compile jade files
-    gulp.task( 'templates', function() {
+    gulp.task( 'templates', 'compiles the jade templates to the build folder', function() {
         gulp.src( [ 'src/templates/views/**/*.jade', '!src/templates/views/**/_*.jade' ] )
             .pipe( plugins.jade( {
                 basedir: 'src/templates'
@@ -17,7 +17,7 @@ module.exports = function( gulp, plugins ) {
             .pipe( gulp.dest( 'build' ) );
     } );
 
-    gulp.task( 'watch:templates', function() {
+    gulp.task( 'watch:templates', 'watches the templates for changes and runs the templates task', function() {
         gulp.watch( 'src/templates/**/*.jade', [ 'templates' ] );
     } );
 };
