@@ -1,5 +1,5 @@
 var path = require( 'path' ),
-    gulp = require( 'gulp' ),
+    gulp = require( 'gulp-help' )( require( 'gulp' ) ),
     loadPlugins = require( 'gulp-load-plugins' ),
     includeAll = require( 'include-all' );
 

@@ -3,7 +3,7 @@ var extend = require( 'util' )._extend,
     ecstatic = require( 'ecstatic' );
 
 module.exports = function( gulp, plugins, path ) {
-    gulp.task( 'serve', function() {
+    gulp.task( 'serve', 'serves the build folder on localhost port 4900', function() {
         var port = 4900;
         http.createServer( ecstatic( {
             root: 'build',

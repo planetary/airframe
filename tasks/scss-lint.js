@@ -16,7 +16,7 @@ module.exports = function( gulp, plugins ) {
         }
     };
 
-    gulp.task( 'scss-lint', function() {
+    gulp.task( 'scss-lint', 'lints the scss', function() {
         gulp.src( [ 'src/styles/**/*.scss', '!src/styles/vendor/**/*' ] )
         .pipe( plugins.scssLint( {
             'config': '.scss-lint.yml',
