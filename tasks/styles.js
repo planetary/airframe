@@ -4,6 +4,9 @@ var handleError = function( err ) {
     this.emit( 'end' );
 };
 
+var browserSync = require( 'browser-sync' );
+var reload = browserSync.reload;
+
 module.exports = function( gulp, plugins ) {
     // concat, minify css
     gulp.task( 'styles', 'compiles the scss to the build folder', function() {
@@ -15,6 +18,7 @@ module.exports = function( gulp, plugins ) {
         .pipe( plugins.autoprefixer() )
         .pipe( plugins.sourcemaps.write() )
         .pipe( gulp.dest( './build/css' ) )
+        .pipe( reload( { stream: true } ) )
         .pipe( plugins.notify( { message: 'scss compilation complete', onLast: true } ) );
     } );
 
