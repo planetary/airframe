@@ -46,5 +46,9 @@
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^2.5.0"
+  },
+  "devDependencies": {
+    "browser-sync": "~2.5.3",
+    "hygienist-middleware": "0.0.3"
   }
 }

@@ -12,6 +12,9 @@ var buffer = require( 'vinyl-buffer' );
 var watchify = require( 'watchify' );
 var browserify = require( 'browserify' );
 
+var browserSync = require( 'browser-sync' );
+var reload = browserSync.reload;
+
 module.exports = function( gulp, plugins, path ) {
     var errorHandler = function( err ) {
         plugins.notify.onError( {
@@ -54,6 +57,7 @@ module.exports = function( gulp, plugins, path ) {
           .pipe( plugins.sourcemaps.write( './' ) ) // writes .map file
         //
         .pipe( gulp.dest( './build/js' ) )
+        .pipe( reload( { stream: true } ) )
         .pipe( plugins.notify( { message: 'browserify bundler task complete', onLast: true } ) );
     }
 };
