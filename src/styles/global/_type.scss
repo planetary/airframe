@@ -21,7 +21,7 @@ $mono:        Courier, monospace;
 }
 
 // modular scale for font sizes
-$ms-base: 1.2;
+$ms-base: 1.3;
 
 @function ms($i) {
     @if ($i > 0) {
@@ -31,21 +31,21 @@ $ms-base: 1.2;
     } @else {
         @return 1rem;
     }
-    
+
 }
 
-$scale-huge:        ms(3); 
+$scale-huge:        ms(2.5);
 $scale-xlarge:      ms(2);
-$scale-large:       ms(1);
-$scale-normal:      ms(0);
-$scale-small:       ms(-1);
-$scale-xsmall:      ms(-2);
-$scale-tiny:        ms(-3);
+$scale-large:       ms(1.5);
+$scale-normal:      ms(1);
+$scale-small:       ms(0.75);
+$scale-xsmall:      ms(0.5);
+$scale-tiny:        ms(0.25);
 
 
 
 // global type baselines
-body, 
+body,
 html {
     font-size: $base-font-size;
     line-height: $base-line-height;
@@ -71,7 +71,9 @@ em {
 h1,
 h2,
 h3,
-h4 {
+h4,
+h5,
+h6 {
     font-family: $sans;
     font-weight: 700;
     margin-bottom: 1rem;
@@ -94,6 +96,14 @@ h3 {
 
 h4 {
     font-size: $scale-normal;
+}
+
+h5 {
+    font-size: $scale-small;
+}
+
+h6 {
+    font-size: $scale-xsmall;
 }
 
 // paragraphs
