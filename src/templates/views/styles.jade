@@ -240,14 +240,15 @@ block content
                     textarea#text_area(readonly='') I'm readonly
                 p
                     label(for='select_element') Select Element:
-                    select#select_element
-                        optgroup(label='Option Group 1')
-                            option(value='1') Option 1
-                            option(value='2') Option 2
-                        optgroup(label='Option Group 2')
-                            option(value='1') Option 1
-                            option(value='2') Option 2
-                            option(value='3', disabled='') Disabled Option
+                    .form--select
+                        select#select_element
+                            optgroup(label='Option Group 1')
+                                option(value='1') Option 1
+                                option(value='2') Option 2
+                            optgroup(label='Option Group 2')
+                                option(value='1') Option 1
+                                option(value='2') Option 2
+                                option(value='3', disabled='') Disabled Option
                 p
                     label(for='select_element_disabled') Disabled Select Element:
                     select#select_element_disabled(disabled='')
