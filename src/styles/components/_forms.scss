@@ -29,7 +29,7 @@ textarea {
     padding: 0.25rem 0.5rem;
     background: $white;
     border: 1px solid $gray-light;
-    min-width: 16rem;
+    width: 100%;
     border-radius: $corner-radius;
 }
 
@@ -44,14 +44,56 @@ textarea {
     margin-top: -0.5rem;
 }
 
-select {
-    //ed. note: select boxes are weird.
-    outline: none;
-    background: $white;
-    color: $black;
-    border: 1px solid $gray-light;
-    padding: 0.25rem 0.5rem;
-    height: 2rem;
-    border-radius: $corner-radius;
-    min-width: 16rem;
+// Cross-browser custom select boxes thanks to https://github.com/filamentgroup/select-css.
+
+.form--select {
+    position: relative;
+    display: block;
+
+    select {
+        width: 100%;
+        margin: 0;
+        background: none;
+        border: 1px solid $gray-light;
+        border-radius: $corner-radius;
+        outline: none;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        // Font size must be 16px or larger to prevent iOS page zoom on focus */
+        font-size: $scale-normal;
+        // General select styles: change as needed */
+        font-family: $sans;
+        color: $gray-darker;
+        padding: 0.35rem 2rem 0.25rem 0.5rem;
+        line-height: $base-line-height;
+
+        &:hover {
+            border: 1px solid $gray;
+        }
+
+        &:focus {
+            outline: none;
+            border-color: $aqua;
+        }
+    }
+
+    option {
+        font-weight: normal;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 0;
+        top: 50%;
+        right: 1rem;
+        margin-top: -0.25rem;
+        border-width: 0.5rem 0.325rem 0;
+        border-color: $gray-dark transparent transparent;
+        border-style: solid;
+        z-index: 2;
+        pointer-events: none;
+    }
 }
