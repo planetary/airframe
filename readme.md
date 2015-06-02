@@ -36,7 +36,7 @@ Run `gulp` to continuously watch and re-build the project. Airframe will automat
 | help            |  Display this help text.                                                   |
 | images          |  compresses images and moves them to the build folders                     |
 | lint:js         |  runs jshint against the unbundled scripts                                 |
-| scss-lint       |  lints the scss                                                            |
+| lint:scss       |  lints the scss                                                            |
 | serve           |  serves the build folder on localhost port 4900                            |
 | styles          |  compiles the scss to the build folder                                     |
 | templates       |  compiles the jade templates to the build folder                           |
