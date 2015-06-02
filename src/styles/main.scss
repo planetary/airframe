@@ -12,19 +12,19 @@ Bootstrap kit v0.2 - January 26 2015
 */
 
 // import any vendor files
-@import "vendor/normalize";
-@import "vendor/includemedia";
-@import "vendor/selectcss";
+@import 'vendor/normalize';
+@import 'vendor/includemedia';
+@import 'vendor/selectcss';
 
 // project-wide styles - styles single elements
-@import "global/color";
-@import "global/type";
-@import "global/grid";
+@import 'global/color';
+@import 'global/type';
+@import 'global/grid';
 
 // component styles - styles groups of elements
-@import "components/forms";
-@import "components/buttons";
+@import 'components/forms';
+@import 'components/buttons';
 
 // page layouts - styles groups of components
-@import "layouts/global";
-@import "layouts/styleguide";
+@import 'layouts/global';
+@import 'layouts/styleguide';

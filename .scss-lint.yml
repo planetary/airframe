@@ -1,6 +1,5 @@
-# SCSS linting rules. Taken from the default configuration and modified a bit to suit the Planetary Manifest.
-exclude: 'src/sass/vendor/**'
-
+# SCSS linting rules. Taken from the default configuration and modified a bit to suit the
+# Planetary Manifest.
 linters:
   BorderZero:
     enabled: true
@@ -25,7 +24,7 @@ linters:
 
   ElsePlacement:
     enabled: true
-    style: same_line # or 'new_line'
+    style: new_line # or 'new_line'
 
   EmptyLineBetweenBlocks:
     enabled: true
@@ -114,11 +113,11 @@ linters:
 
   SpaceBetweenParens:
     enabled: true
-    spaces: 0
+    spaces: 1
 
   StringQuotes:
     enabled: true
-    style: double_quotes # or double_quotes
+    style: single_quotes # or double_quotes
 
   TrailingSemicolon:
     enabled: true
@@ -136,6 +135,9 @@ linters:
     enabled: true
 
   UrlQuotes:
+    enabled: true
+
+  VendorPrefix:
     enabled: true
 
   ZeroUnit:
