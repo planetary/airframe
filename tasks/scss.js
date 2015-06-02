@@ -25,10 +25,9 @@ module.exports = function( gulp, plugins ) {
             .src( paths.build )
             .pipe( plugins.sourcemaps.init() )
             .pipe( plugins.sass() )
-            .on( 'error', function( err ) {
-                console.log( err.toString() );
-                this.emit( 'end' );
-            } )
+            .on( 'error', plugins.notify.onError( function( err ) {
+                return err.message + ' in ' + err.fileName + ' at line ' + err.lineNumber;
+            } ) )
             .pipe( plugins.autoprefixer() )
             .pipe( plugins.minifyCss() )
             .pipe( plugins.sourcemaps.write( '.' ) )
