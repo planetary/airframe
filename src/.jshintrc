@@ -1,0 +1,10 @@
+{
+    "extends": "../.jshintrc",
+    "node": false,
+    "devel": false,
+    "browser": true,
+    "browserify": true,
+    "jquery": true,
+    "nonbsp": false
+    "globals": {}
+}

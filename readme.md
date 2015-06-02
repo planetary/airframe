@@ -35,7 +35,7 @@ Run `gulp` to continuously watch and re-build the project. Airframe will automat
 | default         |  builds the site, serves it, and watches files for changes                 |
 | help            |  Display this help text.                                                   |
 | images          |  compresses images and moves them to the build folders                     |
-| js-lint         |  runs jshint against the unbundled scripts                                 |
+| lint:js         |  runs jshint against the unbundled scripts                                 |
 | scss-lint       |  lints the scss                                                            |
 | serve           |  serves the build folder on localhost port 4900                            |
 | styles          |  compiles the scss to the build folder                                     |
@@ -43,7 +43,7 @@ Run `gulp` to continuously watch and re-build the project. Airframe will automat
 | watch           |  watches all the files                                                     |
 | watch:bundle    |  runs browserify, using src/scripts/index.js as an entry point             |
 | watch:images    |  watches the source images for changes and runs the images task            |
-| watch:js-lint   |  watches src/scripts/ for changes and runs the js-lint task                |
+| watch:js        |  watches js files for changes and runs the lint:js task on change          |
 | watch:styles    |  watches the scss files and runs the styles task                           |
 | watch:templates |  watches the templates for changes and runs the templates task             |
 
