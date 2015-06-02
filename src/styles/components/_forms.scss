@@ -96,7 +96,7 @@ textarea {
         border-color: $aqua;
 
         +span:after {
-            content: "\2190";
+            content: '\2190';
             color: $aqua;
             display: inline-block;
             margin-left: 0.5rem;
@@ -152,10 +152,10 @@ textarea {
             background: $gray-lighter;
             color: $gray;
             border: $gray;
+        }
 
-            &:hover {
-                cursor: not-allowed;
-            }
+        &:disabled:hover {
+            cursor: not-allowed;
         }
 
         &:hover {
