@@ -8,6 +8,13 @@ $sans:        Helvetica, sans-serif;
 $serif:       Georgia, serif;
 $mono:        Courier, monospace;
 
+// font weights
+$weight-black:  900;
+$weight-bold:   700;
+$weight-normal: 400;
+$weight-light:  300;
+$weight-thin:   100;
+
 .type--sans {
     font-family: $sans;
 }

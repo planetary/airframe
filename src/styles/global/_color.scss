@@ -1,12 +1,12 @@
 // grays
-$black:             #111;
+$black:             #222;
 $white:             #fff;
 
-$gray-darker:       #464646;
-$gray-dark:         #707070;
-$gray:              #959595;
-$gray-light:        #c2c2c2;
-$gray-lighter:      #e1e1e1;
+$gray-darker:       mix($white, $black, 10%);
+$gray-dark:         mix($white, $black, 30%);
+$gray:              mix($white, $black, 50%);
+$gray-light:        mix($white, $black, 70%);
+$gray-lighter:      mix($white, $black, 90%);
 
 // colors
 $navy:              #001f3f;

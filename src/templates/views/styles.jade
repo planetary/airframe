@@ -220,74 +220,71 @@ block content
         fieldset
             legend Legend
             form
-                p
-                    label(for='text_field') Text Field:
-                    input#text_field(type='text')
-                p
-                    label(for='text_field_disabled') Disabled Text Field:
-                    input#text_field_disabled(type='text', disabled='', value="I'm disabled")
-                p
-                    label(for='text_field_readonly') Readonly Text Field:
-                    input#text_field_readonly(type='text', readonly='', value="I'm readonly")
-                p
-                    label(for='text_area') Text Area:
-                    textarea#text_area
-                p
-                    label(for='text_area_disabled') Disabled Text Area:
-                    textarea#text_area_disabled(disabled='') I'm disabled
-                p
-                    label(for='text_area') Readonly Text Area:
-                    textarea#text_area(readonly='') I'm readonly
-                p
-                    label(for='select_element') Select Element:
-                    .form--select
-                        select#select_element
-                            optgroup(label='Option Group 1')
-                                option(value='1') Option 1
-                                option(value='2') Option 2
-                            optgroup(label='Option Group 2')
-                                option(value='1') Option 1
-                                option(value='2') Option 2
-                                option(value='3', disabled='') Disabled Option
-                p
-                    label(for='select_element_disabled') Disabled Select Element:
-                    select#select_element_disabled(disabled='')
+                label(for='text_field') Text Field:
+                input#text_field(type='text')
+                label(for='text_field_disabled') Disabled Text Field:
+                input.is-disabled#text_field_disabled(type='text', disabled='', value="I'm disabled")
+                label(for='text_field_readonly') Readonly Text Field:
+                input#text_field_readonly(type='text', readonly='', value="I'm readonly")
+                label(for='text_area') Text Area:
+                textarea#text_area
+                label(for='text_area_disabled') Disabled Text Area:
+                textarea#text_area_disabled.is-disabled(disabled='') I'm disabled
+                label(for='text_area') Readonly Text Area:
+                textarea#text_area(readonly='') I'm readonly
+                label(for='select_element') Select Element:
+                .form--select
+                    select#select_element
+                        optgroup(label='Option Group 1')
+                            option(value='1') Option 1
+                            option(value='2') Option 2
+                        optgroup(label='Option Group 2')
+                            option(value='1') Option 1
+                            option(value='2') Option 2
+                            option.is-disabled(value='3', disabled='') Disabled Option
+                label(for='select_element_disabled') Disabled Select Element:
+                .form--select
+                    select#select_element_disabled(disabled='').is-disabled
                         option(value='1') Unselectable Option
                         option(value='2') This option should not even be seen
-                p
-                    | Radio Buttons:
+                | Radio Buttons:
+                .form--radio
                     label
-                        input.radio(type='radio', name='radio_button', value='radio_1')
-                        |  Radio 1
+                        input(type='radio', name='radio_button', value='radio_1')
+                        span Radio 1
+                .form--radio
                     label
-                        input.radio(type='radio', name='radio_button', value='radio_2')
-                        |  Radio 2
+                        input(type='radio', name='radio_button', value='radio_2')
+                        span Radio 2
+                .form--radio
                     label
-                        input.radio(type='radio', name='radio_button', value='radio_3')
-                        |  Radio 3
+                        input(type='radio', name='radio_button', value='radio_3')
+                        span Radio 3
+                .form--radio.is-disabled
                     label
-                        input.radio(type='radio', name='radio_button', value='radio_4', disabled='')
-                        |  Radio Disabled
-                p
-                    | Checkboxes:
+                        input(type='radio', name='radio_button', value='radio_4', disabled='')
+                        span Disabled Radio
+                | Checkboxes:
+                .form--checkbox
                     label
-                        input.checkbox(type='checkbox', name='checkboxes', value='check_1')
-                        |  Checkbox 1
+                        input(type='checkbox', name='checkboxes', value='check_1')
+                        span Checkbox 1
+                .form--checkbox
                     label
-                        input.checkbox(type='checkbox', name='checkboxes', value='check_2')
-                        |  Checkbox 2
+                        input(type='checkbox', name='checkboxes', value='check_2')
+                        span Checkbox 2
+                .form--checkbox
                     label
-                        input.checkbox(type='checkbox', name='checkboxes', value='check_3')
-                        |  Checkbox 3
+                        input(type='checkbox', name='checkboxes', value='check_3')
+                        span Checkbox 3
+                .form--checkbox.is-disabled
                     label
-                        input.checkbox(type='checkbox', name='checkboxes', value='check_4', disabled='')
-                        |  Checkbox Disabled
-                p
-                    label(for='password') Password:
-                    input#password.password(type='password')
-                p
-                    label(for='file') File Input:
-                    input#file.file(type='file')
+                        input(type='checkbox', name='checkboxes', value='check_4', disabled='')
+                        span Checkbox Disabled
+                label(for='password') Password:
+                input#password.password(type='password')
+                label(for='file') File Input:
+                input#file.file(type='file')
                 h3 HTML5-specific Form Elements
                 p
                     label(for='email') Email:

@@ -6,7 +6,8 @@ input,
 textarea,
 select,
 button,
-label {
+label,
+select {
     display: block;
     font-family: $sans;
     font-size: $scale-normal;
@@ -14,12 +15,28 @@ label {
     margin-bottom: 1rem;
 }
 
+legend,
+fieldset {
+    margin: 0 0 1rem;
+    padding: 0;
+}
+
+fieldset {
+    border: 0;
+}
+
+legend {
+    font-weight: $weight-bold;
+}
+
 
 /* Individual element styles
    ------------------------- */
 
 label {
-    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin: 0;
+    font-weight: $weight-bold;
 }
 
 [type="text"],
@@ -31,17 +48,87 @@ textarea {
     border: 1px solid $gray-light;
     width: 100%;
     border-radius: $corner-radius;
+
+    &:disabled {
+        background: $gray-lighter;
+        color: $gray;
+        border: $gray;
+
+        &:hover {
+            cursor: not-allowed;
+        }
+    }
+
+    &:read-only {
+        color: $gray-light;
+        border-color: $gray-lighter;
+
+        &:hover {
+            border-color: $gray-lighter;
+        }
+
+        &:focus {
+            border-color: $gray-light;
+        }
+    }
+
+    &:hover {
+        border-color: $gray;
+    }
+
+    &:focus {
+        outline: none;
+        border-color: $aqua;
+    }
 }
 
 [type="checkbox"],
 [type="radio"] {
     display: inline-block;
+    margin-right: 0.5rem;
+
+    &:hover {
+        border-color: $gray;
+    }
+
+    &:focus {
+        outline: none;
+        border-color: $aqua;
+
+        +span:after {
+            content: "\2190";
+            color: $aqua;
+            display: inline-block;
+            margin-left: 0.5rem;
+        }
+    }
+}
+
+.form--radio,
+.form--checkbox {
+
+    label {
+        font-weight: $weight-normal;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &.is-disabled {
+        color: $gray;
+
+        label:hover,
+        input:hover {
+            cursor: not-allowed;
+        }
+    }
 }
 
 .form--radio + .form--radio,
 .form--checkbox + .form--checkbox {
     // group similar elements
-    margin-top: -0.5rem;
+    margin-top: -1rem;
 }
 
 // Cross-browser custom select boxes thanks to https://github.com/filamentgroup/select-css.
@@ -52,7 +139,6 @@ textarea {
 
     select {
         width: 100%;
-        margin: 0;
         background: none;
         border: 1px solid $gray-light;
         border-radius: $corner-radius;
@@ -60,16 +146,20 @@ textarea {
         appearance: none;
         -webkit-appearance: none;
         -moz-appearance: none;
-        // Font size must be 16px or larger to prevent iOS page zoom on focus */
-        font-size: $scale-normal;
-        // General select styles: change as needed */
-        font-family: $sans;
-        color: $gray-darker;
         padding: 0.35rem 2rem 0.25rem 0.5rem;
-        line-height: $base-line-height;
+
+        &:disabled {
+            background: $gray-lighter;
+            color: $gray;
+            border: $gray;
+
+            &:hover {
+                cursor: not-allowed;
+            }
+        }
 
         &:hover {
-            border: 1px solid $gray;
+            border-color: $gray;
         }
 
         &:focus {
