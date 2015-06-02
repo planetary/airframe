@@ -5,6 +5,6 @@
     "browser": true,
     "browserify": true,
     "jquery": true,
-    "nonbsp": false
+    "nonbsp": false,
     "globals": {}
 }
