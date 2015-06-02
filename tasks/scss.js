@@ -1,5 +1,6 @@
 var browserSync = require( 'browser-sync' );
 
+
 module.exports = function( gulp, plugins ) {
     var paths = {
         'watch': [
@@ -47,6 +48,6 @@ module.exports = function( gulp, plugins ) {
 
     gulp.task( 'watch:scss', 'waits for scss files to change, then lints and rebuilds ' +
                              'them', function() {
-        return gulp.watch( paths.watch, [ 'lint:scss', 'build:scss' ] );
+        return gulp.watch( paths.watch, [ 'build:scss' ] );
     } );
 };
