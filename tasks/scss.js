@@ -38,16 +38,21 @@ module.exports = function( gulp, plugins ) {
     } );
 
 
+    gulp.task( 'watch:scss:incremental', 'only rebuilds changed scss files', function() {
+        return gulp.watch( paths.watch, [ 'build:scss' ] );
+    } );
+
+
+    gulp.task( 'watch:scss', 'waits for scss files to change, then rebuilds them', [
+        'build:scss',
+        'watch:scss:incremental'
+    ] );
+
+
     gulp.task( 'lint:scss', 'lints all scss files with scss-lint', function() {
         return gulp
             .src( paths.lint )
             .pipe( plugins.scssLint( { 'customReport': plugins.scssLintStylish } ) )
             .pipe( plugins.scssLint.failReporter() );
-    } );
-
-
-    gulp.task( 'watch:scss', 'waits for scss files to change, then lints and rebuilds ' +
-                             'them', function() {
-        return gulp.watch( paths.watch, [ 'build:scss' ] );
     } );
 };
