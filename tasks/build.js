@@ -1,6 +1,6 @@
 module.exports = function( gulp, plugins ) {
     gulp.task( 'build', 'builds a development version of the site', [
-        'bundle:dev',
+        'build:js',
         'templates',
         'build:scss',
         'images'

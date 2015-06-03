@@ -4,7 +4,6 @@ module.exports = function( gulp, plugins ) {
         'watch:templates',
         'watch:scss',
         'watch:js',
-        'watch:bundle',
         'watch:images'
     ] );
 };
