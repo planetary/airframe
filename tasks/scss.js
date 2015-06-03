@@ -22,7 +22,7 @@ module.exports = function( gulp, plugins ) {
 
 
     gulp.task( 'build:scss', 'rebuilds all scss files', function() {
-        return gulp
+        gulp
             .src( paths.build )
             .pipe( plugins.sourcemaps.init() )
             .pipe( plugins.sass() )
