@@ -21,7 +21,7 @@ module.exports = function( gulp, plugins ) {
     };
 
 
-    gulp.task( 'build:scss', 'rebuilds all scss files', function() {
+    gulp.task( 'build:scss', 'compiles all scss files into the build folder', function() {
         gulp
             .src( paths.build )
             .pipe( plugins.sourcemaps.init() )
@@ -49,7 +49,7 @@ module.exports = function( gulp, plugins ) {
     ] );
 
 
-    gulp.task( 'lint:scss', 'lints all scss files with scss-lint', function() {
+    gulp.task( 'lint:scss', 'lints all non-vendor scss files against scss-lint.yml', function() {
         return gulp
             .src( paths.lint )
             .pipe( plugins.scssLint( { 'customReport': plugins.scssLintStylish } ) )

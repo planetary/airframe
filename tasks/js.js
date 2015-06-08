@@ -52,7 +52,8 @@ module.exports = function( gulp, plugins ) {
     };
 
 
-    gulp.task( 'build:js', 'rebuilds all client-side javascript files', bundle );
+    gulp.task( 'build:js', 'bundles all client-side javascript files into the build folder via ' +
+                           'browserify', bundle );
 
 
     gulp.task( 'watch:js:browserify', 'waits for client-side javascript files to change, then ' +
@@ -75,7 +76,8 @@ module.exports = function( gulp, plugins ) {
     ] );
 
 
-    gulp.task( 'lint:js', 'lints all javascript files with both jscs and jshint', function() {
+    gulp.task( 'lint:js', 'lints all non-vendor js files against .jshintrc and ' +
+                          '.jscsrc', function() {
         return gulp
             .src( paths.lint )
             .pipe( plugins.jshint() )
