@@ -38,15 +38,10 @@ module.exports = function( gulp, plugins ) {
     } );
 
 
-    gulp.task( 'watch:scss:incremental', 'only rebuilds changed scss files', function() {
+    gulp.task( 'watch:scss', 'waits for scss files to change, then rebuilds ' +
+                             'them', [ 'build:scss' ], function() {
         return gulp.watch( paths.watch, [ 'build:scss' ] );
     } );
-
-
-    gulp.task( 'watch:scss', 'waits for scss files to change, then rebuilds them', [
-        'build:scss',
-        'watch:scss:incremental'
-    ] );
 
 
     gulp.task( 'lint:scss', 'lints all non-vendor scss files against scss-lint.yml', function() {
