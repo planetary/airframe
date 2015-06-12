@@ -11,17 +11,17 @@ module.exports = function( gulp, plugins ) {
         'watch': [
             // js files to watch for changes
             'tasks/*.js',
-            'src/scripts/**/*.js'
+            'assets/scripts/**/*.js'
         ],
         'lint': [
             // js files to lint (ignore vendor)
             'tasks/*.js',
-            'src/scripts/**/*.js',
-            '!src/scripts/vendor/**/*'
+            'assets/scripts/**/*.js',
+            '!assets/scripts/vendor/**/*'
         ],
         'build': [
             // js files to build
-            './src/scripts/index.js'
+            './assets/scripts/index.js'
         ],
         // destination folder
         'output': 'build/js'

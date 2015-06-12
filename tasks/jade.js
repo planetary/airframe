@@ -5,20 +5,20 @@ module.exports = function( gulp, plugins ) {
     var paths = {
         'watch': [
             // jade files to watch for changes
-            'src/templates/**/*.jade'
+            'assets/templates/**/*.jade'
         ],
         'lint': [
             // jade files to lint (ignore vendor)
-            'src/styles/**/*.scss',
-            '!src/styles/vendor/**/*'
+            'assets/styles/**/*.scss',
+            '!assets/styles/vendor/**/*'
         ],
         'build': [
             // jade files to build
-            'src/templates/views/**/*.jade',
-            '!src/templates/views/**/_*.jade'
+            'assets/templates/views/**/*.jade',
+            '!assets/templates/views/**/_*.jade'
         ],
         // input folder
-        'input': 'src/templates',
+        'input': 'assets/templates',
         // destination folder
         'output': 'build'
     };

@@ -2,7 +2,7 @@ module.exports = function( gulp, plugins ) {
     var paths = {
         'build': [
             // images that should be compressed
-            'src/images/**/*'
+            'assets/images/**/*'
         ],
         // destination folder
         'output': 'build/img'

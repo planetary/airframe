@@ -5,16 +5,16 @@ module.exports = function( gulp, plugins ) {
     var paths = {
         'watch': [
             // scss files to watch for changes
-            'src/styles/**/*.scss'
+            'assets/styles/**/*.scss'
         ],
         'lint': [
             // scss files to lint (ignore vendor)
-            'src/styles/**/*.scss',
-            '!src/styles/vendor/**/*'
+            'assets/styles/**/*.scss',
+            '!assets/styles/vendor/**/*'
         ],
         'build': [
             // scss files to build
-            'src/styles/main.scss'
+            'assets/styles/main.scss'
         ],
         // destination folder
         'output': 'build/css'
