@@ -31,5 +31,5 @@ var setupTasks = function( tasks ) {
     }
 };
 
-var tasks = loadTasks( './tasks' );
+var tasks = loadTasks( './gulp' );
 setupTasks( tasks );
