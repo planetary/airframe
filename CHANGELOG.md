@@ -1,7 +1,17 @@
-v0.1.1:
-  date: 2015-3-22
+v0.1.9:
+  date: 2015-06-12
   changes:
-    - Updated the README to include information about Airframe.
+    - First v0.2 release candidate
+    - Updated to new build system
+    - Add default linting rules to match the Planetary style guides
+    - Integrate `ecstatic` with `browser-sync`
+    - Rename `src` folder to `assets`
+    - Rename `tasks` folder to `gulp`
+
+v0.1.1:
+  date: 2015-03-22
+  changes:
+    - Updat the README to include information about Airframe.
     - Update src/ folder structure to reflect more logical naming
     - Break Gulpfile into tasks/* and parent loader
     - Add gulp-notify to introduce build notifications
@@ -12,6 +22,6 @@ v0.1.1:
     - Sync versioning with slush-airframe
 
 v0.0.1:
-  date: 2014-6-23
+  date: 2014-06-23
   changes:
     - Initial release.
