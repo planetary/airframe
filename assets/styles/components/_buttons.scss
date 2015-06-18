@@ -4,14 +4,14 @@
     background: $gray-lighter;
     color: $black;
     border: 1px solid;
-    border-color: darken( $gray-lighter, 5% );
+    border-color: darken($gray-lighter, 5%);
     border-radius: $corner-radius;
     text-decoration: none;
     display: inline-block;
 
     &:hover {
         cursor: pointer;
-        background: lighten( $gray-lighter, 2.5% );
+        background: lighten($gray-lighter, 2.5%);
     }
 
     + .button {
@@ -21,30 +21,30 @@
 
 .button--primary {
     background: $blue;
-    border-color: darken( $blue, 5% );
+    border-color: darken($blue, 5%);
     color: $white;
 
     &:hover {
-        background: lighten( $blue, 2.5% );
+        background: lighten($blue, 2.5%);
     }
 }
 
 .button--warning {
     background: $red;
-    border-color: darken( $red, 5% );
+    border-color: darken($red, 5%);
     color: $white;
 
     &:hover {
-        background: lighten( $red, 2.5% );
+        background: lighten($red, 2.5%);
     }
 }
 
 .button--action {
     background: $green;
-    border-color: darken( $green, 5% );
+    border-color: darken($green, 5%);
     color: $white;
 
     &:hover {
-        background: lighten( $green, 2.5% );
+        background: lighten($green, 2.5%);
     }
 }

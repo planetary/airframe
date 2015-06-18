@@ -113,7 +113,7 @@ linters:
 
   SpaceBetweenParens:
     enabled: true
-    spaces: 1
+    spaces: 0
 
   StringQuotes:
     enabled: true

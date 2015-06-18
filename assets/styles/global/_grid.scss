@@ -17,18 +17,18 @@ $corner-radius: 4px;
     justify-content: center;
 }
 
-@mixin flex-fixed( $span ) {
-    flex: 0 0 ( $span * 100% ) - $gutter;
-    margin: 0 ( $gutter/2 );
+@mixin flex-fixed($span) {
+    flex: 0 0 ($span * 100%) - $gutter;
+    margin: 0 ($gutter/2);
 }
 
 @mixin flex {
     flex: 1;
-    margin: 0 ( $gutter/2 );
+    margin: 0 ($gutter/2);
 }
 
 @mixin visible-grid {
-    background: transparentize( $blue, 0.9 );
+    background: transparentize($blue, 0.9);
 }
 
 // Helper classes
@@ -47,19 +47,19 @@ $corner-radius: 4px;
 }
 
 .g--full {
-    @include flex-fixed( 1 );
+    @include flex-fixed(1);
 }
 
 .g--half {
-    @include flex-fixed( 1/2 );
+    @include flex-fixed(1/2);
 }
 
 .g--third {
-    @include flex-fixed( 1/3 );
+    @include flex-fixed(1/3);
 }
 
 .g--quarter {
-    @include flex-fixed( 1/4 );
+    @include flex-fixed(1/4);
 }
 
 .g--auto {

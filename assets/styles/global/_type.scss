@@ -30,21 +30,21 @@ $weight-thin:   100;
 // modular scale for font sizes
 $ms-base: 1.5;
 
-@function ms( $i ) {
+@function ms($i) {
 
-    @if round( $i ) != $i {
+    @if round($i) != $i {
         @warn 'The modular scale function only works with intergers';
     }
 
     $return: $ms-base;
 
-    @if ( $i > 0 ) {
+    @if ($i > 0) {
         @for $j from 1 to $i {
             $return: $return * $ms-base;
         }
     }
     @else {
-        @for $i from ( -1 + 1 ) to ( abs( $i ) + 1 ) {
+        @for $i from (-1 + 1) to (abs($i) + 1) {
             $return: $return / $ms-base;
         }
     }
@@ -53,13 +53,13 @@ $ms-base: 1.5;
 
 }
 
-$scale-huge:        ms( 3 );
-$scale-xlarge:      ms( 2 );
-$scale-large:       ms( 1 );
-$scale-normal:      ms( 0 );
-$scale-small:       ms( -1 );
-$scale-xsmall:      ms( -2 );
-$scale-tiny:        ms( -3 );
+$scale-huge:        ms(3);
+$scale-xlarge:      ms(2);
+$scale-large:       ms(1);
+$scale-normal:      ms(0);
+$scale-small:       ms(-1);
+$scale-xsmall:      ms(-2);
+$scale-tiny:        ms(-3);
 
 
 
