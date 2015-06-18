@@ -48,11 +48,7 @@ from the `build` folder at `localhost:3000`.
 | watch           | watches all the known files for changes and recompiles them when they do      |
 | watch:img       | watches the source images folders and recompresses them when changed          |
 | watch:jade      | watches the templates folder for changes and recompiles them                  |
-| watch:js:client | waits for client-side javascript files to change and rebuilds them if they do |
-| watch:js:server | (optional) waits for server-side javascript files to change, then restarts    |
-|                 | the development server                                                        |
-| watch:js        | waits for both client and server-side (if applicable) files to change, and    |
-|                 | handles each case appropriately                                               |
+| watch:js        | waits for client-side javascript files to change, then rebuilds them          |
 | watch:scss      | waits for scss files to change, then rebuilds them into the build folder      |
 
 Run `gulp help` at any time to see this list of tasks.
