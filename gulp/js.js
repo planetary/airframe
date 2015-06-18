@@ -55,24 +55,12 @@ module.exports = function(gulp, plugins) {
                           'browserify', bundle);
 
 
-    gulp.task('watch:js:browserify', 'waits for client-side javascript files to change, then ' +
-                                     'rebuilds them', function() {
+    gulp.task('watch:js', 'waits for client-side javascript files to change, then rebuilds ' +
+                          'them', function() {
         watchify(bundler).on('update', bundle);
 
         return bundle();
     });
-
-
-    // gulp.task('watch:js:serve', 'waits for server-side javascript files to change, then ' +
-    //                              'restarts the development server', function() {
-    // });
-
-
-    gulp.task('watch:js', 'waits for both server-side and client-side javascript files to ' +
-                          'change, then redeploys them', [
-        // 'watch:js:serve',
-        'watch:js:browserify'
-    ]);
 
 
     gulp.task('lint:js', 'lints all non-vendor js files against .jshintrc and ' +
