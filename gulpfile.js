@@ -1,10 +1,10 @@
-var path = require( 'path' ),
-    gulp = require( 'gulp-help' )( require( 'gulp' ) ),
-    loadPlugins = require( 'gulp-load-plugins' ),
-    includeAll = require( 'include-all' );
+var path = require('path'),
+    gulp = require('gulp-help')(require('gulp')),
+    loadPlugins = require('gulp-load-plugins'),
+    includeAll = require('include-all');
 
-var plugins = loadPlugins( {
-    pattern: [ 'gulp-*', 'merge-*', 'run-*', 'main-*' ], // the glob to search for
+var plugins = loadPlugins({
+    pattern: ['gulp-*', 'merge-*', 'run-*', 'main-*'], // the glob to search for
     replaceString: /\bgulp[\-.]|run[\-.]|merge[\-.]|main[\-.]/, // remove from the name of the module when adding it to the context
     camelizePluginName: true,
     lazy: true // lazy-load plugins on demand
@@ -16,20 +16,20 @@ var plugins = loadPlugins( {
  * that, when run, should either load/configure or register
  * a Gulp task.
  */
-var loadTasks = function( relPath ) {
-    return includeAll( {
-        dirname: path.resolve( __dirname, relPath ),
+var loadTasks = function(relPath) {
+    return includeAll({
+        dirname: path.resolve(__dirname, relPath),
         filter: /(.+)\.js$/
-    } ) || {};
+    }) || {};
 };
 
-var setupTasks = function( tasks ) {
-    for( var taskName in tasks ) {
-        if( tasks.hasOwnProperty( taskName ) ) {
-            tasks[ taskName ]( gulp, plugins, path );
+var setupTasks = function(tasks) {
+    for(var taskName in tasks) {
+        if(tasks.hasOwnProperty(taskName)) {
+            tasks[taskName](gulp, plugins, path);
         }
     }
 };
 
-var tasks = loadTasks( './gulp' );
-setupTasks( tasks );
+var tasks = loadTasks('./gulp');
+setupTasks(tasks);
