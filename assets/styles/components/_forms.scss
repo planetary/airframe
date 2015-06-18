@@ -5,7 +5,6 @@
 input,
 textarea,
 select,
-button,
 label,
 select {
     display: block;
@@ -42,6 +41,7 @@ label {
 [type="text"],
 [type="email"],
 [type="password"],
+[type="search"],
 textarea {
     padding: 0.25rem 0.5rem;
     background: $white;
@@ -79,6 +79,21 @@ textarea {
     &:focus {
         outline: none;
         border-color: $aqua;
+    }
+}
+
+[type="search"] {
+    border-radius: 1rem;
+    position: relative;
+
+    &:before {
+        content: '';
+        display: block;
+        width: 0.25rem;
+        height: 0.25rem;
+        top: 50%;
+        left: 0.25rem;
+        transform: translateY( -50% );
     }
 }
 
