@@ -1,3 +1,6 @@
+var browserSync = require('browser-sync');
+
+
 module.exports = function(gulp, plugins) {
     var paths = {
         'build': [
@@ -13,7 +16,9 @@ module.exports = function(gulp, plugins) {
         return gulp.src(paths.build)
             .pipe(plugins.newer(paths.output))
             .pipe(plugins.image())
-            .pipe(gulp.dest(paths.output));
+            .pipe(gulp.dest(paths.output))
+            .pipe(browserSync.reload({'stream': true}))
+            .pipe(plugins.notify({'message': 'Image minification complete', 'onLast': true}));
     });
 
 
