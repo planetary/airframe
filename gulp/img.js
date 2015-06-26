@@ -15,7 +15,7 @@ module.exports = function(gulp, plugins) {
     gulp.task('build:img', 'compresses images and moves them to the build folder', function() {
         return gulp.src(paths.build)
             .pipe(plugins.newer(paths.output))
-            .pipe(plugins.image())
+            .pipe(plugins.imagemin())
             .pipe(gulp.dest(paths.output))
             .pipe(browserSync.reload({'stream': true}))
             .pipe(plugins.notify({'message': 'Image minification complete', 'onLast': true}));
