@@ -8,10 +8,6 @@ var browserify = require('browserify'),
 
 module.exports = function(gulp, plugins) {
     var paths = {
-        'watch': [
-            // js files to watch for changes
-            'assets/scripts/**/*.js'
-        ],
         'lint': [
             // js files to lint (ignore vendor)
             'gulp/*.js',
