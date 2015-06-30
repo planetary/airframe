@@ -27,7 +27,11 @@ module.exports = function(gulp, plugins) {
                 return err.message + ' in ' + err.fileName + ' at line ' + err.lineNumber;
             }))
             .pipe(plugins.autoprefixer())
-            .pipe(plugins.minifyCss())
+            .pipe(plugins['if'](
+                // don't minify during development
+                ['development', '', undefined].indexOf(process.env.NODE_ENV) === -1,
+                plugins.minifyCss()
+            ))
             .pipe(plugins.sourcemaps.write('.'))
             .pipe(gulp.dest(gulp.outputPath))
             .pipe(browserSync.reload({'stream': true}))

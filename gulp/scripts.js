@@ -46,7 +46,11 @@ module.exports = function(gulp, plugins) {
                 .pipe(source(output))
                 .pipe(buffer())
                 .pipe(plugins.sourcemaps.init({'loadMaps': true}))
-                .pipe(plugins.uglify())
+                .pipe(plugins['if'](
+                    // don't minify during development
+                    ['development', '', undefined].indexOf(process.env.NODE_ENV) === -1,
+                    plugins.uglify()
+                ))
                 .pipe(plugins.sourcemaps.write('.'))
                 .pipe(gulp.dest(gulp.outputPath))
                 .pipe(browserSync.reload({'stream': true}))
