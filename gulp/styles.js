@@ -3,27 +3,24 @@ var browserSync = require('browser-sync');
 
 module.exports = function(gulp, plugins) {
     var paths = {
-        'watch': [
-            // scss files to watch for changes
-            'assets/styles/**/*.scss'
-        ],
         'lint': [
             // scss files to lint (ignore vendor)
             'assets/styles/**/*.scss',
             '!assets/styles/vendor/**/*'
         ],
+        'watch': [
+            // scss files to watch for changes when triggering rebuilds
+            'assets/styles/**/*.scss'
+        ],
         'build': [
             // scss files to build
             'assets/styles/main.scss'
-        ],
-        // destination folder
-        'output': 'build/styles'
+        ]
     };
 
 
     gulp.task('build:styles', 'compiles all scss files into the build folder', function() {
-        gulp
-            .src(paths.build)
+        return gulp.src(paths.build, {'base': gulp.inputPath})
             .pipe(plugins.sourcemaps.init())
             .pipe(plugins.sass())
             .on('error', plugins.notify.onError(function(err) {
@@ -32,7 +29,7 @@ module.exports = function(gulp, plugins) {
             .pipe(plugins.autoprefixer())
             .pipe(plugins.minifyCss())
             .pipe(plugins.sourcemaps.write('.'))
-            .pipe(gulp.dest(paths.output))
+            .pipe(gulp.dest(gulp.outputPath))
             .pipe(browserSync.reload({'stream': true}))
             .pipe(plugins.notify({'message': 'SCSS compilation complete', 'onLast': true}));
     });
@@ -45,8 +42,7 @@ module.exports = function(gulp, plugins) {
 
 
     gulp.task('lint:styles', 'lints all non-vendor scss files against scss-lint.yml', function() {
-        return gulp
-            .src(paths.lint)
+        return gulp.src(paths.lint)
             .pipe(plugins.scssLint({'customReport': plugins.scssLintStylish}))
             .pipe(plugins.scssLint.failReporter());
     });

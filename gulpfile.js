@@ -31,5 +31,8 @@ var setupTasks = function(tasks) {
     }
 };
 
+gulp.inputPath = path.resolve('assets')
+gulp.outputPath = path.resolve('build')
+
 var tasks = loadTasks('./gulp');
 setupTasks(tasks);

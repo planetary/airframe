@@ -1,4 +1,5 @@
-var browserSync = require('browser-sync');
+var browserSync = require('browser-sync'),
+    path = require('path');
 
 
 module.exports = function(gulp, plugins) {
@@ -7,30 +8,22 @@ module.exports = function(gulp, plugins) {
             // jade files to watch for changes
             'assets/templates/**/*.jade'
         ],
-        'lint': [
-            // jade files to lint (ignore vendor)
-            'assets/styles/**/*.scss',
-            '!assets/styles/vendor/**/*'
-        ],
         'build': [
             // jade files to build
             'assets/templates/views/**/*.jade',
             '!assets/templates/views/**/_*.jade'
-        ],
-        // input folder
-        'input': 'assets/templates',
-        // destination folder
-        'output': 'build'
+        ]
     };
 
 
-    gulp.task('build:templates', 'compiles the jade templates to the build folder', function() {
+    gulp.task('build:templates', 'compiles the jade templates to the build folder',
+              ['build:styles', 'build:scripts', 'build:images'], function() {
         gulp.src(paths.build)
-            .pipe(plugins.jade({'basedir': paths.input}))
+            .pipe(plugins.jade({'basedir': path.join(gulp.inputPath, 'templates')}))
             .on('error', plugins.notify.onError(function(err) {
                 return err.message + ' in ' + err.fileName + ' at line ' + err.lineNumber;
             }))
-            .pipe(gulp.dest(paths.output))
+            .pipe(gulp.dest(gulp.outputPath))
             .pipe(browserSync.reload({'stream': true}))
             .pipe(plugins.notify({'message': 'Jade compilation complete', 'onLast': true}));
     });

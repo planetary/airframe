@@ -2,19 +2,15 @@ var browserSync = require('browser-sync');
 
 
 module.exports = function(gulp, plugins) {
-    var paths = {
-        'input': [
-            // fonts that should be compressed
-            'assets/fonts/**/*'
-        ],
-        // destination path
-        'output': 'build/fonts'
-    };
+    var paths = [
+        // fonts that should be compressed
+        'assets/fonts/**/*'
+    ];
 
     gulp.task('build:fonts', 'moves fonts to the build folder', function() {
-        return gulp.src(paths)
-            .pipe(plugins.newer(paths.output))
-            .pipe(gulp.dest(paths.output))
+        return gulp.src(paths, {'base': gulp.inputPath})
+            .pipe(plugins.newer(gulp.outputPath))
+            .pipe(gulp.dest(gulp.outputPath))
             .pipe(browserSync.reload({'stream': true}))
             .pipe(plugins.notify({'message': 'Font compilation complete', 'onLast': true}));
     });

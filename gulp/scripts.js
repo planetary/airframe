@@ -12,57 +12,80 @@ module.exports = function(gulp, plugins) {
             // js files to lint (ignore vendor)
             'gulp/*.js',
             'assets/scripts/**/*.js',
+            'assets/scripts/**/*.jsx',
             '!assets/scripts/vendor/**/*'
         ],
-        'build': [
-            // js files to build
-            './assets/scripts/index.js'
-        ],
-        // destination folder
-        'output': 'build/scripts'
+        'build': {
+            // maps output filenames to entry points
+            'scripts/bundle.js': ['assets/scripts/index.js']
+        }
     };
 
 
-    var bundler = browserify(paths.build, extend(watchify.args, {
-        // browserify options
-        'extensions': ['.jsx'],
-        'debug': true,
-        'fullPaths': true,
-        'insertGlobals': true,
-        'transform': ['reactify', 'brfs', 'bulkify']
-    }));
-    var bundle = function() {
-        bundler.bundle()
-            .on('error', plugins.notify.onError(function(err) {
-                return err.message + ' in ' + err.fileName + ' at line ' + err.lineNumber;
-            }))
-            .pipe(source('bundle.js'))
-            .pipe(buffer())
-            .pipe(plugins.sourcemaps.init({'loadMaps': true}))
-            .pipe(plugins.uglify())
-            .pipe(plugins.sourcemaps.write('.'))
-            .pipe(gulp.dest(paths.output))
-            .pipe(browserSync.reload({'stream': true}))
-            .pipe(plugins.notify({'message': 'JS compilation complete', 'onLast': true}));
-    };
+    var outputs = [];
 
+    Object.keys(paths.build).forEach(function(output) {
+        var inputs = paths.build[output];
+        var bundler = browserify(inputs, extend(watchify.args, {
+            // browserify options
+            'extensions': ['.jsx'],
+            'debug': true,
+            'fullPaths': true,
+            'insertGlobals': true,
+            'transform': ['reactify', 'brfs', 'bulkify']
+        }));
+
+        bundler.rebuild = function(errCb) {
+            return bundler.bundle()
+                .on('error', plugins.notify.onError(function(err) {
+                    if(errCb)
+                        errCb();
+
+                    return err.message + ' in ' + err.fileName + ' at line ' + err.lineNumber;
+                }))
+                .pipe(source(output))
+                .pipe(buffer())
+                .pipe(plugins.sourcemaps.init({'loadMaps': true}))
+                .pipe(plugins.uglify())
+                .pipe(plugins.sourcemaps.write('.'))
+                .pipe(gulp.dest(gulp.outputPath))
+                .pipe(browserSync.reload({'stream': true}))
+                .pipe(plugins.notify({'message': output + ' complete', 'onLast': true}));
+        };
+
+        outputs.push(bundler);
+    });
 
     gulp.task('build:scripts', 'bundles all client-side javascript files into the build folder ' +
-                               'via browserify', bundle);
+                               'via browserify', function(next) {
+        var count = outputs.length,
+            failed = 0;
+
+        outputs.forEach(function(output) {
+            output.rebuild(function() {
+                failed++;
+            }).on('finish', function() {
+                if(--count === 0)
+                    next(failed > 0? new Error(failed + ' bundle(s) have failed'): null);
+            });
+        });
+    });
 
 
     gulp.task('watch:scripts', 'waits for client-side javascript files to change, then rebuilds ' +
                                'them', function() {
-        watchify(bundler).on('update', bundle);
-
-        return bundle();
+        outputs.forEach(function(output) {
+            watchify(output).on('update', output.rebuild);
+            output.rebuild();
+        });
     });
 
 
-    gulp.task('lint:scripts', 'lints all non-vendor js files against .jshintrc and ' +
+    gulp.task('lint:scripts', 'lints all non-vendor js(x) files against .jshintrc and ' +
                               '.jscsrc', function() {
         return gulp
             .src(paths.lint)
+            .pipe(plugins.react())
             .pipe(plugins.jshint())
             .pipe(plugins.jscs())
             .on('error', function() {})
