@@ -46,6 +46,7 @@
     "gulp-notify": "^2.2.0",
     "gulp-react": "^3.0.1",
     "gulp-rename": "^1.2.2",
+    "gulp-rev": "^5.0.1",
     "gulp-sass": "^2.0.3",
     "gulp-scss-lint": "^0.2.0",
     "gulp-scss-lint-stylish": "^0.1.3",

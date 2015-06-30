@@ -32,7 +32,10 @@ module.exports = function(gulp, plugins) {
                 ['development', '', undefined].indexOf(process.env.NODE_ENV) === -1,
                 plugins.minifyCss()
             ))
+            .pipe(plugins.rev())
             .pipe(plugins.sourcemaps.write('.'))
+            .pipe(gulp.dest(gulp.outputPath))
+            .pipe(plugins.rev.manifest({'base': gulp.outputPath, 'merge': true}))
             .pipe(gulp.dest(gulp.outputPath))
             .pipe(browserSync.reload({'stream': true}))
             .pipe(plugins.notify({'message': 'SCSS compilation complete', 'onLast': true}));
