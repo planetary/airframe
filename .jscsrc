@@ -56,7 +56,7 @@
     "requirePaddingNewLinesAfterUseStrict": true,
     "requirePaddingNewLinesBeforeExport": true,
     "requirePaddingNewlinesBeforeKeywords": [
-        "for", "try", "while", "function", "return"
+        "for", "try", "while", "return"
     ],
     "requireParenthesesAroundIIFE": true,
     "requireQuotedKeysInObjects": true,
