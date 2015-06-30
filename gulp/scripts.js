@@ -19,7 +19,7 @@ module.exports = function(gulp, plugins) {
             './assets/scripts/index.js'
         ],
         // destination folder
-        'output': 'build/js'
+        'output': 'build/scripts'
     };
 
 
@@ -47,20 +47,20 @@ module.exports = function(gulp, plugins) {
     };
 
 
-    gulp.task('build:js', 'bundles all client-side javascript files into the build folder via ' +
-                          'browserify', bundle);
+    gulp.task('build:scripts', 'bundles all client-side javascript files into the build folder ' +
+                               'via browserify', bundle);
 
 
-    gulp.task('watch:js', 'waits for client-side javascript files to change, then rebuilds ' +
-                          'them', function() {
+    gulp.task('watch:scripts', 'waits for client-side javascript files to change, then rebuilds ' +
+                               'them', function() {
         watchify(bundler).on('update', bundle);
 
         return bundle();
     });
 
 
-    gulp.task('lint:js', 'lints all non-vendor js files against .jshintrc and ' +
-                          '.jscsrc', function() {
+    gulp.task('lint:scripts', 'lints all non-vendor js files against .jshintrc and ' +
+                              '.jscsrc', function() {
         return gulp
             .src(paths.lint)
             .pipe(plugins.jshint())

@@ -8,11 +8,11 @@ module.exports = function(gulp, plugins) {
             'assets/images/**/*'
         ],
         // destination folder
-        'output': 'build/img'
+        'output': 'build/images'
     };
 
 
-    gulp.task('build:img', 'compresses images and moves them to the build folder', function() {
+    gulp.task('build:images', 'compresses images and moves them to the build folder', function() {
         return gulp.src(paths.build)
             .pipe(plugins.newer(paths.output))
             .pipe(plugins.imagemin())
@@ -22,8 +22,8 @@ module.exports = function(gulp, plugins) {
     });
 
 
-    gulp.task('watch:img', 'watches the source images folders and recompresses them when changed',
-              ['build:img'], function() {
-        gulp.watch(paths.build, ['build:img']);
+    gulp.task('watch:images', 'watches the source images folders and recompresses them when ' +
+                              'changed', ['build:images'], function() {
+        gulp.watch(paths.build, ['build:images']);
     });
 };

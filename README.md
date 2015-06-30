@@ -36,20 +36,20 @@ from the `build` folder at `localhost:3000`.
 | Task            | Description                                                                   |
 | --------------- | ----------------------------------------------------------------------------- |
 | build           | builds all the registered static resources from `assets` into `build`         |
-| build:img       | compresses images and moves them to the build folder                          |
-| build:jade      | compiles the jade templates to the build folder                               |
-| build:js        | bundles all client-side javascript files into the build folder via browserify |
-| build:scss      | compiles all scss files into the build folder                                 |
+| build:images    | compresses images and moves them to the build folder                          |
+| build:scripts   | bundles all client-side javascript files into the build folder via browserify |
+| build:styles    | compiles all scss files into the build folder                                 |
+| build:templates | compiles the jade templates to the build folder                               |
 | default         | builds the site, serves it locally and redeploys when files are changed       |
 | help            | displays this help text.                                                      |
 | lint            | runs all registered linters and out prints any detected issues                |
-| lint:js         | lints all non-vendor js files against `.jshintrc` and `.jscsrc`               |
-| lint:scss       | lints all non-vendor scss files against `scss-lint.yml`                       |
+| lint:scripts    | lints all non-vendor js files against `.jshintrc` and `.jscsrc`               |
+| lint:styles     | lints all non-vendor scss files against `scss-lint.yml`                       |
 | watch           | watches all the known files for changes and recompiles them when they do      |
-| watch:img       | watches the source images folders and recompresses them when changed          |
-| watch:jade      | watches the templates folder for changes and recompiles them                  |
-| watch:js        | waits for client-side javascript files to change, then rebuilds them          |
-| watch:scss      | waits for scss files to change, then rebuilds them into the build folder      |
+| watch:images    | watches the source images folders and recompresses them when changed          |
+| watch:scripts   | waits for client-side javascript files to change, then rebuilds them          |
+| watch:styles    | waits for scss files to change, then rebuilds them into the build folder      |
+| watch:templates | watches the templates folder for changes and recompiles them                  |
 
 Run `gulp help` at any time to see this list of tasks.
 

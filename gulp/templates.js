@@ -24,7 +24,7 @@ module.exports = function(gulp, plugins) {
     };
 
 
-    gulp.task('build:jade', 'compiles the jade templates to the build folder', function() {
+    gulp.task('build:templates', 'compiles the jade templates to the build folder', function() {
         gulp.src(paths.build)
             .pipe(plugins.jade({'basedir': paths.input}))
             .on('error', plugins.notify.onError(function(err) {
@@ -36,8 +36,8 @@ module.exports = function(gulp, plugins) {
     });
 
 
-    gulp.task('watch:jade', 'watches the templates folder for changes and recompiles them',
-              ['build:jade'], function() {
-        gulp.watch(paths.watch , ['build:jade']);
+    gulp.task('watch:templates', 'watches the templates folder for changes and recompiles ' +
+                                 'them', ['build:templates'], function() {
+        gulp.watch(paths.watch , ['build:templates']);
     });
 };

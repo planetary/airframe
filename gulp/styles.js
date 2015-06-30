@@ -17,11 +17,11 @@ module.exports = function(gulp, plugins) {
             'assets/styles/main.scss'
         ],
         // destination folder
-        'output': 'build/css'
+        'output': 'build/styles'
     };
 
 
-    gulp.task('build:scss', 'compiles all scss files into the build folder', function() {
+    gulp.task('build:styles', 'compiles all scss files into the build folder', function() {
         gulp
             .src(paths.build)
             .pipe(plugins.sourcemaps.init())
@@ -38,13 +38,13 @@ module.exports = function(gulp, plugins) {
     });
 
 
-    gulp.task('watch:scss', 'waits for scss files to change, then rebuilds ' +
-                            'them', ['build:scss'], function() {
-        return gulp.watch(paths.watch, ['build:scss']);
+    gulp.task('watch:styles', 'waits for scss files to change, then rebuilds ' +
+                              'them', ['build:styles'], function() {
+        return gulp.watch(paths.watch, ['build:styles']);
     });
 
 
-    gulp.task('lint:scss', 'lints all non-vendor scss files against scss-lint.yml', function() {
+    gulp.task('lint:styles', 'lints all non-vendor scss files against scss-lint.yml', function() {
         return gulp
             .src(paths.lint)
             .pipe(plugins.scssLint({'customReport': plugins.scssLintStylish}))
