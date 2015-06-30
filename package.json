@@ -52,6 +52,7 @@
     "gulp-util": "^3.0.6",
     "include-all": "^0.1.6",
     "jshint-stylish": "^2.0.1",
+    "reactify": "^1.1.1",
     "util-extend": "^1.0.1",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",

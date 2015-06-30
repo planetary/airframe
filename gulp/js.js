@@ -29,7 +29,7 @@ module.exports = function(gulp, plugins) {
         'debug': true,
         'fullPaths': true,
         'insertGlobals': true,
-        'transform': ['brfs', 'bulkify']
+        'transform': ['reactify', 'brfs', 'bulkify']
     }));
     var bundle = function() {
         bundler.bundle()
