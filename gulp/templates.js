@@ -18,17 +18,8 @@ module.exports = function(gulp, plugins) {
 
     gulp.task('build:templates', 'compiles the jade templates to the build folder',
               ['build:styles', 'build:scripts', 'build:images'], function() {
-        var manifest = require(path.resolve(__dirname, '../rev-manifest.json'));
-
-        gulp.src(paths.build)
-            .pipe(plugins.jade({
-                'basedir': path.join(gulp.inputPath, 'templates'),
-                'locals': {
-                    'rev': function(path) {
-                        return '/' + (manifest[path] || path);
-                    }
-                }
-            }))
+        return gulp.src(paths.build)
+            .pipe(plugins.jade({'basedir': path.join(gulp.inputPath, 'templates')}))
             .on('error', plugins.notify.onError(function(err) {
                 return err.message + ' in ' + err.fileName + ' at line ' + err.lineNumber;
             }))
