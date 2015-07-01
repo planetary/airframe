@@ -4,19 +4,19 @@
   "description": "A project starter kit",
   "repository": {
     "type": "git",
-    "url": "https://github.com/planetarycorp/airframe.git"
+    "url": "https://github.com/planetary/airframe.git"
   },
   "author": "Planetary",
   "bugs": {
-    "url": "https://github.com/planetarycorp/airframe/issues"
+    "url": "https://github.com/planetary/airframe/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/planetarycorp/slush-airframe/blob/master/LICENSE"
+      "url": "https://github.com/planetary/airframe/blob/master/LICENSE"
     }
   ],
-  "homepage": "https://github.com/planetarycorp/airframe",
+  "homepage": "https://github.com/planetary/airframe",
   "engines": {
     "node": ">= 0.10.26",
     "npm": ">=2.1.18"
