@@ -34,6 +34,7 @@
     "esprima-fb": "^15001.1.0-dev-harmony-fb",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^2.3.1",
+    "gulp-filter": "^2.0.2",
     "gulp-help": "^1.6.0",
     "gulp-if": "^1.2.5",
     "gulp-imagemin": "^2.3.0",

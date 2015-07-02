@@ -18,6 +18,10 @@ module.exports = function(gulp, plugins) {
         var rev = new plugins.revAll();
 
         gulp.src(path.join(gulp.outputPath, '**', '*'))
+            .pipe(plugins.filter(function(file) {
+                // forgive me father, for I have sinned
+                return !/(\.[0-9a-f]{8}\..{2,}|rev-manifest.json|\.map)$/.test(file.path);
+            }))
             .pipe(rev.revision())
             .pipe(gulp.dest(gulp.outputPath))
             .pipe(rev.manifestFile())
