@@ -15,7 +15,9 @@ module.exports = function(gulp, plugins) {
             return next();
         }
 
-        var rev = new plugins.revAll();
+        var rev = new plugins.revAll({
+            'dontRenameFile': [/.*\.html/]
+        });
 
         gulp.src(path.join(gulp.outputPath, '**', '*'))
             .pipe(plugins.filter(function(file) {
