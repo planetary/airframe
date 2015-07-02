@@ -1,0 +1,31 @@
+machine:
+    node:
+        version: 0.10.33
+dependencies:
+    pre:
+        - gem install scss-lint
+    override:
+        - npm install
+test:
+    pre:
+        - node_modules/.bin/gulp lint
+    override:
+        - node_modules/.bin/gulp build:
+            environment:
+                NODE_ENV: test
+deployment:
+    gh-pages:
+        branch: website
+        commands:
+            - git init:
+                pwd: ./build
+            - git add -A .:
+                pwd: ./build
+            - git config user.email "ci@planetary.io":
+                pwd: ./build
+            - git config user.name "CircleCI Bot":
+                pwd: ./build
+            - git commit -m "Sync with website [ci skip]":
+                pwd: ./build
+            - git push git@github.com:planetary/airframe master:gh-pages --force:
+                pwd: ./build
