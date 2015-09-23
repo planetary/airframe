@@ -25,6 +25,7 @@
     "test": "echo \"No tests\""
   },
   "dependencies": {
+    "babel": "^5.8.23",
     "brfs": "^1.4.0",
     "browser-sync": "^2.7.13",
     "browserify": "^10.2.4",

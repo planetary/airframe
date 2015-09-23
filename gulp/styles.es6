@@ -1,8 +1,8 @@
-var browserSync = require('browser-sync');
+const browserSync = require('browser-sync');
 
 
-module.exports = function(gulp, plugins) {
-    var paths = {
+module.exports = function(gulp, plugins, env) {
+    const paths = {
         'lint': [
             // scss files to lint (ignore vendor)
             'assets/styles/**/*.scss',
@@ -27,13 +27,14 @@ module.exports = function(gulp, plugins) {
                 return err.message + ' in ' + err.fileName + ' at line ' + err.lineNumber;
             }))
             .pipe(plugins.autoprefixer())
-            .pipe(plugins['if'](
+            .pipe(plugins.if(
                 // don't minify during development
-                ['development', '', undefined].indexOf(process.env.NODE_ENV) === -1,
+                env !== 'local',
                 plugins.minifyCss()
             ))
             .pipe(plugins.sourcemaps.write('.'))
             .pipe(gulp.dest(gulp.outputPath))
+            .pipe(plugins.filter('**/*.css'))
             .pipe(browserSync.reload({'stream': true}))
             .pipe(plugins.notify({'message': 'SCSS compilation complete', 'onLast': true}));
     });

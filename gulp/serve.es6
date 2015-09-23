@@ -1,12 +1,12 @@
-var browserSync = require('browser-sync'),
-    ecstatic = require('ecstatic'),
-    http = require('http'),
-    path = require('path');
+const browserSync = require('browser-sync');
+const ecstatic = require('ecstatic');
+const http = require('http');
+const path = require('path');
 
 
 module.exports = function(gulp) {
-    var ports = {
-        'frontend': 3000,
+    const ports = {
+        'frontend': 8080,
         'backend': 4900
     };
 
@@ -16,7 +16,10 @@ module.exports = function(gulp) {
         browserSync({
             'port': ports.frontend,
             'files': path.join('.', gulp.outputPath, '**', '*'),
-            'proxy': 'http://localhost:' + ports.backend
+            'proxy': 'http://localhost:' + ports.backend,
+
+            // Stop the browser from automatically opening
+            'open': false
         });
     });
 

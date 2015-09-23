@@ -1,8 +1,8 @@
-var browserSync = require('browser-sync');
+const browserSync = require('browser-sync');
 
 
-module.exports = function(gulp, plugins) {
-    var paths = [
+module.exports = function(gulp, plugins, env) {
+    const paths = [
         // images that should be compressed
         'assets/images/**/*'
     ];
@@ -11,9 +11,8 @@ module.exports = function(gulp, plugins) {
     gulp.task('build:images', 'compresses images and moves them to the build folder', function() {
         return gulp.src(paths, {'base': gulp.inputPath})
             .pipe(plugins.newer(gulp.outputPath))
-            .pipe(plugins['if'](
+            .pipe(plugins.if(env !== 'local',
                 // don't minify during development
-                ['development', '', undefined].indexOf(process.env.NODE_ENV) === -1,
                 plugins.imagemin()
             ))
             .pipe(gulp.dest(gulp.outputPath))

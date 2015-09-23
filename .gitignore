@@ -6,6 +6,7 @@ rev-manifest.json
 # dependencies
 node_modules
 
+
 # osx noise
 .DS_Store
 profile

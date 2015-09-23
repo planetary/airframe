@@ -1,9 +1,9 @@
-var browserSync = require('browser-sync'),
-    path = require('path');
+const browserSync = require('browser-sync');
+const path = require('path');
 
 
 module.exports = function(gulp, plugins) {
-    var paths = {
+    const paths = {
         'watch': [
             // jade files to watch for changes
             'assets/templates/**/*.jade'

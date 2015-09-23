@@ -1,5 +1,5 @@
-var del = require('del'),
-    path = require('path');
+const del = require('del');
+const path = require('path');
 
 
 module.exports = function(gulp) {
