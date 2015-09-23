@@ -1,6 +1,9 @@
 machine:
     node:
-        version: 0.10.33
+        version: 0.12.4
+    environment:
+        NODE_ENV: testing
+        DISABLE_NOTIFIER: true
 dependencies:
     override:
         - gem install scss-lint
@@ -8,9 +11,7 @@ dependencies:
 test:
     override:
         - node_modules/.bin/gulp lint
-        - node_modules/.bin/gulp build:
-            environment:
-                NODE_ENV: test
+        - node_modules/.bin/gulp build
 deployment:
     gh-pages:
         branch: website
