@@ -1,19 +1,20 @@
-var browserify = require('browserify'),
-    browserSync = require('browser-sync'),
-    buffer = require('vinyl-buffer'),
-    source = require('vinyl-source-stream'),
-    extend = require('util-extend'),
-    watchify = require('watchify');
+const browserify = require('browserify');
+const browserSync = require('browser-sync');
+const buffer = require('vinyl-buffer');
+const source = require('vinyl-source-stream');
+const extend = require('util-extend');
+const watchify = require('watchify');
 
 
-module.exports = function(gulp, plugins) {
-    var paths = {
+module.exports = function(gulp, plugins, env) {
+    const paths = {
         'lint': [
-            // js files to lint (ignore vendor)
-            'gulp/*.js',
-            'assets/scripts/**/*.js',
-            'assets/scripts/**/*.jsx',
-            '!assets/scripts/vendor/**/*'
+            // js files to lint (ignore vendor, dependencies and outputs)
+            '**/*.js',
+            '**/*.es6',
+            '!assets/scripts/vendor/**/*',
+            '!build/**/*',
+            '!node_modules/**/*'
         ],
         'build': {
             // maps output filenames to entry points
@@ -22,18 +23,21 @@ module.exports = function(gulp, plugins) {
     };
 
 
-    var outputs = [];
+    const outputs = [];
 
     Object.keys(paths.build).forEach(function(output) {
-        var inputs = paths.build[output];
-        var bundler = browserify(inputs, extend(watchify.args, {
+        const inputs = paths.build[output];
+        const bundler = browserify(inputs, extend(watchify.args, {
             // browserify options
-            'extensions': ['.jsx'],
-            'debug': true,
-            'fullPaths': true,
-            'insertGlobals': true,
-            'transform': ['reactify', 'brfs', 'bulkify']
+            'extensions': ['.jsx', '.es6'],
+
+            'debug': env === 'local',
+            'fullPaths': env === 'local',
+            'insertGlobals': false,
+            'transform': ['babelify', 'brfs', 'bulkify', 'envify']
         }));
+
+        process.env.BEACON_URL = '//' + config.server.domain + '/beacon';
 
         bundler.rebuild = function(errCb) {
             return bundler.bundle()
@@ -41,15 +45,15 @@ module.exports = function(gulp, plugins) {
                     if(errCb)
                         errCb();
 
-                    return err.message + ' in ' + err.fileName + ' at line ' + err.lineNumber;
+                    return err.message;
                 }))
                 .pipe(source(output))
                 .pipe(buffer())
                 .pipe(plugins.sourcemaps.init({'loadMaps': true}))
-                .pipe(plugins['if'](
+                .pipe(plugins.if(
                     // don't minify during development
-                    ['development', '', undefined].indexOf(process.env.NODE_ENV) === -1,
-                    plugins.uglify()
+                    env !== 'local',
+                    plugins.uglify({'compress': true})
                 ))
                 .pipe(plugins.sourcemaps.write('.'))
                 .pipe(gulp.dest(gulp.outputPath))
@@ -60,17 +64,21 @@ module.exports = function(gulp, plugins) {
         outputs.push(bundler);
     });
 
+
     gulp.task('build:scripts', 'bundles all client-side javascript files into the build folder ' +
                                'via browserify', function(next) {
-        var count = outputs.length,
-            failed = 0;
+        let count = outputs.length;
+        let failed = 0;
 
         outputs.forEach(function(output) {
             output.rebuild(function() {
                 failed++;
             }).on('finish', function() {
                 if(--count === 0)
-                    next(failed > 0? new Error(failed + ' bundle(s) have failed'): null);
+                    return next(failed > 0
+                        ? new Error(failed + ' bundle(s) have failed')
+                        : null
+                    );
             });
         });
     });
@@ -85,16 +93,11 @@ module.exports = function(gulp, plugins) {
     });
 
 
-    gulp.task('lint:scripts', 'lints all non-vendor js(x) files against .jshintrc and ' +
-                              '.jscsrc', function() {
+    gulp.task('lint:scripts', 'lints all non-vendor js(x) files against .eslintrc', function() {
         return gulp
             .src(paths.lint)
-            .pipe(plugins.react())
-            .pipe(plugins.jshint())
-            .pipe(plugins.jscs())
-            .on('error', function() {})
-            .pipe(plugins.jscsStylish.combineWithHintResults())
-            .pipe(plugins.jshint.reporter('jshint-stylish'))
-            .pipe(plugins.jshint.reporter('fail'));
+            .pipe(plugins.eslint())
+            .pipe(plugins.eslint.format('stylish'))
+            .pipe(plugins.eslint.failAfterError());
     });
 };
