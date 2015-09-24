@@ -1,6 +1,6 @@
 {
   "name": "Airframe",
-  "version": "0.1.9",
+  "version": "1.1.0",
   "description": "A project starter kit",
   "repository": {
     "type": "git",
@@ -18,7 +18,7 @@
   ],
   "homepage": "https://github.com/planetary/airframe",
   "engines": {
-    "node": ">= 0.10.26",
+    "node": ">= 0.12.4",
     "npm": ">=2.1.18"
   },
   "scripts": {

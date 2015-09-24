@@ -1,14 +1,26 @@
-v0.1.9:
+v1.1.0
+  date: 2015-09-24
+  changes:
+    - convert tasks to es6 (via babel)
+    - change js linter to eslint (better jsx support)
+    - change gulp task registration format from `(gulp, plugins, path)` to `(gulp, plugins, env)`
+    - switch to `gulp-rev-all` for bulk revisioning
+    - switch to `gulp-imagemin` as it seems to be updated more often than `gulp-image`
+    - add sample circleci config
+    - more consistent task names
+    - drop node 0.10 support
+
+v1.0.9:
   date: 2015-06-12
   changes:
-    - First v0.2 release candidate
+    - First v1.1 release candidate
     - Updated to new build system
     - Add default linting rules to match the Planetary style guides
     - Integrate `ecstatic` with `browser-sync`
     - Rename `src` folder to `assets`
     - Rename `tasks` folder to `gulp`
 
-v0.1.1:
+v1.0.0:
   date: 2015-03-22
   changes:
     - Updat the README to include information about Airframe.
