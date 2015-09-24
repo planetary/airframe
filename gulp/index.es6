@@ -3,8 +3,6 @@ const gulpFactory = require('gulp');
 const loadPlugins = require('gulp-load-plugins');
 const path = require('path');
 
-require('../config'); // read config and apply .env environment overrides, if any
-
 
 // load all gulp plugins
 const plugins = loadPlugins({

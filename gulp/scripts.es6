@@ -37,8 +37,6 @@ module.exports = function(gulp, plugins, env) {
             'transform': ['babelify', 'brfs', 'bulkify', 'envify']
         }));
 
-        process.env.BEACON_URL = '//' + config.server.domain + '/beacon';
-
         bundler.rebuild = function(errCb) {
             return bundler.bundle()
                 .on('error', plugins.notify.onError(function(err) {
