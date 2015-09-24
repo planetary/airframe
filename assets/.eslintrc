@@ -1,0 +1,28 @@
+{
+    "extends": "../.eslintrc",
+
+    "ecmaFeatures": {
+        "generators": false
+    },
+
+    "globals": {
+        "React": true,
+        "S": true,
+        "R": true,
+        "C": true,
+        "V": true,
+        "process": true # set by node-envify
+    },
+
+    "env": {
+        "browser": true,
+        "node": false,
+        "es6": false,
+        "commonjs": true,
+        "jquery": true
+    },
+
+    "rules": {
+        "no-alert": 1
+    }
+}
