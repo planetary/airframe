@@ -40,10 +40,14 @@ module.exports = function(gulp, plugins, env) {
     });
 
 
-    gulp.task('watch:styles', 'waits for scss files to change, then rebuilds ' +
-                              'them', ['build:styles'], function() {
-        gulp.watch(paths.watch, ['build:styles']);
-    });
+    gulp.task(
+        'watch:styles',
+        'waits for scss files to change, then rebuilds them',
+        ['build:styles'],
+        function() {
+            gulp.watch(paths.watch, ['build:styles']);
+        }
+    );
 
 
     gulp.task('lint:styles', 'lints all non-vendor scss files against scss-lint.yml', function() {

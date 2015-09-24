@@ -17,8 +17,11 @@ module.exports = function(gulp, plugins) {
     });
 
 
-    gulp.task('watch:fonts', 'watches the source fonts for changes and moves them to the build ' +
-                             'folder when they do', ['build:fonts'], function() {
-        gulp.watch(paths, ['build:fonts']);
-    });
+    gulp.task(
+        'watch:fonts',
+        'watches the source fonts for changes and moves them to the build folder when they do',
+        ['build:fonts'], function() {
+            gulp.watch(paths, ['build:fonts']);
+        }
+    );
 };

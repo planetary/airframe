@@ -63,32 +63,38 @@ module.exports = function(gulp, plugins, env) {
     });
 
 
-    gulp.task('build:scripts', 'bundles all client-side javascript files into the build folder ' +
-                               'via browserify', function(next) {
-        let count = outputs.length;
-        let failed = 0;
+    gulp.task(
+        'build:scripts',
+        'bundles all client-side javascript files into the build folder via browserify',
+        function(next) {
+            let count = outputs.length;
+            let failed = 0;
 
-        outputs.forEach(function(output) {
-            output.rebuild(function() {
-                failed++;
-            }).on('finish', function() {
-                if(--count === 0)
-                    return next(failed > 0
-                        ? new Error(failed + ' bundle(s) have failed')
-                        : null
-                    );
+            outputs.forEach(function(output) {
+                output.rebuild(function() {
+                    failed++;
+                }).on('finish', function() {
+                    if(--count === 0)
+                        return next(failed > 0
+                            ? new Error(failed + ' bundle(s) have failed')
+                            : null
+                        );
+                });
             });
-        });
-    });
+        }
+    );
 
 
-    gulp.task('watch:scripts', 'waits for client-side javascript files to change, then rebuilds ' +
-                               'them', function() {
-        outputs.forEach(function(output) {
-            watchify(output).on('update', output.rebuild);
-            output.rebuild();
-        });
-    });
+    gulp.task(
+        'watch:scripts',
+        'waits for client-side javascript files to change, then rebuilds them',
+        function() {
+            outputs.forEach(function(output) {
+                watchify(output).on('update', output.rebuild);
+                output.rebuild();
+            });
+        }
+    );
 
 
     gulp.task('lint:scripts', 'lints all non-vendor js(x) files against .eslintrc', function() {

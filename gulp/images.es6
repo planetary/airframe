@@ -21,8 +21,12 @@ module.exports = function(gulp, plugins, env) {
     });
 
 
-    gulp.task('watch:images', 'watches the source images folders and recompresses them when ' +
-                              'changed', ['build:images'], function() {
-        gulp.watch(paths, ['build:images']);
-    });
+    gulp.task(
+        'watch:images',
+        'watches the source images folders and recompresses them when changed',
+        ['build:images'],
+        function() {
+            gulp.watch(paths, ['build:images']);
+        }
+    );
 };
