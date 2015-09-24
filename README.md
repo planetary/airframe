@@ -13,9 +13,11 @@ compilation, and `browserify` for Javascript compilation.
 In addition to the compilation tasks, Airframe includes:
 * A clear, concise default folder structure that is suggested but not prescribed.
 * A small amount of default SCSS for normalization and to provide basic grid functionality.
-* Two `browserify` transforms: [`bulkify`](https://github.com/substack/bulkify) which allow you to
-  glob entire folders of client-side JS and [`brfs`](https://github.com/substack/brfs) which allows
-  you to use `fs.readFile[Sync]` from client-side JS.
+* Four `browserify` transforms:
+  * [`babelify`](https://github.com/babel/babelify): allows you to write ES6 on the frontend
+  * [`brfs`](https://github.com/substack/brfs): allows you to use `fs.readFile[Sync]`
+  * [`bulkify`](https://github.com/substack/bulkify): allows you to glob entire folders
+  * [`envify`](https://github.com/hughsk/envify): allows you to use `process.env` in frontend code
 * A default style guide (at `/styles`) that can be used as a jumping-off point for design.
 
 ### Getting Started
