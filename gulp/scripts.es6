@@ -1,8 +1,8 @@
 const browserify = require('browserify');
 const browserSync = require('browser-sync');
+const extend = require('deep-extend');
 const buffer = require('vinyl-buffer');
 const source = require('vinyl-source-stream');
-const extend = require('util-extend');
 const watchify = require('watchify');
 
 
