@@ -14,7 +14,7 @@ const plugins = loadPlugins({
 
 // initialize gulp
 const gulp = plugins.help(gulpFactory);
-const env = process.env.NODE_ENV;
+const env = process.env.NODE_ENV || 'local';
 
 gulp.inputPath = path.resolve(__dirname, '../assets');
 gulp.outputPath = path.resolve(__dirname, '../build');
