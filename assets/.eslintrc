@@ -6,11 +6,6 @@
     },
 
     "globals": {
-        "React": true,
-        "S": true,
-        "R": true,
-        "C": true,
-        "V": true,
         "process": true # set by node-envify
     },
 
