@@ -19,7 +19,7 @@ module.exports = function(gulp) {
                 'port': ports.frontend,
                 'files': path.join('.', gulp.outputPath, '**', '*'),
                 'proxy': 'http://localhost:' + ports.backend,
-
+                'tunnel': true,
                 // Stop the browser from automatically opening
                 'open': false
             });
