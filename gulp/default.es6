@@ -5,7 +5,7 @@ module.exports = function(gulp) {
         'default',
         'builds the site, serves it locally and redeploys when files are changed',
         function() {
-            runSequence('serve', 'build');
+            runSequence('serve', 'watch');
         }
     );
 };
