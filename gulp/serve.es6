@@ -14,14 +14,18 @@ module.exports = function(gulp) {
     gulp.task(
         'serve:browsersync',
         'proxies the localhost server via BrowserSync to dynamically update assets',
-        function() {
-            browserSync({
-                'port': ports.frontend,
-                'files': path.join('.', gulp.outputPath, '**', '*'),
-                'proxy': 'http://localhost:' + ports.backend,
-                'tunnel': true,
-                // Stop the browser from automatically opening
-                'open': false
+        function(cb) {
+            return new Promise(function(resolve, reject) {
+                browserSync.init({
+                    'port': ports.frontend,
+                    'files': path.join('.', gulp.outputPath, '**', '*'),
+                    'proxy': 'http://localhost:' + ports.backend,
+                    'tunnel': true,
+                    // Stop the browser from automatically opening
+                    'open': false
+                }, function() {
+                    resolve();
+                });
             });
         }
     );

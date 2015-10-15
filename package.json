@@ -63,5 +63,7 @@
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.2.3"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "run-sequence": "^1.1.4"
+  }
 }
