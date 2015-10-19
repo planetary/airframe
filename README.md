@@ -35,25 +35,28 @@ Run `gulp` to continuously watch and re-build the project. Airframe will automat
 from the `build` folder at `localhost:3000`.
 
 ### Gulp Tasks
-| Task            | Description                                                                   |
-| --------------- | ----------------------------------------------------------------------------- |
-| build           | builds all the registered static resources from `assets` into `build`         |
-| build:fonts     | moves fonts to the build folder                                               |
-| build:images    | compresses images and moves them to the build folder                          |
-| build:scripts   | bundles all client-side javascript files into the build folder via browserify |
-| build:styles    | compiles all scss files into the build folder                                 |
-| build:templates | compiles the jade templates to the build folder                               |
-| default         | builds the site, serves it locally and redeploys when files are changed       |
-| help            | displays this help text.                                                      |
-| lint            | runs all registered linters and out prints any detected issues                |
-| lint:scripts    | lints all non-vendor js files against `.jshintrc` and `.jscsrc`               |
-| lint:styles     | lints all non-vendor scss files against `scss-lint.yml`                       |
-| watch           | watches all the known files for changes and recompiles them when they do      |
-| watch:fonts     | watches the source fonts for changes and moves them to the build folder       |
-| watch:images    | watches the source images folders and recompresses them when changed          |
-| watch:scripts   | waits for client-side javascript files to change, then rebuilds them          |
-| watch:styles    | waits for scss files to change, then rebuilds them into the build folder      |
-| watch:templates | watches the templates folder for changes and recompiles them                  |
+| Task              |  Description                                                                           |
+| ----------------- |  ------------------------------------------------------------------------------------- |
+| build             |  builds all the registered static resources from assets into build                     |
+| build:fonts       |  moves fonts to the build folder                                                       |
+| build:images      |  compresses images and moves them to the build folder                                  |
+| build:scripts     |  bundles all client-side javascript files into the build folder via browserify         |
+| build:styles      |  compiles all scss files into the build folder                                         |
+| build:templates   |  compiles the jade templates to the build folder                                       |
+| clean             |  deletes all build artifacts                                                           |
+| default           |  builds the site, serves it locally and redeploys when files are changed               |
+| help              |  Display this help text.                                                               |
+| lint              |  runs all registered linters and out prints any detected issues                        |
+| lint:scripts      |  lints all non-vendor js(x) files against .eslintrc                                    |
+| lint:styles       |  lints all non-vendor scss files against scss-lint.yml                                 |
+| serve             |  serves static templates locally                                                       |
+| serve:browsersync |  proxies the localhost server via BrowserSync to dynamically update assets             |
+| watch             |  waits for changes in project files and attempts to rebuild them                       |
+| watch:fonts       |  watches the source fonts for changes and moves them to the build folder when they do  |
+| watch:images      |  watches the source images folders and recompresses them when changed                  |
+| watch:scripts     |  waits for client-side javascript files to change, then rebuilds them                  |
+| watch:styles      |  waits for scss files to change, then rebuilds them                                    |
+| watch:templates   |  watches the templates folder for changes and recompiles them                          |
 
 Run `gulp help` at any time to see this list of tasks.
 
