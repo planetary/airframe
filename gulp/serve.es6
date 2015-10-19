@@ -22,9 +22,7 @@ module.exports = function(gulp) {
                 'tunnel': true,
                 // Stop the browser from automatically opening
                 'open': false
-            }, function() {
-                cb();
-            });
+            }, cb);
         }
     );
 
