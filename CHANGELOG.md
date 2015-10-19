@@ -1,6 +1,8 @@
 v1.1.0
-  date: 2015-09-24
+  date: 2015-10-19
   changes:
+    - add BrowserSync serving support 
+    - improved CSS component styling
     - convert tasks to es6 (via babel)
     - change js linter to eslint (better jsx support)
     - change gulp task registration format from `(gulp, plugins, path)` to `(gulp, plugins, env)`
