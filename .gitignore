@@ -1,8 +1,11 @@
-# built project folder
+# generated files
 build
+rev-manifest.json
 
-# node libraries
+
+# dependencies
 node_modules
+
 
 # osx noise
 .DS_Store

@@ -1,0 +1,328 @@
+extends /layouts/default
+
+block title
+    | Airframe Style Guide
+
+block content
+    .g--container
+        span.sg--component-label Kitchen Sink
+        h1#headings Headings
+        h1 Heading 1
+        h2 Heading 2
+        h3 Heading 3
+        h4 Heading 4
+        h5 Heading 5
+        h6 Heading 6
+        hr
+        h1#headings-with-text Headings with Text
+        h1 Heading 1
+        p.
+            Lorem ipsum dolor sit amet, adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl.
+        h2 Heading 2
+        p.
+            Lorem ipsum dolor sit amet, adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl.
+        h3 Heading 3
+        p.
+            Lorem ipsum dolor sit amet, adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl.
+        h4 Heading 4
+        p.
+            Lorem ipsum dolor sit amet, adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl.
+        h5 Heading 5
+        p.
+            Lorem ipsum dolor sit amet, adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl.
+        h6 Heading 6
+        p.
+            Lorem ipsum dolor sit amet, adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl.
+        hr
+        h1#paragraph Paragraph
+        p.
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui. Nam sit amet sem.
+        p.
+            Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus. Maecenas ornare tortor.
+        p
+            img(alt='Placeholder Image and Some Alt Text', src='http://placehold.it/350x150', title='A title element for this placeholder image.')
+        p.
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui. Nam sit amet sem.
+        blockquote.
+            "This is a blockquote. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl."
+        hr
+        h1#text-elements  Text Elements
+        p
+            | The
+            a(href='#') a element
+            |  example
+        p
+            | The
+            abbr abbr element
+            |  and an
+            abbr(title='Abbreviation') abbr
+            |  element with title examples
+        p
+            | The
+            acronym(title='A Cowboy Ran One New York Marathon') ACRONYM
+            |  element example
+        p
+            | The
+            b b element
+            |  example
+        p
+            | The
+            cite cite element
+            |  example
+        p
+            | The
+            code code element
+            |  example
+        p
+            | The
+            em em element
+            |  example
+        p
+            | The
+            del del element
+            |  example
+        p
+            | The
+            dfn dfn element
+            |  and
+            dfn(title='Title text') dfn element with title
+            |  examples
+        p
+            | The
+            i i element
+            |  example
+        p
+            | The
+            ins ins element
+            |  example
+        p
+            | The
+            kbd kbd element
+            |  example
+        p
+            | The
+            mark mark element
+            |  example
+        p
+            | The
+            q q element
+            |  example
+        p
+            | The
+            q
+                | q element
+                q inside
+                |  a q element
+            |  example
+        p
+            | The
+            s s element
+            |  example
+        p
+            | The
+            samp samp element
+            |  example
+        p
+            | The
+            small small element
+            |  example
+        p
+            | The
+            strong strong element
+            |  example
+        p
+            | The
+            sub sub element
+            |  example
+        p
+            | The
+            sup sup element
+            |  example
+        p
+            | The
+            u u element
+            |  example
+        p
+            | The
+            var var element
+            |  example
+        hr
+        h1#monospace Monospace / Preformatted
+        p Code block wrapped in "pre" and "code" tags
+        pre
+            code.
+                // Loop through Divs using Javascript.
+                var divs = document.querySelectorAll('div'), i;
+
+                for (i = 0; i < divs.length; ++i) {
+                  divs[i].style.color = "green";
+                }
+
+        p Monospace Text wrapped in "pre" tags
+        pre.
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam dignissim convallis est. Quisque aliquam.Donec faucibus. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl.
+        hr
+        h1#list_types List Types
+        h3 Ordered List
+        ol
+            li List Item 1
+            li List Item 2
+            li List Item 3
+        h3 Unordered List
+        ul
+            li List Item 1
+            li List Item 2
+            li List Item 3
+        h3 Definition List
+        dl
+            dt Definition List Term 1
+            dd This is a definition list description.
+            dt Definition List Term 2
+            dd This is a definition list description.
+            dt Definition List Term 3
+            dd This is a definition list description.
+        hr
+        h1#tables Tables
+        table(cellspacing='0', cellpadding='0')
+            thead
+                tr
+                    th Table Header 1
+                    th Table Header 2
+                    th Table Header 3
+            tbody
+                tr
+                    td Division 1
+                    td Division 2
+                    td Division 3
+                tr
+                    td Division 1
+                    td Division 2
+                    td Division 3
+                tr
+                    td Division 1
+                    td Division 2
+                    td Division 3
+        hr
+        h1#form_elements Media and Form Elements
+        h2 Media
+        p The Audio Element:
+        audio(controls='')
+            source(src='http://www.w3schools.com/tags/horse.ogg', type='audio/ogg')
+            source(src='http://www.w3schools.com/tags/horse.mp3', type='audio/mpeg')
+            |   Your browser does not support the audio element.
+        p The Video Element:
+        video(width='320', height='240', controls='')
+            source(src='http://www.w3schools.com/tags/movie.mp4', type='video/mp4')
+            source(src='http://www.w3schools.com/tags/movie.ogg', type='video/ogg')
+            |   Your browser does not support the video tag.
+        h2 Form Elements
+        p The Fieldset:
+        fieldset
+            legend Legend
+            form
+                label(for='text_field') Text Field:
+                input#text_field(type='text')
+                label(for='text_field_disabled') Disabled Text Field:
+                input.is-disabled#text_field_disabled(type='text', disabled='', value="I'm disabled")
+                label(for='text_field_readonly') Readonly Text Field:
+                input#text_field_readonly(type='text', readonly='', value="I'm readonly")
+                label(for='text_area') Text Area:
+                textarea#text_area
+                label(for='text_area_disabled') Disabled Text Area:
+                textarea#text_area_disabled.is-disabled(disabled='') I'm disabled
+                label(for='text_area') Readonly Text Area:
+                textarea#text_area(readonly='') I'm readonly
+                label(for='select_element') Select Element:
+                .form--select
+                    select#select_element
+                        optgroup(label='Option Group 1')
+                            option(value='1') Option 1
+                            option(value='2') Option 2
+                        optgroup(label='Option Group 2')
+                            option(value='1') Option 1
+                            option(value='2') Option 2
+                            option.is-disabled(value='3', disabled='') Disabled Option
+                label(for='select_element_disabled') Disabled Select Element:
+                .form--select
+                    select#select_element_disabled(disabled='').is-disabled
+                        option(value='1') Unselectable Option
+                        option(value='2') This option should not even be seen
+                | Radio Buttons:
+                .form--radio
+                    label
+                        input(type='radio', name='radio_button', value='radio_1')
+                        span Radio 1
+                .form--radio
+                    label
+                        input(type='radio', name='radio_button', value='radio_2')
+                        span Radio 2
+                .form--radio
+                    label
+                        input(type='radio', name='radio_button', value='radio_3')
+                        span Radio 3
+                .form--radio.is-disabled
+                    label
+                        input(type='radio', name='radio_button', value='radio_4', disabled='')
+                        span Disabled Radio
+                | Checkboxes:
+                .form--checkbox
+                    label
+                        input(type='checkbox', name='checkboxes', value='check_1')
+                        span Checkbox 1
+                .form--checkbox
+                    label
+                        input(type='checkbox', name='checkboxes', value='check_2')
+                        span Checkbox 2
+                .form--checkbox
+                    label
+                        input(type='checkbox', name='checkboxes', value='check_3')
+                        span Checkbox 3
+                .form--checkbox.is-disabled
+                    label
+                        input(type='checkbox', name='checkboxes', value='check_4', disabled='')
+                        span Checkbox Disabled
+                label(for='password') Password:
+                input#password.password(type='password')
+                label(for='file') File Input:
+                input#file.file(type='file')
+                h3 HTML5-specific Form Elements
+
+                label(for='email') Email:
+                input#email(type='email')
+
+                label(for='url') URL:
+                input#url(type='url')
+
+                label(for='tel') Telephone:
+                input#tel(type='tel')
+
+                label(for='number') Number:
+                input#number(type='number', min='0', max='10', step='1', value='5')
+
+                label(for='search') Search:
+                input#search(type='search')
+
+                label(for='date') Date:
+                input#date(type='date')
+
+                label(for='time') Time:
+                input#time(type='time')
+
+                label(for='color') Color:
+                input#color(type='color')
+
+                label(for='datalist') Datalist:
+                input#datalist(list='browsers', name='browser', type='datalist')
+                datalist#browsers
+                    option(value='Internet Explorer')
+                    option(value='Firefox')
+                    option(value='Chrome')
+                    option(value='Opera')
+                    option(value='Safari')
+
+                label(for='range') Range:
+                input#range(type='range', name='points', min='1', max='10')
+
+                button.button Button Element
+                input.button(type='reset', value='Clear')
+                input.button(type='submit', value='Submit')
