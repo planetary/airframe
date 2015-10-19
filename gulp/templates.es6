@@ -19,7 +19,6 @@ module.exports = function(gulp, plugins) {
     gulp.task(
         'build:templates',
         'compiles the jade templates to the build folder',
-        ['build:styles', 'build:scripts', 'build:images'],
         function() {
             return gulp.src(paths.build)
                 .pipe(plugins.jade({'basedir': path.join(gulp.inputPath, 'templates')}))
