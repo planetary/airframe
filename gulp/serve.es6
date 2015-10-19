@@ -14,7 +14,7 @@ module.exports = function(gulp) {
     gulp.task(
         'serve:browsersync',
         'proxies the localhost server via BrowserSync to dynamically update assets',
-        function(cb) {
+        function(next) {
             browserSync.init({
                 'port': ports.frontend,
                 'files': false,
@@ -22,7 +22,7 @@ module.exports = function(gulp) {
                 'tunnel': true,
                 // Stop the browser from automatically opening
                 'open': false
-            }, cb);
+            }, next);
         }
     );
 
