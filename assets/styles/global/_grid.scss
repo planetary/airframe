@@ -35,7 +35,8 @@ $corner-radius: 4px;
 
 .g--container {
     margin: 0 auto;
-    width: $grid-width;
+    width: 100%;
+    max-width: $grid-width;
 }
 
 .g--row {
