@@ -1,7 +1,6 @@
 const browserSync = require('browser-sync');
 const ecstatic = require('ecstatic');
 const http = require('http');
-const path = require('path');
 
 
 module.exports = function(gulp) {
@@ -15,7 +14,7 @@ module.exports = function(gulp) {
         'serve:browsersync',
         'proxies the localhost server via BrowserSync to dynamically update assets',
         function(next) {
-            var bs = browserSync.init({
+            const bs = browserSync.init({
                 'port': ports.frontend,
                 'files': false,
                 'proxy': 'http://localhost:' + ports.backend,
