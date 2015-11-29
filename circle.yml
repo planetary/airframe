@@ -4,6 +4,8 @@ machine:
     environment:
         NODE_ENV: testing
         DISABLE_NOTIFIER: true
+    post:
+      - npm install -g npm@3.x.x
 dependencies:
     override:
         - gem install scss_lint
@@ -11,6 +13,7 @@ dependencies:
 test:
     override:
         - node_modules/.bin/gulp lint
+        - npm test
         - node_modules/.bin/gulp build
 deployment:
     gh-pages:
