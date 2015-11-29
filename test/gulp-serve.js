@@ -40,8 +40,8 @@ describe('gulp serve', function() {
                 }
             })(gulp);
 
-            assert(gulp.tasks.serve.dep.length === 1);
-            assert(gulp.tasks.serve.dep[0] === 'serve:browsersync');
+            assert(gulp.tasks.serve.dep.length, 1);
+            assert(gulp.tasks.serve.dep[0], 'serve:browsersync');
 
             gulp.start(['serve']);
         });

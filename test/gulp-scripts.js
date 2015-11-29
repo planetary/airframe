@@ -22,7 +22,7 @@ describe('gulp scripts', function() {
         });
 
         it('should attempt to build all scripts and notify on success', function(done) {
-            require('../gulp/scripts')(gulp, plugins, env);
+            require('../gulp/scripts')(gulp, plugins, 'local');
 
             gulp.task('test:build:scripts', ['build:scripts'], function() {
                 done();
@@ -47,6 +47,13 @@ describe('gulp scripts', function() {
                     };
                     return browserify;
                 },
+                browserSync: {
+                    reload: function() {
+                        return through.obj(function(file, enc, cb) {
+                            return cb();
+                        });
+                    }
+                },
                 paths: {
                     build: {
                         'scripts/bundle.js': ['assets/scripts/index.js'],
@@ -54,7 +61,7 @@ describe('gulp scripts', function() {
                     }
                 }
             });
-            scripts(gulp, plugins, env);
+            scripts(gulp, plugins, 'local');
 
             gulp.task('test:build:scripts', ['build:scripts'], function() {
                 assert(bundleCount === 2);
@@ -92,7 +99,7 @@ describe('gulp scripts', function() {
                     return require('browserify').apply(this, args);
                 }
             });
-            scripts(gulp, plugs, env);
+            scripts(gulp, plugs, 'local');
 
             gulp.start(['build:scripts']);
         });
@@ -132,7 +139,7 @@ describe('gulp scripts', function() {
                     };
                 }
             });
-            scripts(gulp, plugs, env);
+            scripts(gulp, plugs, 'local');
 
             gulp.task('test:watch:scripts', ['watch:scripts'], function() {
                 assert.ok(gotError);
@@ -163,7 +170,7 @@ describe('gulp scripts', function() {
                     };
                 }
             });
-            scripts(gulp, plugins, env);
+            scripts(gulp, plugins, 'local');
 
             gulp.task('test:watch:scripts', ['watch:scripts'], function() {
                 assert(outputs.length > 0);

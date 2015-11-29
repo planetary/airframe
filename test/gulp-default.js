@@ -8,7 +8,7 @@ describe('gulp default', function() {
     describe('default', function() {
         it('should attempt to serve and watch all requisite files', function(done) {
             proxyquire('../gulp/default', {'run-sequence': function() {
-                assert(arguments.length === 2);
+                assert(arguments.length, 2);
 
                 var args = Array.prototype.slice.apply(arguments);
                 assert.notEqual(args.indexOf('serve'), -1);

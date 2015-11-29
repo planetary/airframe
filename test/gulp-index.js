@@ -4,35 +4,43 @@ var proxyquire = require('proxyquire');
 
 describe('gulp', function() {
     describe('loader', function() {
-        var fs;
-
-        before(function() {
-            fs = mock.fs({
+        it('should run without a NODE_ENV defined', function(done) {
+            var fs = mock.fs({
                 'package.json': '{}',
                 'gulp': {
-                    'index.es6': 'module.exports = {};',
-                    'subdir': {
-                        'index.es6': 'gulp.task("test:subdir", function(){});'
-                    }
+                    'index.es6': 'module.exports = {};'
                 }
             });
-        });
 
-        after(function() {
+            var index = proxyquire('../gulp/index', {'fs': fs}).index({NODE_ENV: null});
+            assert(index.env, 'local');
+            done();
             mock.restore();
         });
 
         it('should attempt to load all sibling and child gulp tasks in ./gulp dir',
             function(done) {
+                var fs = mock.fs({
+                    'package.json': '{}',
+                    'gulp': {
+                        'index.es6': 'module.exports = {};',
+                        'subdir': {
+                            'index.es6': 'gulp.task("test:subdir", function(){});'
+                        }
+                    }
+                });
+
                 try {
-                    proxyquire('../gulp/index', {'fs': fs});
+                    proxyquire('../gulp/index', {'fs': fs}).index(process.env);
 
                     // This should fail because the index file should attempt to `require()` subdir
                     // and consequently fail (because mock-fs doesn't overwrite require).
                     assert.fail();
                 } catch(err) {
-                    assert(err.message === "Cannot find module './subdir'");
+                    assert(err.message, "Cannot find module './subdir'");
                     done();
+                } finally {
+                    mock.restore();
                 }
             }
         );
