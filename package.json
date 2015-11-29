@@ -23,7 +23,8 @@
   },
   "scripts": {
     "test": "./node_modules/.bin/mocha --compilers js:babel/register",
-    "coverage": "./node_modules/.bin/babel-istanbul cover --report text --report html ./node_modules/.bin/_mocha"
+    "coverage": "./node_modules/.bin/babel-istanbul cover --report text --report html ./node_modules/.bin/_mocha",
+    "check-coverage": "./node_modules/.bin/babel-istanbul check-coverage --statements 100 --functions 100 --branches 100 --lines 100"
   },
   "dependencies": {
     "babel": "^5.8.34",

@@ -13,8 +13,12 @@ dependencies:
 test:
     override:
         - node_modules/.bin/gulp lint
-        - npm test
+        - npm run coverage
+        - npm run check-coverage
         - node_modules/.bin/gulp build
+general:
+    artifacts:
+        - ./coverage
 deployment:
     gh-pages:
         branch: website
