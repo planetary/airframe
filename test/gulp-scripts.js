@@ -64,7 +64,7 @@ describe('gulp scripts', function() {
             scripts(gulp, plugins, 'local');
 
             gulp.task('test:build:scripts', ['build:scripts'], function() {
-                assert(bundleCount === 2);
+                assert.equal(bundleCount, 2);
                 done();
             });
 

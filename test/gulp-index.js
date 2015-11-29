@@ -13,7 +13,7 @@ describe('gulp', function() {
             });
 
             var index = proxyquire('../gulp/index', {'fs': fs}).index({NODE_ENV: null});
-            assert(index.env, 'local');
+            assert.equal(index.env, 'local');
             done();
             mock.restore();
         });
@@ -37,7 +37,7 @@ describe('gulp', function() {
                     // and consequently fail (because mock-fs doesn't overwrite require).
                     assert.fail();
                 } catch(err) {
-                    assert(err.message, "Cannot find module './subdir'");
+                    assert.equal(err.message, "Cannot find module './subdir'");
                     done();
                 } finally {
                     mock.restore();

@@ -9,7 +9,7 @@ describe('gulp fonts', function() {
             var watch = gulp.watch; // store gulp's watch method
 
             gulp.watch = function(paths, tasklist) {
-                assert(paths.length, 1);
+                assert.equal(paths.length, 1);
                 assert.notEqual(paths.indexOf('assets/fonts/**/*'), -1);
                 assert.notEqual(tasklist.indexOf('build:fonts'), -1);
 

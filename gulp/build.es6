@@ -21,7 +21,7 @@ module.exports = function(gulp, plugins, env) {
 
         gulp.src(path.join(gulp.outputPath, '**', '*'))
             .pipe(plugins.filter(function(file) {
-                return !/(\.[0-9a-f]{8}\..{2,}|rev-manifest.json|\.map)$/.test(file.path);
+                return !/(\.[0-9a-f]{8}\..{2,}|rev-manifest\.json|\.map)$/.test(file.path);
             }))
             .pipe(rev.revision())
             .pipe(gulp.dest(gulp.outputPath))

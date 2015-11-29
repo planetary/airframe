@@ -8,8 +8,8 @@ describe('gulp clean', function() {
     describe('clean', function() {
         it('should attempt to delete all files in the build folder', function(done) {
             proxyquire('../gulp/clean', {'del': function(path) {
-                assert(path.length, 1);
-                assert(path[0], path.join(gulp.outputPath, '**', '*'));
+                assert.equal(path.length, 1);
+                assert.equal(path[0], path.join(gulp.outputPath, '**', '*'));
                 done();
             }})(gulp);
 

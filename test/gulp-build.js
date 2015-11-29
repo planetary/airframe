@@ -59,5 +59,32 @@ describe('gulp build', function() {
             });
             gulp.start(['test:build:has-rev-manifest']);
         });
+
+        it('should filter out non-revvable files when running revAll', function(done) {
+            this.timeout(10000);
+
+            var plugs = copyAllProperties(plugins, {});
+            plugs.revAll = function() {
+                var ra = new plugins.revAll(arguments[0]);
+                ra.manifestFile = function() {
+                    return through.obj(function(file, enc, cb) {
+                        return cb();
+                    });
+                };
+
+                return ra;
+            };
+            plugs.filter = function(func) {
+                assert.equal(func({path: 'rev-manifest.json'}), false);
+                assert.equal(func({path: 'file.js.map'}), false);
+                assert.equal(func({path: 'file.abcdef01.js'}), false);
+                assert.equal(func({path: 'file.js'}), true);
+                done();
+            };
+
+            build(gulp, plugs, 'production');
+
+            gulp.start(['build']);
+        });
     });
 });

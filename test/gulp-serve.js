@@ -7,11 +7,11 @@ describe('gulp serve', function() {
         it('should start BrowserSync with the correct options', function(done) {
             proxyquire('../gulp/serve', {'browser-sync': {
                 init: function(opts) {
-                    assert(typeof opts.port !== 'undefined');
-                    assert(opts.files === false);
-                    assert(opts.proxy.match('http://localhost:'));
-                    assert(opts.tunnel === true);
-                    assert(opts.open === false);
+                    assert.notEqual(typeof opts.port, 'undefined');
+                    assert.equal(opts.files, false);
+                    assert.ok(opts.proxy.match('http://localhost:'));
+                    assert.equal(opts.tunnel, true);
+                    assert.equal(opts.open, false);
                     done();
                 }
             }})(gulp);
@@ -30,7 +30,7 @@ describe('gulp serve', function() {
                 },
                 'http': {
                     createServer: function() {
-                        assert(arguments[0].name === 'middleware');
+                        assert.equal(arguments[0].name, 'middleware');
                         done();
 
                         return {
@@ -40,8 +40,8 @@ describe('gulp serve', function() {
                 }
             })(gulp);
 
-            assert(gulp.tasks.serve.dep.length, 1);
-            assert(gulp.tasks.serve.dep[0], 'serve:browsersync');
+            assert.equal(gulp.tasks.serve.dep.length, 1);
+            assert.equal(gulp.tasks.serve.dep[0], 'serve:browsersync');
 
             gulp.start(['serve']);
         });
