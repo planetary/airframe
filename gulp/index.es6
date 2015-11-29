@@ -35,3 +35,5 @@ for(const filename of fs.readdirSync(__dirname)) {
             require('./' + file)(gulp, plugins, env);
     }
 }
+
+module.exports = {gulp, plugins, env};
