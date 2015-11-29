@@ -86,7 +86,7 @@ textarea {
     border-radius: 1rem;
     position: relative;
 
-    &:before {
+    &::before {
         content: '';
         display: block;
         width: 0.25rem;
@@ -110,7 +110,7 @@ textarea {
         outline: none;
         border-color: $aqua;
 
-        +span:after {
+        + span::after {
             content: '\2190';
             color: $aqua;
             display: inline-block;
@@ -121,7 +121,6 @@ textarea {
 
 .form--radio,
 .form--checkbox {
-
     label {
         font-weight: $weight-normal;
 
