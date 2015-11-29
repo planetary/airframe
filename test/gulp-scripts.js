@@ -135,7 +135,8 @@ describe('gulp scripts', function() {
             scripts(gulp, plugs, env);
 
             gulp.task('test:watch:scripts', ['watch:scripts'], function() {
-                done(!gotError);
+                assert.ok(gotError);
+                done();
             });
 
             gulp.start(['test:watch:scripts']);
