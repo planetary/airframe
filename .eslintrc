@@ -1,8 +1,4 @@
 {
-    "plugins": [
-        "shadow-exception"
-    ],
-
     "ecmaFeatures": {
         "arrowFunctions": true,
         "binaryLiterals": false,
@@ -111,11 +107,7 @@
         "no-script-url": 1,
         "no-self-compare": 1,
         "no-sequences": 1,
-        "no-shadow": 0,
-        "shadow-exception/no-shadow": [1, {"exceptions": {
-            "err": true,
-            "next": true
-        }}],
+        "no-shadow": [1, {"allow": ["err", "next"]}],
         "no-shadow-restricted-names": 1,
         "no-spaced-func": 1,
         "no-sparse-arrays": 1,
