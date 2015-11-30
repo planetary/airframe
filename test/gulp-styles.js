@@ -23,6 +23,8 @@ describe('gulp styles', function() {
         });
 
         it('should attempt to build all scss files and notify on success', function(done) {
+            this.timeout(3000);
+
             require('../gulp/styles')(gulp, plugins, env);
 
             gulp.task('test:build:styles', ['build:styles'], function() {
@@ -33,6 +35,8 @@ describe('gulp styles', function() {
         });
 
         it('should fail gracefully when gulp-scss throws an error', function(done) {
+            this.timeout(3000);
+
             var notify = function() {
                 return through.obj(function(file, enc, cb) {
                     return cb(
