@@ -1,4 +1,4 @@
-var assert = require('assert');
+var chai = require('chai');
 var mockGulpDest = require('mock-gulp-dest');
 var through = require('through2');
 
@@ -7,6 +7,8 @@ var tasks = require('../gulp');
 var gulp = tasks.gulp;
 var plugins = tasks.plugins;
 var env = tasks.env;
+
+chai.should();
 
 describe('gulp templates', function() {
     var mock;
@@ -37,9 +39,9 @@ describe('gulp templates', function() {
                     lineNumber: 0
                 });
 
-                assert.ok(result.match('test'));
-                assert.ok(result.match('file.jade'));
-                assert.ok(result.match('0'));
+                result.match('test').should.be.ok;
+                result.match('file.jade').should.be.ok;
+                result.match('0').should.be.ok;
 
                 return function() {
                     done();
@@ -67,9 +69,9 @@ describe('gulp templates', function() {
             var watch = gulp.watch; // store gulp's watch method
 
             gulp.watch = function(paths, tasklist) {
-                assert.equal(paths.length, 1);
-                assert.notEqual(paths.indexOf('assets/templates/**/*.jade'), -1);
-                assert.notEqual(tasklist.indexOf('build:templates'), -1);
+                paths.length.should.equal(1);
+                paths.indexOf('assets/templates/**/*.jade').should.not.equal(-1);
+                tasklist.indexOf('build:templates').should.not.equal(-1);
 
                 gulp.watch = watch; // restore watch
                 done();

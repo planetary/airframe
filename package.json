@@ -65,11 +65,13 @@
   },
   "devDependencies": {
     "babel-istanbul": "^0.5.9",
+    "chai": "^3.4.1",
     "mocha": "^2.3.4",
     "mock-fs": "^3.5.0",
     "mock-gulp-dest": "^0.1.1",
     "proxyquire": "^1.7.3",
     "rewire": "^2.5.0",
-    "run-sequence": "^1.1.5"
+    "run-sequence": "^1.1.5",
+    "through2": "^2.0.0"
   }
 }

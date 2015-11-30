@@ -1,4 +1,4 @@
-var assert = require('assert');
+var chai = require('chai');
 var mockGulpDest = require('mock-gulp-dest');
 var through = require('through2');
 
@@ -7,6 +7,8 @@ var tasks = require('../gulp');
 var gulp = tasks.gulp;
 var plugins = tasks.plugins;
 var env = tasks.env;
+
+chai.should();
 
 describe('gulp styles', function() {
     describe('build:styles', function() {
@@ -45,9 +47,9 @@ describe('gulp styles', function() {
                     lineNumber: 0
                 });
 
-                assert.ok(result.match('test'));
-                assert.ok(result.match('file.es6'));
-                assert.ok(result.match('0'));
+                result.match('test').should.be.ok;
+                result.match('file.es6').should.be.ok;
+                result.match('0').should.be.ok;
 
                 return function() {
                     done();
@@ -75,9 +77,9 @@ describe('gulp styles', function() {
             var watch = gulp.watch; // store gulp's watch method
 
             gulp.watch = function(paths, tasklist) {
-                assert.equal(paths.length, 1);
-                assert.notEqual(paths.indexOf('assets/styles/**/*.scss'), -1);
-                assert.notEqual(tasklist.indexOf('build:styles'), -1);
+                paths.length.should.equal(1);
+                paths.indexOf('assets/styles/**/*.scss').should.not.equal(-1);
+                tasklist.indexOf('build:styles').should.not.equal(-1);
 
                 gulp.watch = watch; // restore watch
                 done();
@@ -110,8 +112,8 @@ describe('gulp styles', function() {
             require('../gulp/styles')(gulp, plugs, env);
 
             gulp.task('test:lint:styles', ['lint:styles'], function() {
-                assert.ok(called);
-                assert.ok(failReporter);
+                called.should.be.true;
+                failReporter.should.be.true;
                 done();
             });
 

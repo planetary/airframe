@@ -1,6 +1,8 @@
-var assert = require('assert');
+var chai = require('chai');
 var mock = require('mock-fs');
 var proxyquire = require('proxyquire');
+
+chai.should();
 
 describe('gulp', function() {
     describe('loader', function() {
@@ -13,7 +15,7 @@ describe('gulp', function() {
             });
 
             var index = proxyquire('../gulp/index', {'fs': fs}).index({NODE_ENV: null});
-            assert.equal(index.env, 'local');
+            index.env.should.equal('local');
             done();
             mock.restore();
         });
@@ -35,9 +37,9 @@ describe('gulp', function() {
 
                     // This should fail because the index file should attempt to `require()` subdir
                     // and consequently fail (because mock-fs doesn't overwrite require).
-                    assert.fail();
+                    done(new Error('Didn\'t require subdir.'));
                 } catch(err) {
-                    assert.equal(err.message, "Cannot find module './subdir'");
+                    err.message.should.equal('Cannot find module \'./subdir\'');
                     done();
                 } finally {
                     mock.restore();

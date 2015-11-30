@@ -1,4 +1,4 @@
-var assert = require('assert');
+var chai = require('chai');
 var mockGulpDest = require('mock-gulp-dest');
 var through = require('through2');
 
@@ -8,7 +8,7 @@ var tasks = require('../gulp');
 var gulp = tasks.gulp;
 var plugins = tasks.plugins;
 
-process.env.DISABLE_NOTIFIER = true;
+chai.should();
 
 describe('gulp build', function() {
     var mock;
@@ -54,7 +54,7 @@ describe('gulp build', function() {
             build(gulp, plugs, 'production');
 
             gulp.task('test:build:has-rev-manifest', false, ['build'], function() {
-                assert.ok(requestedManifest);
+                requestedManifest.should.be.true;
                 done();
             });
             gulp.start(['test:build:has-rev-manifest']);
@@ -75,10 +75,10 @@ describe('gulp build', function() {
                 return ra;
             };
             plugs.filter = function(func) {
-                assert.equal(func({path: 'rev-manifest.json'}), false);
-                assert.equal(func({path: 'file.js.map'}), false);
-                assert.equal(func({path: 'file.abcdef01.js'}), false);
-                assert.equal(func({path: 'file.js'}), true);
+                func({path: 'rev-manifest.json'}).should.be.false;
+                func({path: 'file.js.map'}).should.be.false;
+                func({path: 'file.abcdef01.js'}).should.be.false;
+                func({path: 'file.js'}).should.be.true;
                 done();
             };
 

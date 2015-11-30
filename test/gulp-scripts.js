@@ -1,4 +1,4 @@
-var assert = require('assert');
+var chai = require('chai');
 var mockGulpDest = require('mock-gulp-dest');
 var through = require('through2');
 var rewire = require('rewire');
@@ -8,6 +8,8 @@ var tasks = require('../gulp');
 var gulp = tasks.gulp;
 var plugins = tasks.plugins;
 var env = tasks.env;
+
+chai.should();
 
 describe('gulp scripts', function() {
     describe('build:scripts', function() {
@@ -64,7 +66,7 @@ describe('gulp scripts', function() {
             scripts(gulp, plugins, 'local');
 
             gulp.task('test:build:scripts', ['build:scripts'], function() {
-                assert.equal(bundleCount, 2);
+                bundleCount.should.equal(2);
                 done();
             });
 
@@ -82,7 +84,7 @@ describe('gulp scripts', function() {
                     message: 'test'
                 });
 
-                assert.ok(result.match('test'));
+                result.match('test').should.be.ok;
                 done();
 
                 return function() {};
@@ -142,7 +144,7 @@ describe('gulp scripts', function() {
             scripts(gulp, plugs, 'local');
 
             gulp.task('test:watch:scripts', ['watch:scripts'], function() {
-                assert.ok(gotError);
+                gotError.should.be.true;
                 done();
             });
 
@@ -173,8 +175,8 @@ describe('gulp scripts', function() {
             scripts(gulp, plugins, 'local');
 
             gulp.task('test:watch:scripts', ['watch:scripts'], function() {
-                assert(outputs.length > 0);
-                assert(outputs.length === watchOutputs.length);
+                outputs.length.should.be.greaterThan(0);
+                outputs.length.should.equal(watchOutputs.length);
                 done();
             });
 
@@ -199,7 +201,7 @@ describe('gulp scripts', function() {
                 });
             };
             plugs.eslint.failAfterError = function() {
-                assert.ok(called);
+                called.should.be.true;
                 done();
 
                 return through.obj(function(file, enc, cb) {

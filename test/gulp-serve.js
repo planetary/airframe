@@ -1,17 +1,19 @@
-var assert = require('assert');
+var chai = require('chai');
 var gulp = require('gulp-help')(require('gulp'));
 var proxyquire = require('proxyquire');
+
+chai.should();
 
 describe('gulp serve', function() {
     describe('serve:browsersync', function() {
         it('should start BrowserSync with the correct options', function(done) {
             proxyquire('../gulp/serve', {'browser-sync': {
                 init: function(opts) {
-                    assert.notEqual(typeof opts.port, 'undefined');
-                    assert.equal(opts.files, false);
-                    assert.ok(opts.proxy.match('http://localhost:'));
-                    assert.equal(opts.tunnel, true);
-                    assert.equal(opts.open, false);
+                    (typeof opts.port).should.not.equal('undefined');
+                    opts.files.should.be.false;
+                    opts.proxy.match('http://localhost:').should.be.ok;
+                    opts.tunnel.should.be.true;
+                    opts.open.should.be.false;
                     done();
                 }
             }})(gulp);
@@ -30,7 +32,7 @@ describe('gulp serve', function() {
                 },
                 'http': {
                     createServer: function() {
-                        assert.equal(arguments[0].name, 'middleware');
+                        arguments[0].name.should.equal('middleware');
                         done();
 
                         return {
@@ -40,8 +42,8 @@ describe('gulp serve', function() {
                 }
             })(gulp);
 
-            assert.equal(gulp.tasks.serve.dep.length, 1);
-            assert.equal(gulp.tasks.serve.dep[0], 'serve:browsersync');
+            gulp.tasks.serve.dep.length.should.equal(1);
+            gulp.tasks.serve.dep[0].should.equal('serve:browsersync');
 
             gulp.start(['serve']);
         });

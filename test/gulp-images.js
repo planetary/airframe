@@ -1,7 +1,9 @@
-var assert = require('assert');
+var chai = require('chai');
 
 var tasks = require('../gulp');
 var gulp = tasks.gulp;
+
+chai.should();
 
 describe('gulp images', function() {
     describe('watch:images', function() {
@@ -9,9 +11,9 @@ describe('gulp images', function() {
             var watch = gulp.watch; // store gulp's watch method
 
             gulp.watch = function(paths, tasklist) {
-                assert.equal(paths.length, 1);
-                assert.notEqual(paths.indexOf('assets/images/**/*'), -1);
-                assert.notEqual(tasklist.indexOf('build:images'), -1);
+                paths.length.should.equal(1);
+                paths.indexOf('assets/images/**/*').should.not.equal(-1);
+                tasklist.indexOf('build:images').should.not.equal(-1);
 
                 gulp.watch = watch; // restore watch
                 done();

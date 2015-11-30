@@ -16,6 +16,7 @@
 
     "rules": {
         "no-var": 0,
-        "prefer-spread": 0
+        "prefer-spread": 0,
+        "no-unused-expressions": 0
     }
 }
