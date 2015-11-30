@@ -15,11 +15,61 @@ describe('gulp serve', function() {
                     opts.tunnel.should.be.true;
                     opts.open.should.be.false;
                     done();
+
+                    return {
+                        emitter: {
+                            on: function() {}
+                        }
+                    };
                 }
             }})(gulp);
 
             gulp.start(['serve:browsersync']);
         });
+
+        it('should define a handler for an error emitted from BrowserSync\'s localtunnel instance',
+            function(done) {
+                proxyquire('../gulp/serve', {
+                    'browser-sync': {
+                        init: function() {
+                            return {
+                                emitter: {
+                                    on: function(event, fn) {
+                                        event.should.equal('service:running');
+                                        fn.should.be.ok;
+                                        fn();
+                                    }
+                                },
+
+                                instance: {
+                                    tunnel: {
+                                        tunnel_cluster: { //eslint-disable-line
+                                            on: function(event, fn) {
+                                                event.should.equal('error');
+                                                fn.should.be.ok;
+
+                                                try {
+                                                    fn('test');
+                                                    chai.assert.fail();
+                                                } catch(err) {
+                                                    err.should.equal('test');
+                                                }
+
+                                                fn('check firewall');
+
+                                                done();
+                                            }
+                                        }
+                                    }
+                                }
+                            };
+                        }
+                    }
+                })(gulp);
+
+                gulp.start(['serve:browsersync']);
+            }
+        );
     });
 
     describe('serve', function() {
@@ -28,6 +78,12 @@ describe('gulp serve', function() {
                 'browser-sync': {
                     init: function(opts, next) {
                         next();
+
+                        return {
+                            emitter: {
+                                on: function() {}
+                            }
+                        };
                     }
                 },
                 'http': {
