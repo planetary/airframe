@@ -5,24 +5,22 @@ const buffer = require('vinyl-buffer');
 const source = require('vinyl-source-stream');
 const watchify = require('watchify');
 
+const paths = {
+    'lint': [
+        // js files to lint (ignore vendor, dependencies and outputs)
+        '**/*.js',
+        '**/*.es6',
+        '!assets/scripts/vendor/**/*',
+        '!build/**/*',
+        '!node_modules/**/*'
+    ],
+    'build': {
+        // maps output filenames to entry points
+        'scripts/bundle.js': ['assets/scripts/index.js']
+    }
+};
 
 module.exports = function(gulp, plugins, env) {
-    const paths = {
-        'lint': [
-            // js files to lint (ignore vendor, dependencies and outputs)
-            '**/*.js',
-            '**/*.es6',
-            '!assets/scripts/vendor/**/*',
-            '!build/**/*',
-            '!node_modules/**/*'
-        ],
-        'build': {
-            // maps output filenames to entry points
-            'scripts/bundle.js': ['assets/scripts/index.js']
-        }
-    };
-
-
     const outputs = [];
 
     Object.keys(paths.build).forEach(function(output) {

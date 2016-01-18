@@ -1,0 +1,22 @@
+{
+    "extends": "../.eslintrc",
+
+    "env": {
+        "es6": false
+    },
+
+    "globals": {
+        "after": true,
+        "afterEach": true,
+        "before": true,
+        "beforeEach": true,
+        "describe": true,
+        "it": true
+    },
+
+    "rules": {
+        "no-var": 0,
+        "prefer-spread": 0,
+        "no-unused-expressions": 0
+    }
+}
