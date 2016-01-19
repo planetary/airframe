@@ -27,10 +27,10 @@ const index = function(environment) {
             // subfolder; assume submodule
             require(`./${filename}`)(gulp, plugins, env);
         } else {
-            // subfile; only load coffee and js files to avoid .gitkeep, coffeelint.json, etc.
+            // subfile; only load js(x) files to avoid .gitkeep, .eslintrc, etc.
             const [file, extension] = filename.split('.', 2);
 
-            if(file !== 'index' && ['coffee', 'js', 'es6'].indexOf(extension) !== -1)
+            if(file !== 'index' && ['js', 'jsx'].indexOf(extension) !== -1)
                 require(`./${file}`)(gulp, plugins, env);
         }
     }

@@ -10,7 +10,6 @@ const paths = {
     lint: [
         // js files to lint (ignore vendor, dependencies and outputs)
         '**/*.js',
-        '**/*.es6',
         '**/*.jsx',
         '!assets/scripts/vendor/**/*',
         '!build/**/*',
@@ -30,7 +29,7 @@ module.exports = function(gulp, plugins, env) {
         const inputs = paths.build[output];
         const bundler = browserify(inputs, extend(watchify.args, {
             // browserify options
-            extensions: ['.jsx', '.es6'],
+            extensions: ['.js', '.jsx'],
 
             debug: env === 'local',
             fullPaths: env === 'local',
