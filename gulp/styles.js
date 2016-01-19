@@ -1,4 +1,6 @@
+const autoprefixer = require('autoprefixer');
 const browserSync = require('browser-sync');
+const cssnano = require('cssnano');
 
 
 module.exports = function(gulp, plugins, env) {
@@ -26,10 +28,11 @@ module.exports = function(gulp, plugins, env) {
             .on('error', plugins.notify.onError(function(err) {
                 return `${err.message} in ${err.fileName} at line ${err.lineNumber}`;
             }))
-            .pipe(plugins.autoprefixer())
-            .pipe(plugins.if(env !== 'local',  // don't minify during development
-                plugins.minifyCss()
-            ))
+            .pipe(plugins.postcss(
+                env === 'local'
+                    ? [autoprefixer]  // don't minify during development
+                    : [cssnano]       // cssnano automatically runs autoprefixer
+             ))
             .pipe(plugins.sourcemaps.write('.'))
             .pipe(gulp.dest(gulp.outputPath))
             .pipe(plugins.filter('**/*.css'))
