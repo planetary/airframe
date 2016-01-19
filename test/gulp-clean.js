@@ -1,10 +1,8 @@
-var chai = require('chai');
 var proxyquire = require('proxyquire');
 
 var tasks = require('../gulp');
 var gulp = tasks.gulp;
 
-chai.should();
 
 describe('gulp clean', function() {
     describe('clean', function() {

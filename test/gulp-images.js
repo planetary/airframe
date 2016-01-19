@@ -1,9 +1,7 @@
-var chai = require('chai');
 
 var tasks = require('../gulp');
 var gulp = tasks.gulp;
 
-chai.should();
 
 describe('gulp images', function() {
     describe('watch:images', function() {

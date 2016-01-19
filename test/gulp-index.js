@@ -1,8 +1,6 @@
-var chai = require('chai');
 var mock = require('mock-fs');
 var proxyquire = require('proxyquire');
 
-chai.should();
 
 describe('gulp', function() {
     describe('loader', function() {

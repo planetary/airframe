@@ -1,6 +1,3 @@
-// Shouldn't display the notifier's output during tests
-process.env.DISABLE_NOTIFIER = true;
-
 exports.copyAllProperties = function(src, dest) {
     var objectToInspect;
     var result = [];

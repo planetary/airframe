@@ -22,7 +22,7 @@
     "npm": ">=2.1.18"
   },
   "scripts": {
-    "test": "mocha --compilers js:babel-core/register",
+    "test": "mocha",
     "coverage": "babel-istanbul cover --report text --report html node_modules/mocha/bin/_mocha",
     "check-coverage": "babel-istanbul check-coverage --statements 100 --functions 100 --branches 100 --lines 100"
   },

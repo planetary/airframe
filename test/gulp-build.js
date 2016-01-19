@@ -1,4 +1,3 @@
-var chai = require('chai');
 var mockGulpDest = require('mock-gulp-dest');
 var through = require('through2');
 
@@ -8,7 +7,6 @@ var tasks = require('../gulp');
 var gulp = tasks.gulp;
 var plugins = tasks.plugins;
 
-chai.should();
 
 describe('gulp build', function() {
     var mock;

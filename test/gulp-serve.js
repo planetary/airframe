@@ -1,8 +1,6 @@
-var chai = require('chai');
 var gulp = require('gulp-help')(require('gulp'));
 var proxyquire = require('proxyquire');
 
-chai.should();
 
 describe('gulp serve', function() {
     describe('serve:browsersync', function() {
@@ -48,13 +46,7 @@ describe('gulp serve', function() {
                                                 event.should.equal('error');
                                                 fn.should.be.ok;
 
-                                                try {
-                                                    fn('test');
-                                                    chai.assert.fail();
-                                                } catch(err) {
-                                                    err.should.equal('test');
-                                                }
-
+                                                (() => fn('test')).should.throw('test');
                                                 fn('check firewall');
 
                                                 done();
