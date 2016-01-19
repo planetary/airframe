@@ -3,6 +3,9 @@ const proxyquire = require('proxyquire');
 
 
 describe('gulp', function() {
+    this.timeout(10000);
+
+
     describe('loader', function() {
         it('should run without a NODE_ENV defined', function(done) {
             const fs = mock.fs({

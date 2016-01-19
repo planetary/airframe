@@ -4,6 +4,9 @@ const {gulp} = require('../gulp');
 
 
 describe('gulp default', function() {
+    this.timeout(10000);
+
+
     describe('default', function() {
         it('should attempt to serve and watch all requisite files', function(done) {
             proxyquire('../gulp/default', {'run-sequence'(...args) {

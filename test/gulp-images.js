@@ -2,6 +2,9 @@ const {gulp} = require('../gulp');
 
 
 describe('gulp images', function() {
+    this.timeout(10000);
+
+
     describe('watch:images', function() {
         it('should attempt to watch and build all image files', function(done) {
             const watch = gulp.watch; // store gulp's watch method

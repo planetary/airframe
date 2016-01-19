@@ -2,6 +2,9 @@ const {gulp} = require('../gulp');
 
 
 describe('gulp fonts', function() {
+    this.timeout(10000);
+
+
     describe('watch:fonts', function() {
         it('should attempt to watch and build all font files', function(done) {
             const watch = gulp.watch; // store gulp's watch method

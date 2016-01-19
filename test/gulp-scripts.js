@@ -7,6 +7,9 @@ const {gulp, plugins, env} = require('../gulp');
 
 
 describe('gulp scripts', function() {
+    this.timeout(10000);
+
+
     describe('build:scripts', function() {
         let mock;
 

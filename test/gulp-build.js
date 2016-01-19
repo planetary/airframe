@@ -7,6 +7,8 @@ const {gulp, plugins} = require('../gulp');
 
 
 describe('gulp build', function() {
+    this.timeout(10000);
+
 
     let mock;
     beforeEach(function() {
@@ -21,8 +23,6 @@ describe('gulp build', function() {
 
     describe('build', function() {
         it('should not generate rev-manifest.json in a local environment', function(done) {
-            this.timeout(10000);
-
             build(gulp, plugins, 'local');
 
             gulp.task('test:build:no-rev-manifest', false, ['build'], function() {
@@ -34,7 +34,6 @@ describe('gulp build', function() {
 
 
         it('should generate rev-manifest.json in a production environment', function(done) {
-            this.timeout(10000);
             let requestedManifest = false;
 
             const plugs = copyAllProperties(plugins, {});
@@ -61,8 +60,6 @@ describe('gulp build', function() {
 
 
         it('should filter out non-revvable files when running revAll', function(done) {
-            this.timeout(10000);
-
             const plugs = copyAllProperties(plugins, {});
             plugs.revAll = function() {
                 const ra = new plugins.revAll(arguments[0]);

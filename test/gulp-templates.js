@@ -6,6 +6,7 @@ const {gulp, plugins, env} = require('../gulp');
 
 
 describe('gulp templates', function() {
+    this.timeout(10000);
     let mock;
 
 
@@ -21,8 +22,6 @@ describe('gulp templates', function() {
 
     describe('build:templates', function() {
         it('should fail gracefully when gulp-jade throws an error', function(done) {
-            this.timeout(5000);
-
             const notify = function() {
                 return through.obj(function(file, enc, cb) {
                     return cb(

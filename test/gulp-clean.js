@@ -4,6 +4,9 @@ const {gulp} = require('../gulp');
 
 
 describe('gulp clean', function() {
+    this.timeout(10000);
+
+
     describe('clean', function() {
         it('should attempt to delete all files in the build folder', function(done) {
             proxyquire('../gulp/clean', {del(path) {

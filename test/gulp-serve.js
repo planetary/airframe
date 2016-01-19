@@ -3,6 +3,9 @@ const proxyquire = require('proxyquire');
 
 
 describe('gulp serve', function() {
+    this.timeout(10000);
+
+
     describe('serve:browsersync', function() {
         it('should start BrowserSync with the correct options', function(done) {
             proxyquire('../gulp/serve', {'browser-sync': {
