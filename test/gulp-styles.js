@@ -1,24 +1,24 @@
-var mockGulpDest = require('mock-gulp-dest');
-var through = require('through2');
+const mockGulpDest = require('mock-gulp-dest');
+const through = require('through2');
 
-var copyAllProperties = require('./helpers').copyAllProperties;
-var tasks = require('../gulp');
-var gulp = tasks.gulp;
-var plugins = tasks.plugins;
-var env = tasks.env;
+const {copyAllProperties} = require('./helpers');
+const {gulp, plugins, env} = require('../gulp');
 
 
 describe('gulp styles', function() {
     describe('build:styles', function() {
-        var mock;
+        let mock;
+
 
         beforeEach(function() {
             mock = mockGulpDest(gulp);
         });
 
+
         afterEach(function() {
             mock.restore();
         });
+
 
         it('should attempt to build all scss files and notify on success', function(done) {
             this.timeout(3000);
@@ -32,10 +32,11 @@ describe('gulp styles', function() {
             gulp.start(['test:build:styles']);
         });
 
+
         it('should fail gracefully when gulp-scss throws an error', function(done) {
             this.timeout(3000);
 
-            var notify = function() {
+            const notify = function() {
                 return through.obj(function(file, enc, cb) {
                     return cb(
                         new plugins.util.PluginError('test', 'Task should not have completed.')
@@ -43,14 +44,14 @@ describe('gulp styles', function() {
                 });
             };
             notify.onError = function(func) {
-                var result = func({
+                const result = func({
                     message: 'test',
-                    fileName: 'file.es6',
+                    fileName: 'file.js',
                     lineNumber: 0
                 });
 
                 result.match('test').should.be.ok;
-                result.match('file.es6').should.be.ok;
+                result.match('file.js').should.be.ok;
                 result.match('0').should.be.ok;
 
                 return function() {
@@ -58,7 +59,7 @@ describe('gulp styles', function() {
                 };
             };
 
-            var plugs = copyAllProperties(plugins, {});
+            const plugs = copyAllProperties(plugins, {});
             plugs.sass = function() {
                 return through.obj(function(file, enc, cb) {
                     return cb(new plugins.util.PluginError('test', 'test'));
@@ -72,11 +73,12 @@ describe('gulp styles', function() {
         });
     });
 
+
     describe('watch:styles', function() {
         it('should attempt to watch and build all scss files', function(done) {
             require('../gulp/styles')(gulp, plugins, env);
 
-            var watch = gulp.watch; // store gulp's watch method
+            const watch = gulp.watch; // store gulp's watch method
 
             gulp.watch = function(paths, tasklist) {
                 paths.length.should.equal(1);
@@ -91,11 +93,12 @@ describe('gulp styles', function() {
         });
     });
 
+
     describe('lint:styles', function() {
         it('should lint the scss files', function(done) {
-            var called = false;
-            var failReporter = false;
-            var plugs = copyAllProperties(plugins, {});
+            let called = false;
+            let failReporter = false;
+            const plugs = copyAllProperties(plugins, {});
             plugs.scssLint = function() {
                 called = true;
 

@@ -1,12 +1,12 @@
-var gulp = require('gulp-help')(require('gulp'));
-var proxyquire = require('proxyquire');
+const gulp = require('gulp-help')(require('gulp'));
+const proxyquire = require('proxyquire');
 
 
 describe('gulp serve', function() {
     describe('serve:browsersync', function() {
         it('should start BrowserSync with the correct options', function(done) {
             proxyquire('../gulp/serve', {'browser-sync': {
-                init: function(opts) {
+                init(opts) {
                     (typeof opts.port).should.not.equal('undefined');
                     opts.files.should.be.false;
                     opts.proxy.match('http://localhost:').should.be.ok;
@@ -16,7 +16,7 @@ describe('gulp serve', function() {
 
                     return {
                         emitter: {
-                            on: function() {}
+                            on() {}
                         }
                     };
                 }
@@ -25,14 +25,15 @@ describe('gulp serve', function() {
             gulp.start(['serve:browsersync']);
         });
 
+
         it('should define a handler for an error emitted from BrowserSync\'s localtunnel instance',
             function(done) {
                 proxyquire('../gulp/serve', {
                     'browser-sync': {
-                        init: function() {
+                        init() {
                             return {
                                 emitter: {
-                                    on: function(event, fn) {
+                                    on(event, fn) {
                                         event.should.equal('service:running');
                                         fn.should.be.ok;
                                         fn();
@@ -41,8 +42,8 @@ describe('gulp serve', function() {
 
                                 instance: {
                                     tunnel: {
-                                        tunnel_cluster: { //eslint-disable-line
-                                            on: function(event, fn) {
+                                        tunnel_cluster: { // eslint-disable-line
+                                            on(event, fn) {
                                                 event.should.equal('error');
                                                 fn.should.be.ok;
 
@@ -64,27 +65,28 @@ describe('gulp serve', function() {
         );
     });
 
+
     describe('serve', function() {
         it('should start BrowserSync and then create an ecstatic server', function(done) {
             proxyquire('../gulp/serve', {
                 'browser-sync': {
-                    init: function(opts, next) {
+                    init(opts, next) {
                         next();
 
                         return {
                             emitter: {
-                                on: function() {}
+                                on() {}
                             }
                         };
                     }
                 },
-                'http': {
-                    createServer: function() {
+                http: {
+                    createServer() {
                         arguments[0].name.should.equal('middleware');
                         done();
 
                         return {
-                            listen: function() {}
+                            listen() {}
                         };
                     }
                 }

@@ -10,13 +10,11 @@ module.exports = function(gulp, plugins, env) {
         'build:styles',
         'build:templates'
     ], function(next) {
-        if(env === 'local') {
-            // don't create revisions during development
+        if(env === 'local')  // don't create revisions during development
             return next();
-        }
 
         const rev = new plugins.revAll({
-            'dontRenameFile': [/.*\.html/]
+            dontRenameFile: [/.*\.html/]
         });
 
         gulp.src(path.join(gulp.outputPath, '**', '*'))

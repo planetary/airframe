@@ -1,12 +1,10 @@
-
-var tasks = require('../gulp');
-var gulp = tasks.gulp;
+const {gulp} = require('../gulp');
 
 
 describe('gulp images', function() {
     describe('watch:images', function() {
         it('should attempt to watch and build all image files', function(done) {
-            var watch = gulp.watch; // store gulp's watch method
+            const watch = gulp.watch; // store gulp's watch method
 
             gulp.watch = function(paths, tasklist) {
                 paths.length.should.equal(1);
