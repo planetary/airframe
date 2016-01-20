@@ -14,6 +14,9 @@ test:
         - npm run coverage
         - npm run check-coverage
         - node_modules/.bin/gulp build
+    post:
+        - mkdir -p $CIRCLE_TEST_REPORTS/mocha
+        - mv test-results.xml $CIRCLE_TEST_REPORTS/mocha
 general:
     artifacts:
         - ./coverage

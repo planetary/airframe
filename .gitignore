@@ -2,6 +2,7 @@
 coverage
 build
 rev-manifest.json
+test-results.xml
 
 
 # dependencies
