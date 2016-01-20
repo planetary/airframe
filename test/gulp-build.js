@@ -1,9 +1,9 @@
 const mockGulpDest = require('mock-gulp-dest');
 const through = require('through2');
 
-const build = require('../gulp/build');
-const copyAllProperties = require('./helpers').copyAllProperties;
 const {gulp, plugins} = require('../gulp');
+const build = require('../gulp/build');
+const {copyAllProperties} = require('./helpers');
 
 
 describe('gulp build', function() {
