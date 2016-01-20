@@ -1,9 +1,4 @@
-const autoprefixer = require('autoprefixer');
-const browserSync = require('browser-sync');
-const cssnano = require('cssnano');
-
-
-const paths = {
+const CONFIG = {
     lint: [
         // scss files to lint (ignore vendor)
         'assets/styles/**/*.scss',
@@ -20,9 +15,14 @@ const paths = {
 };
 
 
+const autoprefixer = require('autoprefixer');
+const browserSync = require('browser-sync');
+const cssnano = require('cssnano');
+
+
 module.exports = function(gulp, plugins, env) {
     gulp.task('build:styles', 'compiles all scss files into the build folder', function() {
-        return gulp.src(paths.build, {base: gulp.inputPath})
+        return gulp.src(CONFIG.build, {base: gulp.inputPath})
             .pipe(plugins.sourcemaps.init())
             .pipe(plugins.sass())
             .on('error', plugins.notify.onError(function(err) {
@@ -46,13 +46,13 @@ module.exports = function(gulp, plugins, env) {
         'waits for scss files to change, then rebuilds them',
         ['build:styles'],
         function() {
-            gulp.watch(paths.watch, ['build:styles']);
+            gulp.watch(CONFIG.watch, ['build:styles']);
         }
     );
 
 
     gulp.task('lint:styles', 'lints all non-vendor scss files against scss-lint.yml', function() {
-        return gulp.src(paths.lint)
+        return gulp.src(CONFIG.lint)
             .pipe(plugins.scssLint({customReport: plugins.scssLintStylish}))
             .pipe(plugins.scssLint.failReporter());
     });

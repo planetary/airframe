@@ -1,15 +1,17 @@
+const CONFIG = {
+    paths: [
+        // fonts that should be compressed
+        'assets/fonts/**/*'
+    ]
+};
+
+
 const browserSync = require('browser-sync');
-
-
-const paths = [
-    // fonts that should be compressed
-    'assets/fonts/**/*'
-];
 
 
 module.exports = function(gulp, plugins) {
     gulp.task('build:fonts', 'moves fonts to the build folder', function() {
-        return gulp.src(paths, {base: gulp.inputPath})
+        return gulp.src(CONFIG.paths, {base: gulp.inputPath})
             .pipe(plugins.newer(gulp.outputPath))
             .pipe(gulp.dest(gulp.outputPath))
             .pipe(browserSync.reload({stream: true}))
@@ -21,7 +23,7 @@ module.exports = function(gulp, plugins) {
         'watch:fonts',
         'watches the source fonts for changes and moves them to the build folder when they do',
         ['build:fonts'], function() {
-            gulp.watch(paths, ['build:fonts']);
+            gulp.watch(CONFIG.paths, ['build:fonts']);
         }
     );
 };

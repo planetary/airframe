@@ -1,15 +1,17 @@
+const CONFIG = {
+    paths: [
+        // images that should be compressed
+        'assets/images/**/*'
+    ]
+};
+
+
 const browserSync = require('browser-sync');
-
-
-const paths = [
-    // images that should be compressed
-    'assets/images/**/*'
-];
 
 
 module.exports = function(gulp, plugins, env) {
     gulp.task('build:images', 'compresses images and moves them to the build folder', function() {
-        return gulp.src(paths, {base: gulp.inputPath})
+        return gulp.src(CONFIG.paths, {base: gulp.inputPath})
             .pipe(plugins.newer(gulp.outputPath))
             .pipe(plugins.if(env !== 'local',  // don't minify during development
                 plugins.imagemin()
@@ -25,7 +27,7 @@ module.exports = function(gulp, plugins, env) {
         'watches the source images folders and recompresses them when changed',
         ['build:images'],
         function() {
-            gulp.watch(paths, ['build:images']);
+            gulp.watch(CONFIG.paths, ['build:images']);
         }
     );
 };

@@ -1,12 +1,4 @@
-const browserify = require('browserify');
-const browserSync = require('browser-sync');
-const extend = require('deep-extend');
-const buffer = require('vinyl-buffer');
-const source = require('vinyl-source-stream');
-const watchify = require('watchify');
-
-
-const paths = {
+const CONFIG = {
     lint: [
         // js files to lint (ignore vendor, dependencies and outputs)
         '**/*.js',
@@ -22,11 +14,19 @@ const paths = {
 };
 
 
+const browserify = require('browserify');
+const browserSync = require('browser-sync');
+const extend = require('deep-extend');
+const buffer = require('vinyl-buffer');
+const source = require('vinyl-source-stream');
+const watchify = require('watchify');
+
+
 module.exports = function(gulp, plugins, env) {
     const outputs = [];
 
-    Object.keys(paths.build).forEach(function(output) {
-        const inputs = paths.build[output];
+    Object.keys(CONFIG.build).forEach(function(output) {
+        const inputs = CONFIG.build[output];
         const bundler = browserify(inputs, extend(watchify.args, {
             // browserify options
             extensions: ['.js', '.jsx'],
@@ -98,7 +98,7 @@ module.exports = function(gulp, plugins, env) {
 
     gulp.task('lint:scripts', 'lints all non-vendor js(x) files against .eslintrc', function() {
         return gulp
-            .src(paths.lint)
+            .src(CONFIG.lint)
             .pipe(plugins.eslint())
             .pipe(plugins.eslint.format('stylish'))
             .pipe(plugins.eslint.failAfterError());

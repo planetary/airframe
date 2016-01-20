@@ -1,12 +1,14 @@
+const CONFIG = {
+    ports: {
+        frontend: 8080,
+        backend: 4900
+    }
+};
+
+
 const browserSync = require('browser-sync');
 const ecstatic = require('ecstatic');
 const http = require('http');
-
-
-const ports = {
-    frontend: 8080,
-    backend: 4900
-};
 
 
 module.exports = function(gulp) {
@@ -15,9 +17,9 @@ module.exports = function(gulp) {
         'proxies the localhost server via BrowserSync to dynamically update assets',
         function(next) {
             const bs = browserSync.init({
-                port: ports.frontend,
+                port: CONFIG.ports.frontend,
                 files: false,
-                proxy: `http://localhost:${ports.backend}`,
+                proxy: `http://localhost:${CONFIG.ports.backend}`,
                 tunnel: true,
 
                 // Stop the browser from automatically opening
@@ -43,6 +45,6 @@ module.exports = function(gulp) {
         http.createServer(ecstatic({
             root: './build',
             cache: 0
-        })).listen(ports.backend);
+        })).listen(CONFIG.ports.backend);
     });
 };
