@@ -1,3 +1,5 @@
+const autoprefixer = require('autoprefixer');
+const cssnano = require('cssnano');
 const mockGulpDest = require('mock-gulp-dest');
 const through = require('through2');
 
@@ -23,14 +25,38 @@ describe('gulp styles', function() {
         });
 
 
-        it('should attempt to build all scss files and notify on success', function(done) {
-            require('../gulp/styles')(gulp, plugins, env);
+        it('should minify and notify on success', function(done) {
+            const plugs = copyAllProperties(plugins, {});
+            plugs.postcss = function(...args) {
+                args[0].should.contain(cssnano);
+                return plugins.postcss(...args);
+            };
+
+            require('../gulp/styles')(gulp, plugs, env);
 
             gulp.task('test:build:styles', ['build:styles'], function() {
                 done();
             });
 
             gulp.start(['test:build:styles']);
+        });
+
+
+        it('should not minify in a local environment', function(done) {
+            const plugs = copyAllProperties(plugins, {});
+            plugs.postcss = function(...args) {
+                args[0].should.contain(autoprefixer);
+                args[0].should.not.contain(cssnano);
+                return plugins.postcss(...args);
+            };
+
+            require('../gulp/styles')(gulp, plugs, 'local');
+
+            gulp.task('test:build:styles:no-minify', false, ['build:styles'], function() {
+                done();
+            });
+
+            gulp.start(['test:build:styles:no-minify']);
         });
 
 
