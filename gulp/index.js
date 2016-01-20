@@ -3,6 +3,7 @@ const gulpFactory = require('gulp');
 const loadPlugins = require('gulp-load-plugins');
 const path = require('path');
 
+
 // load all gulp plugins
 const plugins = loadPlugins({
     pattern: ['gulp-*'], // the glob to search for
@@ -10,6 +11,7 @@ const plugins = loadPlugins({
     camelizePluginName: true, // ...and convert them to camel case
     lazy: true // only load plugins on demand
 });
+
 
 const index = function(environment) {
     // initialize gulp
@@ -37,6 +39,7 @@ const index = function(environment) {
 
     return {gulp, plugins, env};
 };
+
 
 module.exports = index(process.env);
 module.exports.index = index;

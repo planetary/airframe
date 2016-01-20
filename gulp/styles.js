@@ -3,24 +3,24 @@ const browserSync = require('browser-sync');
 const cssnano = require('cssnano');
 
 
+const paths = {
+    lint: [
+        // scss files to lint (ignore vendor)
+        'assets/styles/**/*.scss',
+        '!assets/styles/vendor/**/*'
+    ],
+    watch: [
+        // scss files to watch for changes when triggering rebuilds
+        'assets/styles/**/*.scss'
+    ],
+    build: [
+        // scss files to build
+        'assets/styles/main.scss'
+    ]
+};
+
+
 module.exports = function(gulp, plugins, env) {
-    const paths = {
-        lint: [
-            // scss files to lint (ignore vendor)
-            'assets/styles/**/*.scss',
-            '!assets/styles/vendor/**/*'
-        ],
-        watch: [
-            // scss files to watch for changes when triggering rebuilds
-            'assets/styles/**/*.scss'
-        ],
-        build: [
-            // scss files to build
-            'assets/styles/main.scss'
-        ]
-    };
-
-
     gulp.task('build:styles', 'compiles all scss files into the build folder', function() {
         return gulp.src(paths.build, {base: gulp.inputPath})
             .pipe(plugins.sourcemaps.init())

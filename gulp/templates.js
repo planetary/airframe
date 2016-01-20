@@ -2,20 +2,20 @@ const browserSync = require('browser-sync');
 const path = require('path');
 
 
+const paths = {
+    watch: [
+        // jade files to watch for changes
+        'assets/templates/**/*.jade'
+    ],
+    build: [
+        // jade files to build
+        'assets/templates/views/**/*.jade',
+        '!assets/templates/views/**/_*.jade'
+    ]
+};
+
+
 module.exports = function(gulp, plugins) {
-    const paths = {
-        watch: [
-            // jade files to watch for changes
-            'assets/templates/**/*.jade'
-        ],
-        build: [
-            // jade files to build
-            'assets/templates/views/**/*.jade',
-            '!assets/templates/views/**/_*.jade'
-        ]
-    };
-
-
     gulp.task(
         'build:templates',
         'compiles the jade templates to the build folder',

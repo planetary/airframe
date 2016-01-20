@@ -3,13 +3,13 @@ const ecstatic = require('ecstatic');
 const http = require('http');
 
 
+const ports = {
+    frontend: 8080,
+    backend: 4900
+};
+
+
 module.exports = function(gulp) {
-    const ports = {
-        frontend: 8080,
-        backend: 4900
-    };
-
-
     gulp.task(
         'serve:browsersync',
         'proxies the localhost server via BrowserSync to dynamically update assets',

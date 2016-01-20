@@ -1,13 +1,13 @@
 const browserSync = require('browser-sync');
 
 
+const paths = [
+    // images that should be compressed
+    'assets/images/**/*'
+];
+
+
 module.exports = function(gulp, plugins, env) {
-    const paths = [
-        // images that should be compressed
-        'assets/images/**/*'
-    ];
-
-
     gulp.task('build:images', 'compresses images and moves them to the build folder', function() {
         return gulp.src(paths, {base: gulp.inputPath})
             .pipe(plugins.newer(gulp.outputPath))
