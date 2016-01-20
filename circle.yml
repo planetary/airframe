@@ -1,6 +1,6 @@
 machine:
     node:
-        version: 4.1.0
+        version: 4.2.4
     environment:
         NODE_ENV: testing
         DISABLE_NOTIFIER: true
