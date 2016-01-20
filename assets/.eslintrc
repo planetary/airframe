@@ -6,7 +6,7 @@
     },
 
     "globals": {
-        "process": true # set by node-envify
+        "process": true  # set by node-envify
     },
 
     "env": {

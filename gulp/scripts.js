@@ -5,20 +5,22 @@ const buffer = require('vinyl-buffer');
 const source = require('vinyl-source-stream');
 const watchify = require('watchify');
 
+
 const paths = {
-    'lint': [
+    lint: [
         // js files to lint (ignore vendor, dependencies and outputs)
         '**/*.js',
-        '**/*.es6',
+        '**/*.jsx',
         '!assets/scripts/vendor/**/*',
         '!build/**/*',
         '!node_modules/**/*'
     ],
-    'build': {
+    build: {
         // maps output filenames to entry points
         'scripts/bundle.js': ['assets/scripts/index.js']
     }
 };
+
 
 module.exports = function(gulp, plugins, env) {
     const outputs = [];
@@ -27,12 +29,12 @@ module.exports = function(gulp, plugins, env) {
         const inputs = paths.build[output];
         const bundler = browserify(inputs, extend(watchify.args, {
             // browserify options
-            'extensions': ['.jsx', '.es6'],
+            extensions: ['.js', '.jsx'],
 
-            'debug': env === 'local',
-            'fullPaths': env === 'local',
-            'insertGlobals': false,
-            'transform': ['babelify', 'brfs', 'bulkify', 'envify']
+            debug: env === 'local',
+            fullPaths: env === 'local',
+            insertGlobals: false,
+            transform: ['babelify', 'brfs', 'bulkify', 'envify']
         }));
 
         bundler.rebuild = function(errCb) {
@@ -45,16 +47,14 @@ module.exports = function(gulp, plugins, env) {
                 }))
                 .pipe(source(output))
                 .pipe(buffer())
-                .pipe(plugins.sourcemaps.init({'loadMaps': true}))
-                .pipe(plugins.if(
-                    // don't minify during development
-                    env !== 'local',
-                    plugins.uglify({'compress': true})
+                .pipe(plugins.sourcemaps.init({loadMaps: true}))
+                .pipe(plugins.if(env !== 'local',  // don't minify during development
+                    plugins.uglify({compress: true})
                 ))
                 .pipe(plugins.sourcemaps.write('.'))
                 .pipe(gulp.dest(gulp.outputPath))
-                .pipe(browserSync.reload({'stream': true}))
-                .pipe(plugins.notify({'message': output + ' complete', 'onLast': true}));
+                .pipe(browserSync.reload({stream: true}))
+                .pipe(plugins.notify({message: `${output} complete`, onLast: true}));
         };
 
         outputs.push(bundler);
@@ -72,11 +72,12 @@ module.exports = function(gulp, plugins, env) {
                 output.rebuild(function() {
                     failed++;
                 }).on('finish', function() {
-                    if(--count === 0)
+                    if(--count === 0) {
                         return next(failed > 0
-                            ? new Error(failed + ' bundle(s) have failed')
+                            ? new Error(`${failed} bundle(s) have failed`)
                             : null
                         );
+                    }
                 });
             });
         }

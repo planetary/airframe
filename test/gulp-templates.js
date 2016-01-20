@@ -1,31 +1,28 @@
-var chai = require('chai');
-var mockGulpDest = require('mock-gulp-dest');
-var through = require('through2');
+const mockGulpDest = require('mock-gulp-dest');
+const through = require('through2');
 
-var copyAllProperties = require('./helpers').copyAllProperties;
-var tasks = require('../gulp');
-var gulp = tasks.gulp;
-var plugins = tasks.plugins;
-var env = tasks.env;
+const {copyAllProperties} = require('./helpers');
+const {gulp, plugins, env} = require('../gulp');
 
-chai.should();
 
 describe('gulp templates', function() {
-    var mock;
+    this.timeout(10000);
+    let mock;
+
 
     beforeEach(function() {
         mock = mockGulpDest(gulp);
     });
 
+
     afterEach(function() {
         mock.restore();
     });
 
+
     describe('build:templates', function() {
         it('should fail gracefully when gulp-jade throws an error', function(done) {
-            this.timeout(5000);
-
-            var notify = function() {
+            const notify = function() {
                 return through.obj(function(file, enc, cb) {
                     return cb(
                         new plugins.util.PluginError('test', 'Task should not have completed.')
@@ -33,7 +30,7 @@ describe('gulp templates', function() {
                 });
             };
             notify.onError = function(func) {
-                var result = func({
+                const result = func({
                     message: 'test',
                     fileName: 'file.jade',
                     lineNumber: 0
@@ -48,7 +45,7 @@ describe('gulp templates', function() {
                 };
             };
 
-            var plugs = copyAllProperties(plugins, {});
+            const plugs = copyAllProperties(plugins, {});
             plugs.jade = function() {
                 return through.obj(function(file, enc, cb) {
                     return cb(new plugins.util.PluginError('test', 'test'));
@@ -62,11 +59,12 @@ describe('gulp templates', function() {
         });
     });
 
+
     describe('watch:templates', function() {
         it('should attempt to watch and build all template files', function(done) {
             require('../gulp/templates')(gulp, plugins, env);
 
-            var watch = gulp.watch; // store gulp's watch method
+            const watch = gulp.watch; // store gulp's watch method
 
             gulp.watch = function(paths, tasklist) {
                 paths.length.should.equal(1);

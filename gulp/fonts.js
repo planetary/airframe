@@ -9,11 +9,11 @@ module.exports = function(gulp, plugins) {
 
 
     gulp.task('build:fonts', 'moves fonts to the build folder', function() {
-        return gulp.src(paths, {'base': gulp.inputPath})
+        return gulp.src(paths, {base: gulp.inputPath})
             .pipe(plugins.newer(gulp.outputPath))
             .pipe(gulp.dest(gulp.outputPath))
-            .pipe(browserSync.reload({'stream': true}))
-            .pipe(plugins.notify({'message': 'Font compilation complete', 'onLast': true}));
+            .pipe(browserSync.reload({stream: true}))
+            .pipe(plugins.notify({message: 'Font compilation complete', onLast: true}));
     });
 
 

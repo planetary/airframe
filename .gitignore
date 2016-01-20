@@ -2,12 +2,14 @@
 coverage
 build
 rev-manifest.json
+test-results.xml
 
 
 # dependencies
 node_modules
 
 
-# osx noise
+# noise
 .DS_Store
 profile
+npm-debug.log

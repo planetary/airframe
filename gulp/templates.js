@@ -4,11 +4,11 @@ const path = require('path');
 
 module.exports = function(gulp, plugins) {
     const paths = {
-        'watch': [
+        watch: [
             // jade files to watch for changes
             'assets/templates/**/*.jade'
         ],
-        'build': [
+        build: [
             // jade files to build
             'assets/templates/views/**/*.jade',
             '!assets/templates/views/**/_*.jade'
@@ -21,13 +21,13 @@ module.exports = function(gulp, plugins) {
         'compiles the jade templates to the build folder',
         function() {
             return gulp.src(paths.build)
-                .pipe(plugins.jade({'basedir': path.join(gulp.inputPath, 'templates')}))
+                .pipe(plugins.jade({basedir: path.join(gulp.inputPath, 'templates')}))
                 .on('error', plugins.notify.onError(function(err) {
-                    return err.message + ' in ' + err.fileName + ' at line ' + err.lineNumber;
+                    return `${err.message} in ${err.fileName} at line ${err.lineNumber}`;
                 }))
                 .pipe(gulp.dest(gulp.outputPath))
-                .pipe(browserSync.reload({'stream': true}))
-                .pipe(plugins.notify({'message': 'Jade compilation complete', 'onLast': true}));
+                .pipe(browserSync.reload({stream: true}))
+                .pipe(plugins.notify({message: 'Jade compilation complete', onLast: true}));
         }
     );
 

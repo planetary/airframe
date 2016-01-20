@@ -1,27 +1,28 @@
-var chai = require('chai');
-var mockGulpDest = require('mock-gulp-dest');
-var through = require('through2');
-var rewire = require('rewire');
+const mockGulpDest = require('mock-gulp-dest');
+const through = require('through2');
+const rewire = require('rewire');
 
-var copyAllProperties = require('./helpers').copyAllProperties;
-var tasks = require('../gulp');
-var gulp = tasks.gulp;
-var plugins = tasks.plugins;
-var env = tasks.env;
+const {copyAllProperties} = require('./helpers');
+const {gulp, plugins, env} = require('../gulp');
 
-chai.should();
 
 describe('gulp scripts', function() {
+    this.timeout(10000);
+
+
     describe('build:scripts', function() {
-        var mock;
+        let mock;
+
 
         beforeEach(function() {
             mock = mockGulpDest(gulp);
         });
 
+
         afterEach(function() {
             mock.restore();
         });
+
 
         it('should attempt to build all scripts and notify on success', function(done) {
             require('../gulp/scripts')(gulp, plugins, 'local');
@@ -33,16 +34,17 @@ describe('gulp scripts', function() {
             gulp.start(['test:build:scripts']);
         });
 
+
         it('should be able to run for multiple output files', function(done) {
-            var scripts = rewire('../gulp/scripts');
-            var bundleCount = 0;
+            const scripts = rewire('../gulp/scripts');
+            let bundleCount = 0;
 
             scripts.__set__({
-                browserify: function() {
+                browserify() {
                     // the below will cause browserify to error (intentionally)
-                    var args = [null].concat(Array.prototype.slice.apply(arguments, [1]));
-                    var browserify = require('browserify').apply(this, args);
-                    var bundle = browserify.bundle;
+                    const args = [null].concat(Array.prototype.slice.apply(arguments, [1]));
+                    const browserify = require('browserify').apply(this, args);
+                    const bundle = browserify.bundle;
                     browserify.bundle = function() {
                         bundleCount++;
                         return bundle.apply(browserify, arguments);
@@ -50,7 +52,7 @@ describe('gulp scripts', function() {
                     return browserify;
                 },
                 browserSync: {
-                    reload: function() {
+                    reload() {
                         return through.obj(function(file, enc, cb) {
                             return cb();
                         });
@@ -73,14 +75,15 @@ describe('gulp scripts', function() {
             gulp.start(['test:build:scripts']);
         });
 
+
         it('should fail gracefully when the browserify build throws an error', function(done) {
-            var notify = function() {
+            const notify = function() {
                 return through.obj(function(file, enc, cb) {
                     return cb();
                 });
             };
             notify.onError = function(func) {
-                var result = func({
+                const result = func({
                     message: 'test'
                 });
 
@@ -90,14 +93,14 @@ describe('gulp scripts', function() {
                 return function() {};
             };
 
-            var plugs = copyAllProperties(plugins, {});
+            const plugs = copyAllProperties(plugins, {});
             plugs.notify = notify;
 
-            var scripts = rewire('../gulp/scripts');
+            const scripts = rewire('../gulp/scripts');
             scripts.__set__({
-                browserify: function() {
+                browserify() {
                     // the below will cause browserify to error (intentionally)
-                    var args = [null].concat(Array.prototype.slice.apply(arguments, [1]));
+                    const args = [null].concat(Array.prototype.slice.apply(arguments, [1]));
                     return require('browserify').apply(this, args);
                 }
             });
@@ -107,10 +110,11 @@ describe('gulp scripts', function() {
         });
     });
 
+
     describe('watch:scripts', function() {
         it('should fail gracefully without a bundler#rebuild error callback', function(done) {
-            var gotError = false;
-            var notify = function() {
+            let gotError = false;
+            const notify = function() {
                 return through.obj(function(file, enc, cb) {
                     return cb();
                 });
@@ -124,20 +128,20 @@ describe('gulp scripts', function() {
                 return function() {};
             };
 
-            var plugs = copyAllProperties(plugins, {});
+            const plugs = copyAllProperties(plugins, {});
             plugs.notify = notify;
 
-            var scripts = rewire('../gulp/scripts');
+            const scripts = rewire('../gulp/scripts');
             scripts.__set__({
-                browserify: function() {
+                browserify() {
                     // the below will cause browserify to error (intentionally)
-                    var args = [].concat(Array.prototype.slice.apply(arguments, [1]));
+                    const args = [].concat(Array.prototype.slice.apply(arguments, [1]));
                     return require('browserify').apply(this, args);
                 },
 
-                watchify: function() {
+                watchify() {
                     return {
-                        on: function() {}
+                        on() {}
                     };
                 }
             });
@@ -151,24 +155,25 @@ describe('gulp scripts', function() {
             gulp.start(['test:watch:scripts']);
         });
 
-        it('should attempt to watch all scripts with watchify', function(done) {
-            var outputs = [];
-            var watchOutputs = [];
 
-            var scripts = rewire('../gulp/scripts');
+        it('should attempt to watch all scripts with watchify', function(done) {
+            let outputs = [];
+            let watchOutputs = [];
+
+            const scripts = rewire('../gulp/scripts');
             scripts.__set__({
-                browserify: function() {
-                    var args = Array.prototype.slice.apply(arguments);
+                browserify() {
+                    const args = Array.prototype.slice.apply(arguments);
                     outputs = outputs.concat(args[0]);
 
                     return require('browserify').apply(this, arguments);
                 },
 
-                watchify: function(output) {
+                watchify(output) {
                     watchOutputs = watchOutputs.concat(output._options.entries);
 
                     return {
-                        on: function() {}
+                        on() {}
                     };
                 }
             });
@@ -184,10 +189,11 @@ describe('gulp scripts', function() {
         });
     });
 
+
     describe('lint:scripts', function() {
         it('should lint the scripts', function(done) {
-            var called = false;
-            var plugs = copyAllProperties(plugins, {});
+            let called = false;
+            const plugs = copyAllProperties(plugins, {});
             plugs.eslint = function() {
                 called = true;
 
