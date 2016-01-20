@@ -8,6 +8,7 @@ rev-manifest.json
 node_modules
 
 
-# osx noise
+# noise
 .DS_Store
 profile
+npm-debug.log
