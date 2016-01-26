@@ -58,7 +58,7 @@ describe('gulp scripts', function() {
                         });
                     }
                 },
-                paths: {
+                CONFIG: {
                     build: {
                         'scripts/bundle.js': ['assets/scripts/index.js'],
                         'scripts/test.js': ['assets/scripts.index.js']
