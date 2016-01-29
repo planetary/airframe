@@ -40,8 +40,8 @@ module.exports = function(gulp, plugins, env) {
         bundler.rebuild = function(errCb) {
             return bundler.bundle()
                 .on('error', plugins.notify.onError(function(err) {
-                    if(errCb)
-                        errCb();
+                    if(errCb && typeof errCb === 'function')
+                        errCb(err.stack);
 
                     return err.message;
                 }))
