@@ -16,25 +16,14 @@ module.exports = function(gulp) {
         'serve:browsersync',
         'proxies the localhost server via BrowserSync to dynamically update assets',
         function(next) {
-            const bs = browserSync.init({
+            browserSync.init({
                 port: CONFIG.ports.frontend,
                 files: false,
                 proxy: `http://localhost:${CONFIG.ports.backend}`,
-                tunnel: true,
 
                 // Stop the browser from automatically opening
                 open: false
             }, next);
-
-            // From https://github.com/BrowserSync/browser-sync/issues/823
-            // due to https://github.com/localtunnel/localtunnel/issues/81
-            bs.emitter.on('service:running', function() {
-                bs.instance.tunnel.tunnel_cluster.on('error', function(err) {
-                    if(err.toString().indexOf('firewall') === -1)
-                        throw err;
-                    console.log('localtunnel connection lost; reconnecting...');
-                });
-            });
         }
     );
 
