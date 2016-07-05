@@ -13,59 +13,15 @@ describe('gulp serve', function() {
                     (typeof opts.port).should.not.equal('undefined');
                     opts.files.should.be.false;
                     opts.proxy.match('http://localhost:').should.be.ok;
-                    opts.tunnel.should.be.true;
                     opts.open.should.be.false;
                     done();
 
-                    return {
-                        emitter: {
-                            on() {}
-                        }
-                    };
+                    return {};
                 }
             }})(gulp);
 
             gulp.start(['serve:browsersync']);
         });
-
-
-        it('should define a handler for an error emitted from BrowserSync\'s localtunnel instance',
-            function(done) {
-                proxyquire('../gulp/serve', {
-                    'browser-sync': {
-                        init() {
-                            return {
-                                emitter: {
-                                    on(event, fn) {
-                                        event.should.equal('service:running');
-                                        fn.should.be.ok;
-                                        fn();
-                                    }
-                                },
-
-                                instance: {
-                                    tunnel: {
-                                        tunnel_cluster: { // eslint-disable-line
-                                            on(event, fn) {
-                                                event.should.equal('error');
-                                                fn.should.be.ok;
-
-                                                (() => fn('test')).should.throw('test');
-                                                fn('check firewall');
-
-                                                done();
-                                            }
-                                        }
-                                    }
-                                }
-                            };
-                        }
-                    }
-                })(gulp);
-
-                gulp.start(['serve:browsersync']);
-            }
-        );
     });
 
 
