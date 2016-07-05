@@ -24,7 +24,7 @@
   "scripts": {
     "test": "babel-node node_modules/mocha/bin/_mocha",
     "coverage": "babel-node node_modules/isparta/bin/isparta cover --report text --report html node_modules/mocha/bin/_mocha -- --reporter mocha-junit-reporter",
-    "check-coverage": "babel-node node_modules/isparta/node_modules/istanbul/lib/cli.js check-coverage --statements 100 --functions 100 --branches 100 --lines 100"
+    "check-coverage": "babel-node node_modules/isparta/node_modules/istanbul/lib/cli.js check-coverage --statements 90 --functions 90 --branches 90 --lines 90"
   },
   "dependencies": {
     "autoprefixer": "^6.3.1",
