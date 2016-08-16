@@ -1,7 +1,19 @@
+v2.0.0
+  date: 2016-08-16
+  changes:
+    - Update to new webpack build/dev system
+    - Switch from SCSS to PostCSS
+    - Add npm scripts for build/dev/lint etc.
+    - Change CSS linting to stylelint with new config
+    - Add support for hot updates to scripts and stylesheets without browser refresh
+    - Replace manually entered eslint config with eslint-config-planetary
+    - Add support for inlining images under 10kb as base64
+    - Add support for long term asset caching
+    
 v1.1.0
   date: 2015-10-19
   changes:
-    - add BrowserSync serving support 
+    - add BrowserSync serving support
     - improved CSS component styling
     - convert tasks to es6 (via babel)
     - change js linter to eslint (better jsx support)
