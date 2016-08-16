@@ -1,0 +1,6 @@
+@import 'css-modularscale';
+
+:root {
+    --ms-base: 1rem;
+    --ms-ratio: 1.5;
+}

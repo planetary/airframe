@@ -1,0 +1,26 @@
+:root {
+    /* black and white */
+    --c--black: #222;
+    --c--white: #fff;
+
+    /* grays */
+    --c--gray-darker: color(var(--c--black) blend(var(--c--white) 10%));
+    --c--gray-dark: color(var(--c--black) blend(var(--c--white) 30%));
+    --c--gray: color(var(--c--black) blend(var(--c--white) 50%));
+    --c--gray-light: color(var(--c--black) blend(var(--c--white) 70%));
+    --c--gray-lighter: color(var(--c--black) blend(var(--c--white) 90%));
+
+    /* colors */
+    --c--navy: #001f3f;
+    --c--blue: #0074d9;
+    --c--aqua: #7fdbff;
+    --c--teal: #39cccc;
+    --c--olive: #3d9970;
+    --c--green: #2ecc40;
+    --c--lime: #01ff70;
+    --c--yellow: #ffdc00;
+    --c--orange: #ff851b;
+    --c--red: #ff4136;
+    --c--fuchsia: #f012be;
+    --c--purple: #b10dc9;
+}

@@ -1,0 +1,82 @@
+/* AGS - Airframe grid system
+ * v0.2 */
+
+:root {
+    /* Grid configuration */
+    --l--grid-width: 70rem;
+    --l--gutter: 2%;
+    --l--row-spacing: 1rem;
+    --l--border-radius: 4px;
+
+    /* Z indexes */
+    --l--z-lowest: -9999;
+    --l--z-lower: -100;
+    --l--z-low: -10;
+    --l--z-base: 0;
+    --l--z-high: 10;
+    --l--z-higher: 100;
+    --l--z-highest: 9999;
+
+    @define-mixin row {
+        display: flex;
+        margin-bottom: var(--l--row-spacing);
+        padding: 0 calc(var(--l--gutter) / 2);
+        flex-flow: row;
+        align-items: stretch;
+        justify-content: center;
+    }
+
+    @define-mixin column-fixed $span {
+        flex: 0 0 calc(($(span) * 100%) - var(--l--gutter));
+        margin: 0 calc(var(--l--gutter) / 2);
+    }
+
+    @define-mixin column-flex {
+        flex: 1;
+        margin: 0 calc(var(--l--gutter) / 2);
+    }
+
+    @define-mixin visible-grid {
+        background: color(var(--c--blue) a(90%));
+    }
+}
+
+/* Helper classes */
+
+.l--container {
+    width: 100%;
+    margin: 0 auto;
+    max-width: var(--l--grid-width);
+}
+
+.l--row {
+    @mixin row;
+}
+
+.l--visible-grid {
+    @mixin visible-grid;
+}
+
+.l--col-full {
+    @mixin column-fixed 1;
+}
+
+.l--col-half {
+    @mixin column-fixed calc(1/2);
+}
+
+.l--col-third {
+    @mixin column-fixed calc(1/3);
+}
+
+.l--col-twothirds {
+    @mixin column-fixed calc(2/3);
+}
+
+.l--col-quarter {
+    @mixin column-fixed calc(1/4);
+}
+
+.l--col-auto {
+    @mixin column-flex;
+}

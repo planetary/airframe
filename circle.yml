@@ -6,20 +6,11 @@ machine:
         DISABLE_NOTIFIER: true
 dependencies:
     override:
-        - gem install scss_lint
         - npm install
 test:
     override:
-        - node_modules/.bin/gulp lint
-        - npm run coverage
-        - npm run check-coverage
-        - node_modules/.bin/gulp build
-    post:
-        - mkdir -p $CIRCLE_TEST_REPORTS/mocha
-        - mv test-results.xml $CIRCLE_TEST_REPORTS/mocha
-general:
-    artifacts:
-        - ./coverage
+        - npm run lint
+        - npm run build
 deployment:
     gh-pages:
         branch: website

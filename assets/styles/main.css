@@ -6,26 +6,26 @@
  / ___ |/ / /  / __/ /  / /_/ / / / / / /  __/
 /_/  |_/_/_/  /_/ /_/   \__,_/_/ /_/ /_/\___/
 
-
-Bootstrap kit v0.2 - January 26 2015
+Bootstrap kit v1.1 - August 14 2016
 
 */
 
-// import any vendor files
-@import 'vendor/normalize';
-@import 'vendor/includemedia';
+/* import any vendor files */
 @import 'vendor/selectcss';
+@import 'vendor/modularscale';
 
-// project-wide styles - styles single elements
+/* project-wide styles - styles single elements */
+@import 'global/reset';
 @import 'global/color';
 @import 'global/type';
-@import 'global/grid';
+@import 'global/layout';
+@import 'global/media';
 
-// component styles - styles groups of elements
+/* component styles - styles groups of elements */
 @import 'components/forms';
 @import 'components/buttons';
 @import 'components/tables';
 
-// page layouts - styles groups of components
+/* page layouts - styles groups of components */
 @import 'layouts/global';
 @import 'layouts/styleguide';

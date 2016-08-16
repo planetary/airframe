@@ -1,0 +1,197 @@
+/* Global styles
+   ------------- */
+
+/* Normalize font size, set block defaults */
+input,
+textarea,
+label,
+select {
+    display: block;
+    margin-bottom: 1rem;
+    font-family: var(--t--family-sans);
+    font-size: var(--t--size-normal);
+    line-height: var(--t--base-leading);
+}
+
+legend,
+fieldset {
+    margin: 0 0 1rem;
+    padding: 0;
+}
+
+fieldset {
+    border: 0;
+}
+
+legend {
+    font-weight: var(--t--weight-bold);
+}
+
+/* Individual element styles
+  ------------------------- */
+
+label {
+    margin: 0;
+    padding-bottom: 0.5rem;
+    font-weight: var(--t--weight-bold);
+}
+
+[type='text'],
+[type='email'],
+[type='password'],
+[type='search'],
+textarea {
+    width: 100%;
+    padding: 0.25rem 0.5rem;
+    background: var(--c--white);
+    border: 1px solid var(--c--gray-light);
+    border-radius: var(--l--border-radius);
+
+    &:read-only {
+        color: var(--c--gray-light);
+        border-color: var(--c--gray-lighter);
+
+        &:hover {
+            border-color: var(--c--gray-lighter);
+        }
+
+        &:focus {
+            border-color: var(--c--gray-light);
+        }
+    }
+
+    &:disabled {
+        background: var(--c--gray-lighter);
+        color: var(--c--gray);
+        border: var(--c--gray);
+
+        &:hover {
+            cursor: not-allowed;
+        }
+    }
+
+    &:hover {
+        border-color: var(--c--gray);
+    }
+
+    &:focus {
+        outline: none;
+        border-color: var(--c--blue);
+    }
+}
+
+[type='search'] {
+    border-radius: 1rem;
+    position: relative;
+
+    &::before {
+        content: '';
+        display: block;
+        top: 50%;
+        left: 0.25rem;
+        width: 0.25rem;
+        height: 0.25rem;
+        transform: translateY(-50%);
+    }
+}
+
+[type='checkbox'],
+[type='radio'] {
+    display: inline-block;
+    margin-right: 0.5rem;
+
+    &:hover {
+        border-color: var(--c--gray);
+    }
+
+    &:focus {
+        outline: none;
+        border-color: $aqua;
+
+        & + span::after {
+            content: '\2190';
+            display: inline-block;
+            margin-left: 0.5rem;
+            color: var(--c--blue);
+        }
+    }
+}
+
+.form--radio,
+.form--checkbox {
+    & label {
+        font-weight: var(--t--weight-normal);
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &.is-disabled {
+        color: var(--c--gray);
+
+        &:hover {
+            cursor: not-allowed;
+        }
+    }
+}
+
+.form--radio + .form--radio,
+.form--checkbox + .form--checkbox {
+    /* group similar elements */
+    margin-top: -1rem;
+}
+
+/* Cross-browser custom select boxes thanks to https://github.com/filamentgroup/select-css. */
+.form--select {
+    display: block;
+    position: relative;
+
+    & select {
+        width: 100%;
+        background: none;
+        border: 1px solid var(--c--gray-light);
+        border-radius: var(--l--border-radius);
+        outline: none;
+        appearance: none;
+        padding: 0.35rem 2rem 0.25rem 0.5rem;
+
+        &:disabled {
+            background: var(--c--gray-lighter);
+            color: var(--c--gray);
+            border: var(--c--gray);
+        }
+
+        &:disabled:hover {
+            cursor: not-allowed;
+        }
+
+        &:hover {
+            border-color: var(--c--gray);
+        }
+
+        &:focus {
+            outline: none;
+            border-color: var(--c--blue);
+        }
+    }
+
+    & option {
+        font-weight: var(--t--weight-normal);
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: 1rem;
+        width: 0;
+        height: 0;
+        margin-top: -0.25rem;
+        border-width: 0.5rem 0.33rem 0;
+        border-color: var(--c--gray-dark) transparent transparent;
+        border-style: solid;
+        z-index: var(--l--z-high);
+        pointer-events: none;
+    }
+}

@@ -1,0 +1,122 @@
+:root {
+    /* base configuration */
+    --t--base-size: 16px;
+    --t--base-leading: 1.6;
+
+    /* font families */
+    --t--family-sans: helvetica, sans-serif;
+    --t--family-serif: georgia, serif;
+    --t--family-mono: courier, monospace;
+
+    /* font weights */
+    --t--weight-black: 900;
+    --t--weight-bold: 700;
+    --t--weight-normal: 400;
+    --t--weight-light: 300;
+    --t--weight-thin: 100;
+
+    /* font sizes */
+    --t--size-huge: var(--ms3);
+    --t--size-xlarge: var(--ms2);
+    --t--size-large: var(--ms1);
+    --t--size-normal: var(--ms0);
+    --t--size-small: var(--ms-1);
+    --t--size-xsmall: var(--ms-2);
+    --t--size-tiny: var(--ms-3);
+}
+
+.t--family-sans {
+    font-family: var(--t--family-sans);
+}
+
+.t--family-serif {
+    font-family: var(--t--family-serif);
+}
+
+.t--family-mono {
+    font-family: var(--t--family-mono);
+}
+
+/* global type baselines */
+body,
+html {
+    font-size: var(--t--base-size);
+    line-height: var(--t--base-leading);
+    font-family: var(--t--family-serif);
+    color: var(--t--weight-black);
+    font-feature-settings: 'kern';
+    font-kerning: normal;
+}
+
+/* italics */
+em {
+    font-style: italic;
+}
+
+/* headers */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-bottom: 1rem;
+    font-family: var(--t--family-sans);
+    font-weight: 700;
+}
+
+h1 {
+    font-size: var(--t--size-huge);
+    line-height: 1em;
+}
+
+h2 {
+    font-size: var(--t--size-xlarge);
+    line-height: 1.5em;
+}
+
+h3 {
+    font-size: var(--t--size-large);
+    line-height: 1.5em;
+}
+
+h4 {
+    font-size: var(--t--size-normal);
+}
+
+h5 {
+    font-size: var(--t--size-small);
+}
+
+h6 {
+    font-size: var(--t--size-xsmall);
+}
+
+/* paragraphs */
+p {
+    margin-bottom: 1em;
+}
+
+/* links */
+a {
+    color: var(--c--blue);
+}
+
+/* quotes */
+blockquote {
+    margin: 1em 0;
+    padding-left: 1em;
+    color: var(--c--gray-dark);
+    font-style: italic;
+    border-left: 3px solid var(--c--gray-light);
+}
+
+/* lists */
+ul {
+    list-style: disc inside;
+}
+
+/* code */
+code {
+    font-family: var(--t--family-mono);
+}
