@@ -17,15 +17,18 @@ In addition to the compilation tasks, Airframe includes:
 
 ### Installation
 
+
 ```bash
-$ git clone https://github.com/planetary/airframe.git
+$ git clone --depth=1 https://github.com/planetary/airframe.git
 $ cd airframe
+$ rm -rf .git/ && git init
 $ npm install
 ```
 
 ### Developing
 Run `npm run dev` to continuously watch and re-build the project. Airframe will automatically run a server
-from the `build` folder at `localhost:8080`. Webpack will hot-reload styles and scripts.
+from the `build` folder at `localhost:8080`. Webpack will hot-reload styles and scripts and will refresh
+the browser automatically when templates are updated.
 
 ### Installing Sublime Text Helpers
 
