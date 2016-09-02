@@ -128,7 +128,8 @@ module.exports = webpackValidator({
         ...loadHtmlPlugin(),
         new CopyPlugin([
             // Copy fonts to build directory
-            {from: 'fonts', to: 'fonts'}
+            {from: 'fonts', to: 'fonts'},
+            ifNotProd({from: 'images', to: 'images'})
         ], {
             ignore: [
                 '.*'
