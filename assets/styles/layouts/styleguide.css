@@ -8,3 +8,10 @@
     font-size: var(--t--size-small);
     color: var(--c--gray);
 }
+
+.sg--swatch {
+    width: 100%;
+    padding: 0.25rem;
+    padding-bottom: 25%;
+    font-family: var(--t--family-sans);
+}
