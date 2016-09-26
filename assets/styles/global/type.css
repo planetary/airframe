@@ -4,7 +4,18 @@
     --t--base-leading: 1.6;
 
     /* font families */
-    --t--family-sans: helvetica, sans-serif;
+    --t--family-sans:
+        -apple-system,
+        blinkmacsystemfont,
+        'Segoe UI',
+        'Roboto',
+        'Oxygen',
+        'Ubuntu',
+        'Cantarell',
+        'Fira Sans',
+        'Droid Sans',
+        'Helvetica Neue',
+        sans-serif;
     --t--family-serif: georgia, serif;
     --t--family-mono: courier, monospace;
 
@@ -42,15 +53,18 @@ body,
 html {
     font-size: var(--t--base-size);
     line-height: var(--t--base-leading);
-    font-family: var(--t--family-serif);
-    color: var(--t--weight-black);
+    font-family: var(--t--family-sans);
+    color: var(--c--black);
     font-feature-settings: 'kern';
     font-kerning: normal;
 }
 
-/* italics */
 em {
     font-style: italic;
+}
+
+strong {
+    font-weight: 700;
 }
 
 /* headers */
