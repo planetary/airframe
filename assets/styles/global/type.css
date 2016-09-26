@@ -15,6 +15,7 @@
         'Fira Sans',
         'Droid Sans',
         'Helvetica Neue',
+        arial,
         sans-serif;
     --t--family-serif: georgia, serif;
     --t--family-mono: courier, monospace;
@@ -64,7 +65,7 @@ em {
 }
 
 strong {
-    font-weight: 700;
+    font-weight: var(--t--weight-bold);
 }
 
 /* headers */
@@ -75,45 +76,25 @@ h4,
 h5,
 h6 {
     margin-bottom: 1rem;
+    line-height: 1;
     font-family: var(--t--family-sans);
-    font-weight: 700;
+    font-weight: var(--t--weight-bold);
 }
 
 h1 {
     font-size: var(--t--size-huge);
-    line-height: 1em;
 }
 
 h2 {
     font-size: var(--t--size-xlarge);
-    line-height: 1.5em;
 }
 
 h3 {
     font-size: var(--t--size-large);
-    line-height: 1.5em;
 }
 
 h4 {
-    font-size: var(--t--size-normal);
-}
-
-h5 {
-    font-size: var(--t--size-small);
-}
-
-h6 {
-    font-size: var(--t--size-xsmall);
-}
-
-/* paragraphs */
-p {
-    margin-bottom: 1em;
-}
-
-/* links */
-a {
-    color: var(--c--blue);
+    color: var(--c--gray);
 }
 
 /* quotes */
@@ -121,8 +102,7 @@ blockquote {
     margin: 1em 0;
     padding-left: 1em;
     color: var(--c--gray-dark);
-    font-style: italic;
-    border-left: 3px solid var(--c--gray-light);
+    border-left: 2px solid var(--c--gray-light);
 }
 
 /* lists */

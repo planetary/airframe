@@ -1,14 +1,3 @@
-.sg--component {
-    margin: 1rem 0;
-}
-
-.sg--component-label {
-    display: block;
-    font-family: var(--t--family-sans);
-    font-size: var(--t--size-small);
-    color: var(--c--gray);
-}
-
 .sg--swatch {
     width: 100%;
     padding: 0.25rem;
