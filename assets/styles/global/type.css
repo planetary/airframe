@@ -4,16 +4,32 @@
     --t--base-leading: 1.6;
 
     /* font families */
-    --t--family-sans: helvetica, sans-serif;
+    --t--family-sans:
+        -apple-system,
+        blinkmacsystemfont,
+        'Segoe UI',
+        'Roboto',
+        'Oxygen',
+        'Ubuntu',
+        'Cantarell',
+        'Fira Sans',
+        'Droid Sans',
+        'Helvetica Neue',
+        arial,
+        sans-serif;
     --t--family-serif: georgia, serif;
-    --t--family-mono: courier, monospace;
+    --t--family-mono:
+        menlo,
+        monaco,
+        consolas,
+        'Liberation Mono',
+        'Courier New',
+        monospace;
 
     /* font weights */
-    --t--weight-black: 900;
     --t--weight-bold: 700;
     --t--weight-normal: 400;
     --t--weight-light: 300;
-    --t--weight-thin: 100;
 
     /* font sizes */
     --t--size-huge: var(--ms3);
@@ -21,20 +37,6 @@
     --t--size-large: var(--ms1);
     --t--size-normal: var(--ms0);
     --t--size-small: var(--ms-1);
-    --t--size-xsmall: var(--ms-2);
-    --t--size-tiny: var(--ms-3);
-}
-
-.t--family-sans {
-    font-family: var(--t--family-sans);
-}
-
-.t--family-serif {
-    font-family: var(--t--family-serif);
-}
-
-.t--family-mono {
-    font-family: var(--t--family-mono);
 }
 
 /* global type baselines */
@@ -42,15 +44,18 @@ body,
 html {
     font-size: var(--t--base-size);
     line-height: var(--t--base-leading);
-    font-family: var(--t--family-serif);
-    color: var(--t--weight-black);
+    font-family: var(--t--family-sans);
+    color: var(--c--black);
     font-feature-settings: 'kern';
     font-kerning: normal;
 }
 
-/* italics */
 em {
     font-style: italic;
+}
+
+strong {
+    font-weight: var(--t--weight-bold);
 }
 
 /* headers */
@@ -61,62 +66,88 @@ h4,
 h5,
 h6 {
     margin-bottom: 1rem;
+    line-height: 1;
     font-family: var(--t--family-sans);
-    font-weight: 700;
+    font-weight: var(--t--weight-bold);
 }
 
 h1 {
     font-size: var(--t--size-huge);
-    line-height: 1em;
 }
 
 h2 {
     font-size: var(--t--size-xlarge);
-    line-height: 1.5em;
 }
 
 h3 {
     font-size: var(--t--size-large);
-    line-height: 1.5em;
 }
 
 h4 {
-    font-size: var(--t--size-normal);
+    color: var(--c--gray);
 }
 
-h5 {
-    font-size: var(--t--size-small);
-}
-
-h6 {
-    font-size: var(--t--size-xsmall);
-}
-
-/* paragraphs */
 p {
-    margin-bottom: 1em;
+    margin-bottom: 1rem;
+}
+
+/* quotes */
+blockquote {
+    margin: 1rem 0;
+    padding-left: 1rem;
+    color: var(--c--gray-dark);
+    border-left: 2px solid var(--c--gray-light);
+}
+
+/* lists */
+ul,
+ol {
+    margin-bottom: 1rem;
+
+    & li {
+        display: list-item;
+    }
+
+    & ul,
+    & ol {
+        margin-bottom: 0;
+    }
+}
+
+/* code */
+pre,
+code {
+    font-family: var(--t--family-mono);
+    font-size: 90%;
 }
 
 /* links */
 a {
     color: var(--c--blue);
+
+    &:focus,
+    &:hover {
+        color: color(var(--c--blue) l(25%));
+        text-decoration: underline;
+    }
 }
 
-/* quotes */
-blockquote {
-    margin: 1em 0;
-    padding-left: 1em;
-    color: var(--c--gray-dark);
-    font-style: italic;
-    border-left: 3px solid var(--c--gray-light);
-}
+.t--family-sans { font-family: var(--t--family-sans); }
+.t--family-serif { font-family: var(--t--family-serif); }
+.t--family-mono { font-family: var(--t--family-mono); }
 
-/* lists */
-ul {
-    list-style: disc inside;
-}
+.t--size-huge { font-size: var(--t--size-huge); }
+.t--size-xlarge { font-size: var(--t--size-xlarge); }
+.t--size-large { font-size: var(--t--size-large); }
+.t--size-normal { font-size: var(--t--size-normal); }
+.t--size-small { font-size: var(--t--size-small); }
 
-/* code */
-code {
-    font-family: var(--t--family-mono);
-}
+.t--weight-bold { font-weight: var(--t--weight-bold); }
+.t--weight-normal { font-weight: var(--t--weight-normal); }
+.t--weight-light { font-weight: var(--t--weight-light); }
+
+.t--align-left { text-align: left; }
+.t--align-center { text-align: center; }
+.t--align-right { text-align: right; }
+
+.t--list-unstyled { list-style: none; }

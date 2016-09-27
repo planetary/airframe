@@ -5,71 +5,246 @@ block title
 
 block content
     .l--container
-        span.sg--component-label Colors
         .l--row
+            .l--col-quarter
+                ul.t--list-unstyled.t--align-right
+                    li
+                        strong Helper Classes
+                    li
+                        a(href="#typography-family") Family
+                    li
+                        a(href="#typography-size") Size
+                    li
+                        a(href="#typography-weight") Weight
+                    li
+                        a(href="#typography-alignment") Alignment
+                    li
+                        strong Elements
+                    li
+                        a(href="#typography-headings") Headings
+                    li
+                        a(href="#typography-paragraphs") Paragraphs
+                    li
+                        a(href="#typography-lists") Lists
+                    li
+                        a(href="#typography-blockquotes") Block quotes
+                    li
+                        a(href="#typography-code") Code
             .l--col-auto
-                .sg--swatch.c--bg-blue-lighter.c--blue-darker
-                    |Lighter Blue
-                .sg--swatch.c--bg-blue-light.c--blue-darker
-                    |Light Blue
-                .sg--swatch.c--bg-blue.c--blue-darker
-                    |Blue
-                .sg--swatch.c--bg-blue-dark.c--blue-lighter
-                    |Dark Blue
-                .sg--swatch.c--bg-blue-darker.c--blue-lighter
-                    |Darker Blue
+                h2 Typography
+                    h3 Helper Classes
+                    h4(id="typography-family") Family
+                    p Type comes in three families, set by variables in <code class="sg--code-inline">assets/type.css</code>. By default, the <code class="sg--code-inline">body</code> element is set to sans.
+                    .sg--example
+                        .t--family-serif Serif text
+                        .t--family-sans Sans text
+                        .t--family-mono Monospace text
+                    pre.sg--code
+                        code.html.
+                            &lt;div class=&quot;t--family-serif&quot;&gt;Serif text&lt;/div&gt;
+                            &lt;div class=&quot;t--family-sans&quot;&gt;Sans text&lt;/div&gt;
+                            &lt;div class=&quot;t--family-mono&quot;&gt;Monospace text&lt;/div&gt;
+                    h4(id="typography-size") Size
+                    p Type comes in 5 sizes, set by a <a href="http://www.modularscale.com/">modular scale.</a> The variables that dictate each size are set in <code class="sg--code-inline">assets/type.css</code>.
+                    .sg--example
+                        .t--size-huge Huge text
+                        .t--size-xlarge XLarge text
+                        .t--size-large Large text
+                        .t--size-normal Normal text
+                        .t--size-small Small text
+                    pre.sg--code
+                        code.html.
+                            &lt;div class=&quot;t--size-huge&quot;&gt;Huge text&lt;/div&gt;
+                            &lt;div class=&quot;t--size-xlarge&quot;&gt;XLarge text&lt;/div&gt;
+                            &lt;div class=&quot;t--size-large&quot;&gt;Large text&lt;/div&gt;
+                            &lt;div class=&quot;t--size-normal&quot;&gt;Normal text&lt;/div&gt;
+                            &lt;div class=&quot;t--size-small&quot;&gt;Small text&lt;/div&gt;
+                    h4(id="typography-weight") Weight
+                    p Type comes in 3 weights, set by the variables in  <code class="sg--code-inline">assets/type.css</code>.
+                    .sg--example
+                        .t--weight-bold Bold text
+                        .t--weight-normal Normal text
+                        .t--weight-light Light text
+                    pre.sg--code
+                        code.html.
+                            &lt;div class=&quot;t--weight-black&quot;&gt;Black text&lt;/div&gt;
+                            &lt;div class=&quot;t--weight-bold&quot;&gt;Bold text&lt;/div&gt;
+                            &lt;div class=&quot;t--weight-normal&quot;&gt;Normal text&lt;/div&gt;
+                            &lt;div class=&quot;t--weight-light&quot;&gt;Light text&lt;/div&gt;
+                            &lt;div class=&quot;t--weight-thin&quot;&gt;Thin text&lt;/div&gt;
+                    h4(id="typography-alignment") Alignment
+                    p Alignment can be set using one of three helper classes.
+                    .sg--example
+                        .t--align-left Left-aligned text
+                        .t--align-center Center-aligned text
+                        .t--align-right Right-aligned text
+                    pre.sg--code
+                        code.html.
+                            &lt;div class=&quot;t--align-left&quot;&gt;Left-aligned text&lt;/div&gt;
+                            &lt;div class=&quot;t--align-center&quot;&gt;Center-aligned text&lt;/div&gt;
+                            &lt;div class=&quot;t--align-right&quot;&gt;Right-aligned text&lt;/div&gt;&lt;/div&gt;
+                    h3 Elements
+                    h4(id="typography-headings") Headings
+                    p Headings 1-4 are available as shorthand for commonly-used size, weight, and color styles. Feel free to style these as you wish.
+                    .sg--example
+                        h1 Heading 1
+                        h2 Heading 2
+                        h3 Heading 3
+                        h4 Heading 4
+                    pre.sg--code
+                        code.html.
+                            &lt;h1&gt;Heading 1&lt;/h1&gt;
+                            &lt;h2&gt;Heading 2&lt;/h2&gt;
+                            &lt;h3&gt;Heading 3&lt;/h3&gt;
+                            &lt;h4&gt;Heading 4&lt;/h4&gt;
+                    h4(id="typography-paragraphs") Paragraphs
+                    p Paragraph text is styled at the <code class="sg--code-inline">body</code> level, with the exception of the addition of <code class="sg--code-inline">margin-bottom: 1rem</code> for <code class="sg--code-inline">&lt;p&gt;</code> tags.
+                    .sg--example
+                        p Paragraph Text. We work with clients as partners and collaborators on the way to a shared goal. While projects vary and methods evolve, our work is always characterized by a commitment to a few fundamentals.
+                    pre.sg--code
+                        code.html.
+                            &lt;p&gt;&#10;Paragraph Text. We work with clients as partners and collaborators &#10;on the way to a shared goal. While projects vary and methods evolve, &#10;our work is always characterized by a commitment to a few fundamentals.&#10;&lt;/p&gt;
+                    h4(id="typography-lists") Lists
+                    p By default, <code class="sg--code-inline">&lt;ul&gt;</code> is styled with bullets and <code class="sg--code-inline">&lt;ol&gt;</code> is styled with numerals. Additionally, there is a <code class="sg--code-inline">t--list-unstyled</code> helper class to remove styling from any list.
+                    .sg--example
+                        ul
+                            li Unordered list
+                            li Lorem ipsum dolor sit amet
+                            li Consectetur adipiscing elit
+                            ul
+                                li Nested list
+                                li Consectetur adipiscing elit
+                                li Integer molestie lorem at massa
+                            li Lorem ipsum dolor sit amet
+                            li Consectetur adipiscing elit
+                            li Integer molestie lorem at massa
+                        ol
+                            li Ordered List
+                            li Consectetur adipiscing elit
+                            li Integer molestie lorem at massa
+                        ul.t--list-unstyled
+                            li Unstyled List
+                            li Consectetur adipiscing elit
+                            li Integer molestie lorem at massa
+                    pre.sg--code
+                        code.html.
+                            &lt;ul&gt;
+                                &lt;li&gt;Unordered list&lt;/li&gt;
+                                &lt;li&gt;Lorem ipsum dolor sit amet&lt;/li&gt;
+                                &lt;li&gt;Consectetur adipiscing elit&lt;/li&gt;
+                                &lt;ul&gt;
+                                    &lt;li&gt;Nested list&lt;/li&gt;
+                                    &lt;li&gt;Consectetur adipiscing elit&lt;/li&gt;
+                                    &lt;li&gt;Integer molestie lorem at massa&lt;/li&gt;
+                                &lt;/ul&gt;
+                                &lt;li&gt;Lorem ipsum dolor sit amet&lt;/li&gt;
+                                &lt;li&gt;Consectetur adipiscing elit&lt;/li&gt;
+                                &lt;li&gt;Integer molestie lorem at massa&lt;/li&gt;
+                            &lt;/ul&gt;
+                            &lt;ol&gt;
+                                &lt;li&gt;Ordered List&lt;/li&gt;
+                                &lt;li&gt;Consectetur adipiscing elit&lt;/li&gt;
+                                &lt;li&gt;Integer molestie lorem at massa&lt;/li&gt;
+                            &lt;/ol&gt;
+                            &lt;ul class=&quot;t--list-unstyled&quot;&gt;
+                                &lt;li&gt;Unstyled List&lt;/li&gt;
+                                &lt;li&gt;Consectetur adipiscing elit&lt;/li&gt;
+                                &lt;li&gt;Integer molestie lorem at massa&lt;/li&gt;
+                            &lt;/ul&gt;
+                    h4(id="typography-blockquotes") Block Quotes
+                    p The <code class="sg--code-inline">&lt;blockquote&gt;</code> element is styled simply to provide differentiation from text.
+                    .sg--example
+                        blockquote Planetary helps us design, counsel, and build products for our and our clients' future.
+                    pre.sg--code
+                        code.html.
+                            &lt;blockquote&gt;
+                                Planetary helps us design, counsel, and build
+                                products for our and our clients&apos; future.
+                            &lt;/blockquote&gt;
+                    h4(id="typography-code") Code
+                    p Preformated text and code can be styled using the <code class="sg--code-inline">&lt;pre&gt;</code> and <code class="sg--code-inline">&lt;code&gt;</code> tags.
+                    .sg--example
+                        pre Preformatted text
+                        code Code text
+                    pre.sg--code
+                        code.html.
+                            &lt;pre&gt;Preformatted text&lt;/pre&gt;
+                            &lt;code&gt;Code text&lt;/code&gt;
+        .l--row
+            .l--col-quarter
             .l--col-auto
-                .sg--swatch.c--bg-green-lighter.c--green-darker
-                    |Lighter Green
-                .sg--swatch.c--bg-green-light.c--green-darker
-                    |Light Green
-                .sg--swatch.c--bg-green.c--green-darker
-                    |Green
-                .sg--swatch.c--bg-green-dark.c--green-lighter
-                    |Dark Green
-                .sg--swatch.c--bg-green-darker.c--green-lighter
-                    |Darker Green
-            .l--col-auto
-                .sg--swatch.c--bg-yellow-lighter.c--yellow-darker
-                    |Lighter Yellow
-                .sg--swatch.c--bg-yellow-light.c--yellow-darker
-                    |Light Yellow
-                .sg--swatch.c--bg-yellow.c--yellow-darker
-                    |Yellow
-                .sg--swatch.c--bg-yellow-dark.c--yellow-lighter
-                    |Dark Yellow
-                .sg--swatch.c--bg-yellow-darker.c--yellow-lighter
-                    |Darker Yellow
-            .l--col-auto
-                .sg--swatch.c--bg-orange-lighter.c--orange-darker
-                    |Lighter Orange
-                .sg--swatch.c--bg-orange-light.c--orange-darker
-                    |Light Orange
-                .sg--swatch.c--bg-orange.c--orange-darker
-                    |Orange
-                .sg--swatch.c--bg-orange-dark.c--orange-lighter
-                    |Dark Orange
-                .sg--swatch.c--bg-orange-darker.c--orange-lighter
-                    |Darker Orange
-            .l--col-auto
-                .sg--swatch.c--bg-red-lighter.c--red-darker
-                    |Lighter Red
-                .sg--swatch.c--bg-red-light.c--red-darker
-                    |Light Red
-                .sg--swatch.c--bg-red.c--red-darker
-                    |Red
-                .sg--swatch.c--bg-red-dark.c--red-lighter
-                    |Dark Red
-                .sg--swatch.c--bg-red-darker.c--red-lighter
-                    |Darker Red
-            .l--col-auto
-                .sg--swatch.c--bg-purple-lighter.c--purple-darker
-                    |Lighter Purple
-                .sg--swatch.c--bg-purple-light.c--purple-darker
-                    |Light Purple
-                .sg--swatch.c--bg-purple.c--purple-darker
-                    |Purple
-                .sg--swatch.c--bg-purple-dark.c--purple-lighter
-                    |Dark Purple
-                .sg--swatch.c--bg-purple-darker.c--purple-lighter
-                    |Darker Purple
+                .l--col-full
+                    h2 Colors
+                    p 6 colors are provided. Each has two variants: lighter, light, dark, and darker.
+                .l--row
+                    .l--col-auto
+                        .sg--swatch.c--bg-blue-lighter.c--blue-darker
+                            |Lighter Blue
+                        .sg--swatch.c--bg-blue-light.c--blue-darker
+                            |Light Blue
+                        .sg--swatch.c--bg-blue.c--blue-darker
+                            |Blue
+                        .sg--swatch.c--bg-blue-dark.c--blue-lighter
+                            |Dark Blue
+                        .sg--swatch.c--bg-blue-darker.c--blue-lighter
+                            |Darker Blue
+                    .l--col-auto
+                        .sg--swatch.c--bg-green-lighter.c--green-darker
+                            |Lighter Green
+                        .sg--swatch.c--bg-green-light.c--green-darker
+                            |Light Green
+                        .sg--swatch.c--bg-green.c--green-darker
+                            |Green
+                        .sg--swatch.c--bg-green-dark.c--green-lighter
+                            |Dark Green
+                        .sg--swatch.c--bg-green-darker.c--green-lighter
+                            |Darker Green
+                    .l--col-auto
+                        .sg--swatch.c--bg-yellow-lighter.c--yellow-darker
+                            |Lighter Yellow
+                        .sg--swatch.c--bg-yellow-light.c--yellow-darker
+                            |Light Yellow
+                        .sg--swatch.c--bg-yellow.c--yellow-darker
+                            |Yellow
+                        .sg--swatch.c--bg-yellow-dark.c--yellow-lighter
+                            |Dark Yellow
+                        .sg--swatch.c--bg-yellow-darker.c--yellow-lighter
+                            |Darker Yellow
+                    .l--col-auto
+                        .sg--swatch.c--bg-orange-lighter.c--orange-darker
+                            |Lighter Orange
+                        .sg--swatch.c--bg-orange-light.c--orange-darker
+                            |Light Orange
+                        .sg--swatch.c--bg-orange.c--orange-darker
+                            |Orange
+                        .sg--swatch.c--bg-orange-dark.c--orange-lighter
+                            |Dark Orange
+                        .sg--swatch.c--bg-orange-darker.c--orange-lighter
+                            |Darker Orange
+                    .l--col-auto
+                        .sg--swatch.c--bg-red-lighter.c--red-darker
+                            |Lighter Red
+                        .sg--swatch.c--bg-red-light.c--red-darker
+                            |Light Red
+                        .sg--swatch.c--bg-red.c--red-darker
+                            |Red
+                        .sg--swatch.c--bg-red-dark.c--red-lighter
+                            |Dark Red
+                        .sg--swatch.c--bg-red-darker.c--red-lighter
+                            |Darker Red
+                    .l--col-auto
+                        .sg--swatch.c--bg-purple-lighter.c--purple-darker
+                            |Lighter Purple
+                        .sg--swatch.c--bg-purple-light.c--purple-darker
+                            |Light Purple
+                        .sg--swatch.c--bg-purple.c--purple-darker
+                            |Purple
+                        .sg--swatch.c--bg-purple-dark.c--purple-lighter
+                            |Dark Purple
+                        .sg--swatch.c--bg-purple-darker.c--purple-lighter
+                            |Darker Purple
+
+block scripts
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js")
+    script(type="text/javascript")
+        | hljs.initHighlightingOnLoad();
