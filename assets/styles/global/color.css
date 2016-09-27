@@ -1,7 +1,7 @@
 :root {
     /* black and white */
-    --c--black: hsl(0, 0, 20%);
-    --c--white: hsl(0, 0, 100%);
+    --c--black: hsl(0, 0%, 20%);
+    --c--white: hsl(0, 0%, 100%);
 
     /* gray */
     --c--gray: hsl(210, 7%, 50%);
@@ -15,8 +15,8 @@
     --c--purple: hsl(276, 75%, 50%);
 
     /* variants: gray */
-    --c--gray-lighter: color(var(--c--gray) l(80%));
-    --c--gray-light: color(var(--c--gray) l(65%));
+    --c--gray-lighter: color(var(--c--gray) l(90%));
+    --c--gray-light: color(var(--c--gray) l(70%));
     --c--gray-dark: color(var(--c--gray) l(35%));
     --c--gray-darker: color(var(--c--gray) l(20%));
 
