@@ -3,6 +3,10 @@
     --t--base-size: 16px;
     --t--base-leading: 1.6;
 
+    /* modular scale configuration */
+    --ms-base: 1rem;
+    --ms-ratio: 1.5;
+
     /* font families */
     --t--family-sans:
         -apple-system,

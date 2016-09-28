@@ -46,6 +46,26 @@ block content
                             &lt;div class=&quot;t--family-mono&quot;&gt;Monospace text&lt;/div&gt;
                     h4(id="typography-size") Size
                     p Type comes in 5 sizes, set by a <a href="http://www.modularscale.com/">modular scale.</a> The variables that dictate each size are set in <code class="sg--code-inline">assets/type.css</code>.
+                    p
+                        table
+                            thead
+                                tr
+                                    th Variable
+                                    th Description
+                                    th Default
+                            tbody
+                                tr
+                                    td <code class="sg--code-inline">--t--base-size</code>
+                                    td Base Font Size
+                                    td 16px
+                                tr
+                                    td <code class="sg--code-inline">--ms-base</code>
+                                    td Basis for modular scale
+                                    td 1rem
+                                tr
+                                    td <code class="sg--code-inline">--ms-ratio</code>
+                                    td Ratio of modular scale sizes
+                                    td 1.5
                     .sg--example
                         .t--size-huge Huge text
                         .t--size-xlarge XLarge text
@@ -243,6 +263,60 @@ block content
                             |Dark Purple
                         .sg--swatch.c--bg-purple-darker.c--purple-lighter
                             |Darker Purple
+        .l--row
+            .l--col-quarter
+            .l--col-auto
+                .l--col-full
+                    h2 Tables
+                    p Tables are styled with the fewest elements possible. For more styling, including text alignment and color, use helper classes. For guidelines on how to style tables, read <a href="https://medium.com/mission-log/design-better-data-tables-430a30a00d8c#.od49lsyoa">Design Better Data Tables</a>.
+                    .sg--example
+                        table
+                            thead
+                                tr
+                                    th Flavor
+                                    th.t--align-right Inventory
+                                    th.t--align-right Sales
+                            tbody
+                                tr
+                                    td Vanilla
+                                    td.t--align-right 120
+                                    td.t--align-right $300.23
+                                tr
+                                    td Chocolate
+                                    td.t--align-right 20
+                                    td.t--align-right 203.39
+                                tr
+                                    td Pistachio
+                                    td.t--align-right 139
+                                    td.t--align-right 192.29
+                    pre.sg--code
+                        code.html.
+                            &lt;table&gt;
+                                &lt;thead&gt;
+                                    &lt;tr&gt;
+                                        &lt;th&gt;Flavor&lt;/th&gt;
+                                        &lt;th class=&quot;t--align-right&quot;&gt;Inventory&lt;/th&gt;
+                                        &lt;th class=&quot;t--align-right&quot;&gt;Sales&lt;/th&gt;
+                                    &lt;/tr&gt;
+                                &lt;/thead&gt;
+                                &lt;tbody&gt;
+                                    &lt;tr&gt;
+                                        &lt;td&gt;Vanilla&lt;/td&gt;
+                                        &lt;td class=&quot;t--align-right&quot;&gt;120&lt;/td&gt;
+                                        &lt;td class=&quot;t--align-right&quot;&gt;$300.23&lt;/td&gt;
+                                    &lt;/tr&gt;
+                                    &lt;tr&gt;
+                                        &lt;td&gt;Chocolate&lt;/td&gt;
+                                        &lt;td class=&quot;t--align-right&quot;&gt;20&lt;/td&gt;
+                                        &lt;td class=&quot;t--align-right&quot;&gt;203.39&lt;/td&gt;
+                                    &lt;/tr&gt;
+                                    &lt;tr&gt;
+                                        &lt;td&gt;Pistachio&lt;/td&gt;
+                                        &lt;td class=&quot;t--align-right&quot;&gt;139&lt;/td&gt;
+                                        &lt;td class=&quot;t--align-right&quot;&gt;192.29&lt;/td&gt;
+                                    &lt;/tr&gt;
+                                &lt;/tbody&gt;
+                            &lt;/table&gt;
 
 block scripts
     script(src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js")
