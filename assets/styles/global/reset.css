@@ -67,3 +67,8 @@ img {
     height: auto;
     border: 0;
 }
+
+table {
+    table-layout: fixed;
+    border-collapse: collapse;
+}
