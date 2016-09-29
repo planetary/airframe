@@ -5,6 +5,7 @@ const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const InlineManifestPlugin = require('inline-manifest-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const PurifyPlugin = require('purifycss-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const ReloadPlugin = require('reload-html-webpack-plugin');
@@ -25,7 +26,7 @@ const loadHtmlPlugin = () => {
             const name = path.basename(file, ext);
 
             return new HtmlWebpackPlugin({
-                template: `./templates/views/${file}`,
+                template: `./assets/templates/views/${file}`,
                 filename: `${name}.html`
             });
         }
@@ -33,9 +34,8 @@ const loadHtmlPlugin = () => {
 };
 
 module.exports = webpackValidator({
-    context: path.resolve('assets'),
     entry: [
-        './scripts/index.js'
+        './assets/scripts/index.js'
     ],
     output: {
         filename: ifProd('scripts/bundle-[chunkhash:8].js', 'scripts/bundle.js'),
@@ -73,14 +73,14 @@ module.exports = webpackValidator({
                 test: /\.(jpe?g|png|gif)$/,
                 loaders: [
                     'url?limit=10000&name=images/[name].[ext]',
-                    'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
+                    'image-webpack?bypassOnDebug&optimizationLevel=2&interlaced=false'
                 ]
             },
             {
                 test: /\.svg$/,
                 loaders: [
                     'file?name=images/[name].[ext]',
-                    'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
+                    'image-webpack?bypassOnDebug&optimizationLevel=2&interlaced=false'
                 ]
             },
             {
@@ -114,9 +114,18 @@ module.exports = webpackValidator({
         ifNotProd(new ProgressBarPlugin()),
         ifNotProd(new ReloadPlugin()),
         ifProd(new ExtractTextPlugin('styles/styles-[chunkhash:8].css')),
+        ifProd(new PurifyPlugin({
+            basePath: __dirname,
+            paths: [
+                'assets/templates/**/*.pug'
+            ],
+            purifyOptions: {
+                minify: true
+            }
+        })),
         new StyleLintPlugin({
             configFile: '.stylelintrc',
-            files: 'styles/**/*.css'
+            files: 'assets/styles/**/*.css'
         }),
         ifProd(new InlineManifestPlugin()),
         ifProd(new webpack.optimize.CommonsChunkPlugin({
@@ -126,6 +135,10 @@ module.exports = webpackValidator({
         new webpack.optimize.OccurrenceOrderPlugin(),
         new WebpackMD5Hash(),
         ...loadHtmlPlugin(),
+        ifNotProd(new HtmlWebpackPlugin({
+            template: './docs/styles.pug',
+            filename: '/docs/styles.html'
+        })),
         new CopyPlugin([
             // Copy fonts to build directory
             {from: 'fonts', to: 'fonts'},
