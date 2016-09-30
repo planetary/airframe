@@ -139,11 +139,11 @@ module.exports = webpackValidator({
             template: './docs/styles.pug',
             filename: '/docs/styles.html'
         })),
-        new CopyPlugin([
+        new CopyPlugin(removeEmpty([
             // Copy fonts to build directory
             {from: 'fonts', to: 'fonts'},
             ifNotProd({from: 'images', to: 'images'})
-        ], {
+        ]), {
             ignore: [
                 '.*'
             ]
