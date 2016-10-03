@@ -41,7 +41,7 @@ module.exports = webpackValidator({
         filename: ifProd('scripts/bundle-[chunkhash:8].js', 'scripts/bundle.js'),
         path: path.resolve('build'),
         pathinfo: ifNotProd(),
-        publicPath: '/'
+        publicPath: process.env.PUBLIC_PATH || '/'
     },
     devtool: ifProd('source-map', 'eval'),
     devServer: {
