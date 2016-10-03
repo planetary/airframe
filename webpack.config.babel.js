@@ -12,12 +12,12 @@ const ReloadPlugin = require('reload-html-webpack-plugin');
 const WebpackMD5Hash = require('webpack-md5-hash');
 
 const webpackValidator = require('webpack-validator');
-const {getIfUtils, removeEmpty} = require('webpack-config-utils');
+const {getIfUtils, removeEmpty, propIf} = require('webpack-config-utils');
 const {ifProd, ifNotProd} = getIfUtils(process.env.NODE_ENV);
 
 // Loads an HtmlWebpackPlugin for each template in the assets/views directory
-const loadHtmlPlugin = () => {
-    const files = fs.readdirSync(path.resolve('assets', 'templates', 'views'));
+const loadHtmlPlugin = (src, base = '') => {
+    const files = fs.readdirSync(src);
 
     return files.map((file) => {
         const ext = path.extname(file);
@@ -26,8 +26,8 @@ const loadHtmlPlugin = () => {
             const name = path.basename(file, ext);
 
             return new HtmlWebpackPlugin({
-                template: `./assets/templates/views/${file}`,
-                filename: `${name}.html`
+                template: `${src}/${file}`,
+                filename: `${base}${name}.html`
             });
         }
     });
@@ -117,7 +117,8 @@ module.exports = webpackValidator({
         ifProd(new PurifyPlugin({
             basePath: __dirname,
             paths: [
-                'assets/templates/**/*.pug'
+                'assets/templates/**/*.pug',
+                propIf(process.env.WITH_DOCS || false, 'docs/**/*.pug')
             ],
             purifyOptions: {
                 minify: true
@@ -134,11 +135,12 @@ module.exports = webpackValidator({
         ifProd(new webpack.optimize.DedupePlugin()),
         new webpack.optimize.OccurrenceOrderPlugin(),
         new WebpackMD5Hash(),
-        ...loadHtmlPlugin(),
-        ifNotProd(new HtmlWebpackPlugin({
-            template: './docs/styles.pug',
-            filename: '/docs/styles.html'
-        })),
+        ...loadHtmlPlugin(propIf(
+            process.env.WITH_DOCS || false,
+            './docs',
+            './assets/templates/views'
+        )),
+        ...ifNotProd(loadHtmlPlugin('./docs', 'docs/'), []),
         new CopyPlugin(removeEmpty([
             // Copy fonts to build directory
             {from: 'fonts', to: 'fonts'},
