@@ -1,17 +1,15 @@
 .button {
     display: inline-block;
-    padding: 0.3rem 1rem 0.2rem;
-    font-family: var(--t--family-sans);
+    padding: 0.5rem 1rem;
     text-decoration: none;
     color: var(--c--black);
     background: var(--c--gray-lighter);
-    border: 1px solid;
-    border-color: color(var(--c--gray-lighter) lightness(- 5%));
     border-radius: var(--l--border-radius);
 
     &:hover {
         cursor: pointer;
         background: color(var(--c--gray-lighter) lightness(+ 2.5%));
+        text-decoration: none;
     }
 
     & + .button {
@@ -22,7 +20,6 @@
 .button--primary {
     color: var(--c--white);
     background: var(--c--blue);
-    border-color: color(var(--c--blue) lightness(- 5%));
 
     &:hover {
         background: color(var(--c--blue) lightness(+ 2.5%));
@@ -32,7 +29,6 @@
 .button--warning {
     color: var(--c--white);
     background: var(--c--red);
-    border-color: color(var(--c--red) lightness(- 5%));
 
     &:hover {
         background: color(var(--c--red) lightness(+ 2.5%));
@@ -42,7 +38,6 @@
 .button--action {
     color: var(--c--white);
     background: var(--c--green);
-    border-color: color(var(--c--green) lightness(- 5%));
 
     &:hover {
         background: color(var(--c--green) lightness(+ 2.5%));

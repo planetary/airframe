@@ -1,28 +1,30 @@
-.sg--swatch {
+.docs--swatch {
     padding: 0.25rem;
     padding-bottom: 25%;
     font-family: var(--t--family-sans);
 }
 
-.sg--example {
+.docs--example {
     border: 2px solid var(--c--gray-lighter);
     padding: 1rem;
 }
 
-.sg--code-inline {
+.docs--code-inline {
     padding: 0.25rem;
     background-color: color(var(--c--gray-lighter) l(95%));
     border-radius: 2px;
     color: color(var(--c--red) s(80%));
 }
 
-.sg--code {
+.docs--code {
     background: var(--c--gray-darker);
     border: 2px solid var(--c--gray-lighter);
     border-top: 0;
     margin: 0 0 2rem;
     padding: 1rem;
     color: var(--c--white);
+    font-size: inherit;
+    line-height: 1.2;
 }
 
 /* Syntax highlighting */
@@ -78,7 +80,6 @@
 .hljs {
     overflow-x: auto;
     color: color(var(--c--gray-lighter) s(40%));
-    font-size: inherit;
 }
 
 .hljs-emphasis {

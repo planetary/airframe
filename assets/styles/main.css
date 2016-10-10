@@ -19,13 +19,13 @@ Bootstrap kit v1.1 - August 14 2016
 @import 'global/color';
 @import 'global/type';
 @import 'global/layout';
-@import 'global/media';
 
 /* component styles - styles groups of elements */
 @import 'components/forms';
 @import 'components/buttons';
 @import 'components/tables';
+@import 'components/tooltip';
 
 /* page layouts - styles groups of components */
 @import 'layouts/global';
-@import 'layouts/styleguide';
+@import 'layouts/docs';

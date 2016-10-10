@@ -122,10 +122,10 @@
 .c--bg-purple { background: var(--c--purple); }
 
 /* background color helpers: gray */
-.c--bg-gray-lighter { color: var(--c--gray-lighter); }
-.c--bg-gray-light { color: var(--c--gray-light); }
-.c--bg-gray-dark { color: var(--c--gray-dark); }
-.c--bg-gray-darker { color: var(--c--gray-darker); }
+.c--bg-gray-lighter { background: var(--c--gray-lighter); }
+.c--bg-gray-light { background: var(--c--gray-light); }
+.c--bg-gray-dark { background: var(--c--gray-dark); }
+.c--bg-gray-darker { background: var(--c--gray-darker); }
 
 /* background color helpers: blue */
 .c--bg-blue-lighter { background: var(--c--blue-lighter); }

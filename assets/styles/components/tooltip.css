@@ -1,0 +1,27 @@
+[data-tooltip] {
+    border-bottom: 1px dashed currentColor;
+    position: relative;
+
+    &::after {
+        content: attr(data-tooltip);
+        display: block;
+        position: absolute;
+        top: -2.25em;
+        left: 50%;
+        padding: 0.25em 1em;
+        white-space: nowrap;
+        background-color: var(--c--black);
+        opacity: 0;
+        font-size: 1rem;
+        color: #fff;
+        transform: translateX(-50%);
+    }
+
+    &:hover {
+        cursor: help;
+    }
+
+    &:hover::after {
+        opacity: 0.9;
+    }
+}

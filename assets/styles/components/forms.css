@@ -7,15 +7,16 @@ textarea,
 label,
 select {
     display: block;
-    margin-bottom: 1rem;
+    margin: 0.5em 0 1em;
+    padding: 0.25em 0.5em;
     font-family: var(--t--family-sans);
-    font-size: var(--t--size-normal);
-    line-height: var(--t--base-leading);
+    font-size: inherit;
+    line-height: inherit;
 }
 
 legend,
 fieldset {
-    margin: 0 0 1rem;
+    margin: 0 0 1em;
     padding: 0;
 }
 
@@ -31,9 +32,7 @@ legend {
   ------------------------- */
 
 label {
-    margin: 0;
-    padding-bottom: 0.5rem;
-    font-weight: var(--t--weight-bold);
+    margin-bottom: 0.5em;
 }
 
 [type='text'],
@@ -42,7 +41,7 @@ label {
 [type='search'],
 textarea {
     width: 100%;
-    padding: 0.25rem 0.5rem;
+    padding: 0.25em 0.5em;
     background: var(--c--white);
     border: 1px solid var(--c--gray-light);
     border-radius: var(--l--border-radius);
@@ -81,16 +80,16 @@ textarea {
 }
 
 [type='search'] {
-    border-radius: 1rem;
+    border-radius: 1em;
     position: relative;
 
     &::before {
         content: '';
         display: block;
         top: 50%;
-        left: 0.25rem;
-        width: 0.25rem;
-        height: 0.25rem;
+        left: 0.25em;
+        width: 0.25em;
+        height: 0.25em;
         transform: translateY(-50%);
     }
 }
@@ -98,7 +97,7 @@ textarea {
 [type='checkbox'],
 [type='radio'] {
     display: inline-block;
-    margin-right: 0.5rem;
+    margin-right: 0.25em;
 
     &:hover {
         border-color: var(--c--gray);
@@ -111,7 +110,7 @@ textarea {
         & + span::after {
             content: '\2190';
             display: inline-block;
-            margin-left: 0.5rem;
+            margin-left: 0.5em;
             color: var(--c--blue);
         }
     }
@@ -121,6 +120,7 @@ textarea {
 .form--checkbox {
     & label {
         font-weight: var(--t--weight-normal);
+        line-height: 1;
 
         &:hover {
             cursor: pointer;
@@ -139,7 +139,7 @@ textarea {
 .form--radio + .form--radio,
 .form--checkbox + .form--checkbox {
     /* group similar elements */
-    margin-top: -1rem;
+    margin-top: -0.5em;
 }
 
 /* Cross-browser custom select boxes thanks to https://github.com/filamentgroup/select-css. */
@@ -149,12 +149,13 @@ textarea {
 
     & select {
         width: 100%;
+        padding: 0.45em 0.5em;
+        line-height: 1;
         background: none;
         border: 1px solid var(--c--gray-light);
         border-radius: var(--l--border-radius);
         outline: none;
         appearance: none;
-        padding: 0.35rem 2rem 0.25rem 0.5rem;
 
         &:disabled {
             background: var(--c--gray-lighter);
@@ -184,11 +185,11 @@ textarea {
         content: '';
         position: absolute;
         top: 50%;
-        right: 1rem;
+        right: 1em;
         width: 0;
         height: 0;
-        margin-top: -0.25rem;
-        border-width: 0.5rem 0.33rem 0;
+        margin-top: -0.25em;
+        border-width: 0.5em 0.33em 0;
         border-color: var(--c--gray-dark) transparent transparent;
         border-style: solid;
         z-index: var(--l--z-high);

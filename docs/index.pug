@@ -1,322 +1,209 @@
 extends ../assets/templates/layouts/default
 
 block title
-    | Airframe Style Guide
+    | Homepage - Airframe
 
 block content
-    .l--container
-        .l--row
-            .l--col-quarter
-                ul.t--list-unstyled.t--align-right
-                    li
-                        strong Helper Classes
-                    li
-                        a(href="#typography-family") Family
-                    li
-                        a(href="#typography-size") Size
-                    li
-                        a(href="#typography-weight") Weight
-                    li
-                        a(href="#typography-alignment") Alignment
-                    li
-                        strong Elements
-                    li
-                        a(href="#typography-headings") Headings
-                    li
-                        a(href="#typography-paragraphs") Paragraphs
-                    li
-                        a(href="#typography-lists") Lists
-                    li
-                        a(href="#typography-blockquotes") Block quotes
-                    li
-                        a(href="#typography-code") Code
-            .l--col-auto
-                h2 Typography
-                    h3 Helper Classes
-                    h4(id="typography-family") Family
-                    p Type comes in three families, set by variables in <code class="sg--code-inline">assets/type.css</code>. By default, the <code class="sg--code-inline">body</code> element is set to sans.
-                    .sg--example
-                        .t--family-serif Serif text
-                        .t--family-sans Sans text
-                        .t--family-mono Monospace text
-                    pre.sg--code
-                        code.html.
-                            &lt;div class=&quot;t--family-serif&quot;&gt;Serif text&lt;/div&gt;
-                            &lt;div class=&quot;t--family-sans&quot;&gt;Sans text&lt;/div&gt;
-                            &lt;div class=&quot;t--family-mono&quot;&gt;Monospace text&lt;/div&gt;
-                    h4(id="typography-size") Size
-                    p Type comes in 5 sizes, set by a <a href="http://www.modularscale.com/">modular scale.</a> The variables that dictate each size are set in <code class="sg--code-inline">assets/type.css</code>.
-                    p
-                        table
-                            thead
-                                tr
-                                    th Variable
-                                    th Description
-                                    th Default
-                            tbody
-                                tr
-                                    td <code class="sg--code-inline">--t--base-size</code>
-                                    td Base Font Size
-                                    td 16px
-                                tr
-                                    td <code class="sg--code-inline">--ms-base</code>
-                                    td Basis for modular scale
-                                    td 1rem
-                                tr
-                                    td <code class="sg--code-inline">--ms-ratio</code>
-                                    td Ratio of modular scale sizes
-                                    td 1.5
-                    .sg--example
-                        .t--size-huge Huge text
-                        .t--size-xlarge XLarge text
-                        .t--size-large Large text
-                        .t--size-normal Normal text
-                        .t--size-small Small text
-                    pre.sg--code
-                        code.html.
-                            &lt;div class=&quot;t--size-huge&quot;&gt;Huge text&lt;/div&gt;
-                            &lt;div class=&quot;t--size-xlarge&quot;&gt;XLarge text&lt;/div&gt;
-                            &lt;div class=&quot;t--size-large&quot;&gt;Large text&lt;/div&gt;
-                            &lt;div class=&quot;t--size-normal&quot;&gt;Normal text&lt;/div&gt;
-                            &lt;div class=&quot;t--size-small&quot;&gt;Small text&lt;/div&gt;
-                    h4(id="typography-weight") Weight
-                    p Type comes in 3 weights, set by the variables in  <code class="sg--code-inline">assets/type.css</code>.
-                    .sg--example
-                        .t--weight-bold Bold text
-                        .t--weight-normal Normal text
-                        .t--weight-light Light text
-                    pre.sg--code
-                        code.html.
-                            &lt;div class=&quot;t--weight-black&quot;&gt;Black text&lt;/div&gt;
-                            &lt;div class=&quot;t--weight-bold&quot;&gt;Bold text&lt;/div&gt;
-                            &lt;div class=&quot;t--weight-normal&quot;&gt;Normal text&lt;/div&gt;
-                            &lt;div class=&quot;t--weight-light&quot;&gt;Light text&lt;/div&gt;
-                            &lt;div class=&quot;t--weight-thin&quot;&gt;Thin text&lt;/div&gt;
-                    h4(id="typography-alignment") Alignment
-                    p Alignment can be set using one of three helper classes.
-                    .sg--example
-                        .t--align-left Left-aligned text
-                        .t--align-center Center-aligned text
-                        .t--align-right Right-aligned text
-                    pre.sg--code
-                        code.html.
-                            &lt;div class=&quot;t--align-left&quot;&gt;Left-aligned text&lt;/div&gt;
-                            &lt;div class=&quot;t--align-center&quot;&gt;Center-aligned text&lt;/div&gt;
-                            &lt;div class=&quot;t--align-right&quot;&gt;Right-aligned text&lt;/div&gt;&lt;/div&gt;
-                    h3 Elements
-                    h4(id="typography-headings") Headings
-                    p Headings 1-4 are available as shorthand for commonly-used size, weight, and color styles. Feel free to style these as you wish.
-                    .sg--example
-                        h1 Heading 1
-                        h2 Heading 2
-                        h3 Heading 3
-                        h4 Heading 4
-                    pre.sg--code
-                        code.html.
-                            &lt;h1&gt;Heading 1&lt;/h1&gt;
-                            &lt;h2&gt;Heading 2&lt;/h2&gt;
-                            &lt;h3&gt;Heading 3&lt;/h3&gt;
-                            &lt;h4&gt;Heading 4&lt;/h4&gt;
-                    h4(id="typography-paragraphs") Paragraphs
-                    p Paragraph text is styled at the <code class="sg--code-inline">body</code> level, with the exception of the addition of <code class="sg--code-inline">margin-bottom: 1rem</code> for <code class="sg--code-inline">&lt;p&gt;</code> tags.
-                    .sg--example
-                        p Paragraph Text. We work with clients as partners and collaborators on the way to a shared goal. While projects vary and methods evolve, our work is always characterized by a commitment to a few fundamentals.
-                    pre.sg--code
-                        code.html.
-                            &lt;p&gt;&#10;Paragraph Text. We work with clients as partners and collaborators &#10;on the way to a shared goal. While projects vary and methods evolve, &#10;our work is always characterized by a commitment to a few fundamentals.&#10;&lt;/p&gt;
-                    h4(id="typography-lists") Lists
-                    p By default, <code class="sg--code-inline">&lt;ul&gt;</code> is styled with bullets and <code class="sg--code-inline">&lt;ol&gt;</code> is styled with numerals. Additionally, there is a <code class="sg--code-inline">t--list-unstyled</code> helper class to remove styling from any list.
-                    .sg--example
-                        ul
-                            li Unordered list
-                            li Lorem ipsum dolor sit amet
-                            li Consectetur adipiscing elit
-                            ul
-                                li Nested list
-                                li Consectetur adipiscing elit
-                                li Integer molestie lorem at massa
-                            li Lorem ipsum dolor sit amet
-                            li Consectetur adipiscing elit
-                            li Integer molestie lorem at massa
-                        ol
-                            li Ordered List
-                            li Consectetur adipiscing elit
-                            li Integer molestie lorem at massa
-                        ul.t--list-unstyled
-                            li Unstyled List
-                            li Consectetur adipiscing elit
-                            li Integer molestie lorem at massa
-                    pre.sg--code
-                        code.html.
-                            &lt;ul&gt;
-                                &lt;li&gt;Unordered list&lt;/li&gt;
-                                &lt;li&gt;Lorem ipsum dolor sit amet&lt;/li&gt;
-                                &lt;li&gt;Consectetur adipiscing elit&lt;/li&gt;
-                                &lt;ul&gt;
-                                    &lt;li&gt;Nested list&lt;/li&gt;
-                                    &lt;li&gt;Consectetur adipiscing elit&lt;/li&gt;
-                                    &lt;li&gt;Integer molestie lorem at massa&lt;/li&gt;
-                                &lt;/ul&gt;
-                                &lt;li&gt;Lorem ipsum dolor sit amet&lt;/li&gt;
-                                &lt;li&gt;Consectetur adipiscing elit&lt;/li&gt;
-                                &lt;li&gt;Integer molestie lorem at massa&lt;/li&gt;
-                            &lt;/ul&gt;
-                            &lt;ol&gt;
-                                &lt;li&gt;Ordered List&lt;/li&gt;
-                                &lt;li&gt;Consectetur adipiscing elit&lt;/li&gt;
-                                &lt;li&gt;Integer molestie lorem at massa&lt;/li&gt;
-                            &lt;/ol&gt;
-                            &lt;ul class=&quot;t--list-unstyled&quot;&gt;
-                                &lt;li&gt;Unstyled List&lt;/li&gt;
-                                &lt;li&gt;Consectetur adipiscing elit&lt;/li&gt;
-                                &lt;li&gt;Integer molestie lorem at massa&lt;/li&gt;
-                            &lt;/ul&gt;
-                    h4(id="typography-blockquotes") Block Quotes
-                    p The <code class="sg--code-inline">&lt;blockquote&gt;</code> element is styled simply to provide differentiation from text.
-                    .sg--example
-                        blockquote Planetary helps us design, counsel, and build products for our and our clients' future.
-                    pre.sg--code
-                        code.html.
-                            &lt;blockquote&gt;
-                                Planetary helps us design, counsel, and build
-                                products for our and our clients&apos; future.
-                            &lt;/blockquote&gt;
-                    h4(id="typography-code") Code
-                    p Preformated text and code can be styled using the <code class="sg--code-inline">&lt;pre&gt;</code> and <code class="sg--code-inline">&lt;code&gt;</code> tags.
-                    .sg--example
-                        pre Preformatted text
-                        code Code text
-                    pre.sg--code
-                        code.html.
-                            &lt;pre&gt;Preformatted text&lt;/pre&gt;
-                            &lt;code&gt;Code text&lt;/code&gt;
-        .l--row
-            .l--col-quarter
-            .l--col-auto
-                .l--col-full
-                    h2 Colors
-                    p 6 colors are provided. Each has two variants: lighter, light, dark, and darker.
+    header
+        nav.l--container
+            .l--row.l--pad-top-m.l--pad-btm-m
+                .l--col-3.l--col-12-at-s.l--col-6-at-m
+                    <svg style="width:20%; height: auto;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><path d="M88.63 163.3L86 145.58a.49.49 0 0 0-.56-.42H63.52a.49.49 0 0 0-.56.42l-2.65 17.72a.49.49 0 0 1-.56.42H47.62a.64.64 0 0 1-.56-.7l21.2-120.39a.49.49 0 0 1 .56-.42h11a.59.59 0 0 1 .56.42L101.74 163a.62.62 0 0 1-.56.7H88.91a.47.47 0 0 1-.28-.4zm-23.16-30h17.86a.6.6 0 0 0 .56-.56L75 73.88a.58.58 0 0 0-1.12 0l-8.93 58.87c-.17.25.11.56.52.56zM106.76 162.74V42.36a.6.6 0 0 1 .56-.56h38.08a.6.6 0 0 1 .56.56v11.15a.6.6 0 0 1-.56.56h-24.82a.6.6 0 0 0-.56.56v28.74a.6.6 0 0 0 .56.56h21.34a.6.6 0 0 1 .56.56v10.73a.6.6 0 0 1-.56.56h-21.34a.6.6 0 0 0-.56.56v66.4a.6.6 0 0 1-.56.56h-12.14a.6.6 0 0 1-.56-.56z"/><path d="M188 12v176H12V12h176m12-12H0v200h200V0z"/></svg>
+                .l--col-9.t--align-right.l--col-6-at-m.l--hidden-at-s
+                    ul.t--list-inline
+                        li.l--pad-left-m
+                            a(href="/intro.html") Documentation
+                        li.l--pad-left-m
+                            a(href="http://github.com/planetary/airframe") Github
+                    span.nav-active
+
+
+    main
+        section
+            .l--container
+                .l--row.l--pad-top-l.l--pad-btm-l
+                    .l--col-6.l--col-12-at-m.l--pad-btm-m
+                        h3 Meet Airframe
+                        p Airframe allows you to rapidly prototype sites by providing a lightweight scaffold. It makes suggestions without being too prescriptive.
+                        a(href="").button.button--primary Download Files
+                        a(href="").button Learn More
+                    .l--col-6.l--col-12-at-m.l--pad-btm-m
+                        pre.docs--code
+                            code.nohighlight.
+                                $ git clone git@github.com:planetary/airframe
+                                $ cd airframe
+                                $ npm install
+                                $ npm run dev
+
+        section.c--bg-gray-lighter
+            .l--container
+                .l--row.t--align-center.l--pad-top-m.l--pad-btm-m
+                    .l--col-4.l--col-12-at-m.l--pad-btm-s
+                        span.t--size-l(data-tooltip="Get started by downloading or cloning the zip files.") 1. Download Files
+                    .l--col-4.l--col-12-at-m.l--pad-btm-s
+                        span.t--size-l(data-tooltip="Run npm install to initialize the project.") 2. Install Dependencies
+                    .l--col-4.l--col-12-at-m.l--pad-btm-s
+                        span.t--size-l(data-tooltip="When you're ready to start building, run the build script!") 3. Start Building
+
+
+
+        section
+            .l--container.l--pad-top-l.l--pad-btm-l
                 .l--row
-                    .l--col-auto
-                        .sg--swatch.c--bg-blue-lighter.c--blue-darker
-                            |Lighter Blue
-                        .sg--swatch.c--bg-blue-light.c--blue-darker
-                            |Light Blue
-                        .sg--swatch.c--bg-blue.c--blue-darker
-                            |Blue
-                        .sg--swatch.c--bg-blue-dark.c--blue-lighter
-                            |Dark Blue
-                        .sg--swatch.c--bg-blue-darker.c--blue-lighter
-                            |Darker Blue
-                    .l--col-auto
-                        .sg--swatch.c--bg-green-lighter.c--green-darker
-                            |Lighter Green
-                        .sg--swatch.c--bg-green-light.c--green-darker
-                            |Light Green
-                        .sg--swatch.c--bg-green.c--green-darker
-                            |Green
-                        .sg--swatch.c--bg-green-dark.c--green-lighter
-                            |Dark Green
-                        .sg--swatch.c--bg-green-darker.c--green-lighter
-                            |Darker Green
-                    .l--col-auto
-                        .sg--swatch.c--bg-yellow-lighter.c--yellow-darker
-                            |Lighter Yellow
-                        .sg--swatch.c--bg-yellow-light.c--yellow-darker
-                            |Light Yellow
-                        .sg--swatch.c--bg-yellow.c--yellow-darker
-                            |Yellow
-                        .sg--swatch.c--bg-yellow-dark.c--yellow-lighter
-                            |Dark Yellow
-                        .sg--swatch.c--bg-yellow-darker.c--yellow-lighter
-                            |Darker Yellow
-                    .l--col-auto
-                        .sg--swatch.c--bg-orange-lighter.c--orange-darker
-                            |Lighter Orange
-                        .sg--swatch.c--bg-orange-light.c--orange-darker
-                            |Light Orange
-                        .sg--swatch.c--bg-orange.c--orange-darker
-                            |Orange
-                        .sg--swatch.c--bg-orange-dark.c--orange-lighter
-                            |Dark Orange
-                        .sg--swatch.c--bg-orange-darker.c--orange-lighter
-                            |Darker Orange
-                    .l--col-auto
-                        .sg--swatch.c--bg-red-lighter.c--red-darker
-                            |Lighter Red
-                        .sg--swatch.c--bg-red-light.c--red-darker
-                            |Light Red
-                        .sg--swatch.c--bg-red.c--red-darker
-                            |Red
-                        .sg--swatch.c--bg-red-dark.c--red-lighter
-                            |Dark Red
-                        .sg--swatch.c--bg-red-darker.c--red-lighter
-                            |Darker Red
-                    .l--col-auto
-                        .sg--swatch.c--bg-purple-lighter.c--purple-darker
-                            |Lighter Purple
-                        .sg--swatch.c--bg-purple-light.c--purple-darker
-                            |Light Purple
-                        .sg--swatch.c--bg-purple.c--purple-darker
-                            |Purple
-                        .sg--swatch.c--bg-purple-dark.c--purple-lighter
-                            |Dark Purple
-                        .sg--swatch.c--bg-purple-darker.c--purple-lighter
-                            |Darker Purple
-        .l--row
-            .l--col-quarter
-            .l--col-auto
-                .l--col-full
-                    h2 Tables
-                    p Tables are styled with the fewest elements possible. For more styling, including text alignment and color, use helper classes. For guidelines on how to style tables, read <a href="https://medium.com/mission-log/design-better-data-tables-430a30a00d8c#.od49lsyoa">Design Better Data Tables</a>.
-                    .sg--example
-                        table
-                            thead
-                                tr
-                                    th Flavor
-                                    th.t--align-right Inventory
-                                    th.t--align-right Sales
-                            tbody
-                                tr
-                                    td Vanilla
-                                    td.t--align-right 120
-                                    td.t--align-right $300.23
-                                tr
-                                    td Chocolate
-                                    td.t--align-right 20
-                                    td.t--align-right 203.39
-                                tr
-                                    td Pistachio
-                                    td.t--align-right 139
-                                    td.t--align-right 192.29
-                    pre.sg--code
-                        code.html.
-                            &lt;table&gt;
-                                &lt;thead&gt;
-                                    &lt;tr&gt;
-                                        &lt;th&gt;Flavor&lt;/th&gt;
-                                        &lt;th class=&quot;t--align-right&quot;&gt;Inventory&lt;/th&gt;
-                                        &lt;th class=&quot;t--align-right&quot;&gt;Sales&lt;/th&gt;
-                                    &lt;/tr&gt;
-                                &lt;/thead&gt;
-                                &lt;tbody&gt;
-                                    &lt;tr&gt;
-                                        &lt;td&gt;Vanilla&lt;/td&gt;
-                                        &lt;td class=&quot;t--align-right&quot;&gt;120&lt;/td&gt;
-                                        &lt;td class=&quot;t--align-right&quot;&gt;$300.23&lt;/td&gt;
-                                    &lt;/tr&gt;
-                                    &lt;tr&gt;
-                                        &lt;td&gt;Chocolate&lt;/td&gt;
-                                        &lt;td class=&quot;t--align-right&quot;&gt;20&lt;/td&gt;
-                                        &lt;td class=&quot;t--align-right&quot;&gt;203.39&lt;/td&gt;
-                                    &lt;/tr&gt;
-                                    &lt;tr&gt;
-                                        &lt;td&gt;Pistachio&lt;/td&gt;
-                                        &lt;td class=&quot;t--align-right&quot;&gt;139&lt;/td&gt;
-                                        &lt;td class=&quot;t--align-right&quot;&gt;192.29&lt;/td&gt;
-                                    &lt;/tr&gt;
-                                &lt;/tbody&gt;
-                            &lt;/table&gt;
+                    .l--col-12
+                        h3 Grid System
+                .l--row
+                    .l--col-6.l--col-12-at-m.l--pad-btm-s
+                        .docs--example
+                            .l--row
+                                .l--col-6.c--bg-gray-lighter.l--pad-s.
+                                    1/2
+                                .l--col-6.c--bg-gray-lighter.l--pad-s.
+                                    1/2
+                            .l--row
+                                .l--col-4.c--bg-gray-lighter.l--pad-s.
+                                    1/3
+                                .l--col-4.c--bg-gray-lighter.l--pad-s.
+                                    1/3
+                                .l--col-4.c--bg-gray-lighter.l--pad-s.
+                                    1/3
+
+                    .l--col-6.l--col-12-at-m.l--pad-btm-s
+                        pre.docs--code
+                            code.html.
+                                &lt;div class=&quot;l--container&quot;&gt;
+                                    &lt;div class=&quot;l--row&quot;&gt;
+                                        &lt;div class=&quot;l--col-6&quot;&gt;1/2&lt;/div&gt;
+                                        &lt;div class=&quot;l--col-6&quot;&gt;1/2&lt;/div&gt;
+                                    &lt;/row&gt;
+                                    &lt;div class=&quot;l--row&quot;&gt;
+                                        &lt;div class=&quot;l--col-4&quot;&gt;1/3&lt;/div&gt;
+                                        &lt;div class=&quot;l--col-4&quot;&gt;1/3&lt;/div&gt;
+                                        &lt;div class=&quot;l--col-4&quot;&gt;1/3&lt;/div&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+
+        section
+            .l--container.l--pad-btm-l
+                .l--row
+                    .l--col-12
+                        h3 Form Reset
+                .l--row
+                    .l--col-6.l--col-12-at-m.l--pad-btm-s
+                        .docs--example
+                            label Text input
+                                input(type="text", placeholder="Text input")
+                            label Select Input
+                                .form--select
+                                    select
+                                        option One
+                                        option Two
+                                        option Three
+                            label Textarea input
+                                textarea
+                            .form--checkbox
+                                label
+                                    input(type="checkbox")
+                                    | Checkbox Option 1
+                            .form--checkbox
+                                label
+                                    input(type="checkbox")
+                                    | Checkbox Option 2
+                            .form--radio
+                                label
+                                    input(type="radio")
+                                    | Radio Option 1
+                            .form--radio
+                                label
+                                    input(type="radio")
+                                    | Radio Option 2
+
+                    .l--col-6.l--col-12-at-m.l--pad-btm-s
+                        pre.docs--code
+                            code.html.
+                                &lt;div class=&quot;docs--example&quot;&gt;
+                                    &lt;label&gt;Text input
+                                        &lt;input type=&quot;text&quot; placeholder=&quot;Text input&quot;&gt;
+                                    &lt;/label&gt;
+                                    &lt;label&gt;Select Input
+                                        &lt;div class=&quot;form--select&quot;&gt;
+                                            &lt;select&gt;
+                                                &lt;option&gt;One&lt;/option&gt;
+                                                &lt;option&gt;Two&lt;/option&gt;
+                                                &lt;option&gt;Three&lt;/option&gt;
+                                            &lt;/select&gt;
+                                        &lt;/div&gt;
+                                    &lt;/label&gt;
+                                    &lt;label&gt;Textarea input
+                                        &lt;textarea&gt;&lt;/textarea&gt;
+                                    &lt;/label&gt;
+                                    &lt;div class=&quot;form--checkbox&quot;&gt;
+                                        &lt;label&gt;
+                                            &lt;input type=&quot;checkbox&quot;&gt;Checkbox Option 1
+                                        &lt;/label&gt;
+                                    &lt;/div&gt;
+                                    &lt;div class=&quot;form--checkbox&quot;&gt;
+                                        &lt;label&gt;
+                                            &lt;input type=&quot;checkbox&quot;&gt;Checkbox Option 2
+                                        &lt;/label&gt;
+                                    &lt;/div&gt;
+                                    &lt;div class=&quot;form--radio&quot;&gt;
+                                        &lt;label&gt;
+                                            &lt;input type=&quot;radio&quot;&gt;Radio Option 1
+                                        &lt;/label&gt;
+                                    &lt;/div&gt;
+                                    &lt;div class=&quot;form--radio&quot;&gt;
+                                        &lt;label&gt;
+                                            &lt;input type=&quot;radio&quot;&gt;Radio Option 2
+                                        &lt;/label&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+
+        section
+            .l--container
+                .l--row
+                    .l--col-12
+                        h3 Type utilities
+                .l--row
+                    .l--col-6.l--col-12-at-m.l--pad-btm-s
+                        .docs--example
+                            .t--size-xxl The quick brown fox
+                            .t--size-xl Both fickle dwarves
+                            .t--size-l The wizard quickly jinxed the gnomes
+                            .t--size-m Quilt frenzy jackdaw gave them best pox
+                            .t--size-s Jim quickly realized that the beautiful gowns are expensive.
+
+                    .l--col-6.l--col-12-at-m.l--pad-btm-s
+                        pre.docs--code
+                            code.html.
+                                &lt;div class=&quot;t--size-xxl&quot;&gt;
+                                    The quick brown fox
+                                &lt;/div&gt;
+                                &lt;div class=&quot;t--size-xl&quot;&gt;
+                                    Both fickle dwarves
+                                &lt;/div&gt;
+                                &lt;div class=&quot;t--size-l&quot;&gt;
+                                    The wizard quickly jinxed the gnomes
+                                &lt;/div&gt;
+                                &lt;div class=&quot;t--size-m&quot;&gt;
+                                    Quilt frenzy jackdaw gave them best pox
+                                &lt;/div&gt;
+                                &lt;div class=&quot;t--size-s&quot;&gt;
+                                    Jim quickly realized that the beautiful
+                                    gowns are expensive.
+                                &lt;/div&gt;
+
+    footer
+        .l--container
+            .l--row.l--pad-l
+                .l--col-12.t--align-center
+                    a(href="/intro.html").t--size-l Read the full documentation
+            .l--row
+                .l--col-3.l--col-12-at-s.l--pad-btm-s
+                    <svg style="width:80%; height: auto;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 166"><path d="M500 166H0V0h500v166zM8.3 157.7h483.4V8.3H8.3v149.4z"/><path d="M58.3 126.5v-87h19.1c13.3 0 16 6.4 16 16.1v8c0 10.9-5.2 16-16.3 16h-9.3v46.9h-9.5zm9.4-55.3h8.7c5 0 7.6-2.7 7.6-7.9v-8.7c0-5.2-2.7-7.9-7.8-7.9h-8.5v24.5zM102.9 126.5v-87h9.5v78.3h14.9v8.7h-24.4M216.5 126.5l-21.4-66.2v66.2h-8v-87h9.5l21.6 64.8V39.5h7.6v87h-9.3M239.3 126.5v-87h28.1v8.8h-18.6v21.4h16.1v8.4h-16.1v39.7h18.6v8.7h-28.1M289.5 126.5V48.3h-12.1v-8.8h33.8v8.8H299v78.2h-9.5M418.6 126.5V82.7l-13.2-43.2h9.1l8.8 33.3 8.8-33.3h9.3l-13.3 43.2v43.8h-9.5M165.5 126.5l-2-13.3h-16.3l-2 13.3h-9.5l15.4-87h8.6l15.4 87h-9.6zm-17.1-21.7h13.8l-6.9-45.1zM344 126.5l-2-13.3h-16.3l-2 13.3h-9.5l15.4-87h8.6l15.4 87H344zm-17.1-21.7h13.8l-6.9-45.1zM390.2 126.5L376.6 80h-3.8v46.5h-9.4v-87h19.1c13.3 0 16 6.2 16 16.1V64c0 9-3.3 13.9-10.4 15.4l-1.8.4 13.6 46.7h-9.7zm-17.4-54.9h8.7c5 0 7.6-2.7 7.6-7.9v-9.1c0-5.2-2.7-7.9-7.8-7.9h-8.5v24.9z"/></svg>
+                .l--col-auto
+                    h4 About Planetary
+                    p.p-about We are a multi-disciplinary team of designers and developers working to build and launch great products. If you'd like to know more or get in touch, visit our <a href="http://planetary.io">website</a>!
 
 block scripts
     script(src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js")
