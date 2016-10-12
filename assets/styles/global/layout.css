@@ -5,7 +5,8 @@
     /* Grid configuration */
     --l--grid-width: 70rem;
     --l--gutter: 2%;
-    --l--grid-row-spacing: 1rem;
+
+    /* Border radius */
     --l--border-radius: 4px;
 
     /* Z indexes */
@@ -44,7 +45,6 @@
 
     @define-mixin row {
         display: flex;
-        margin-bottom: var(--l--grid-row-spacing);
         padding: 0 calc(var(--l--gutter) / 2);
         flex-flow: row;
         flex-wrap: wrap;

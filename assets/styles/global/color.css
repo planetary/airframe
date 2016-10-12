@@ -57,7 +57,7 @@
     --c--purple-darker: color(var(--c--purple) l(20%));
 }
 
-/* color helpers */
+/* color utilities */
 .c--black { color: var(--c--black); }
 .c--white { color: var(--c--white); }
 .c--gray { color: var(--c--gray); }
@@ -68,49 +68,49 @@
 .c--red { color: var(--c--red); }
 .c--purple { color: var(--c--purple); }
 
-/* color variant helpers: gray */
+/* color variant utilities: gray */
 .c--gray-lighter { color: var(--c--gray-lighter); }
 .c--gray-light { color: var(--c--gray-light); }
 .c--gray-dark { color: var(--c--gray-dark); }
 .c--gray-darker { color: var(--c--gray-darker); }
 
-/* color variant helpers: blue */
+/* color variant utilities: blue */
 .c--blue-lighter { color: var(--c--blue-lighter); }
 .c--blue-light { color: var(--c--blue-light); }
 .c--blue-dark { color: var(--c--blue-dark); }
 .c--blue-darker { color: var(--c--blue-darker); }
 
-/* color variant helpers: green */
+/* color variant utilities: green */
 .c--green-lighter { color: var(--c--green-lighter); }
 .c--green-light { color: var(--c--green-light); }
 .c--green-dark { color: var(--c--green-dark); }
 .c--green-darker { color: var(--c--green-darker); }
 
-/* color variant helpers: yellow */
+/* color variant utilities: yellow */
 .c--yellow-lighter { color: var(--c--yellow-lighter); }
 .c--yellow-light { color: var(--c--yellow-light); }
 .c--yellow-dark { color: var(--c--yellow-dark); }
 .c--yellow-darker { color: var(--c--yellow-darker); }
 
-/* color variant helpers: orange */
+/* color variant utilities: orange */
 .c--orange-lighter { color: var(--c--orange-lighter); }
 .c--orange-light { color: var(--c--orange-light); }
 .c--orange-dark { color: var(--c--orange-dark); }
 .c--orange-darker { color: var(--c--orange-darker); }
 
-/* color variant helpers: red */
+/* color variant utilities: red */
 .c--red-lighter { color: var(--c--red-lighter); }
 .c--red-light { color: var(--c--red-light); }
 .c--red-dark { color: var(--c--red-dark); }
 .c--red-darker { color: var(--c--red-darker); }
 
-/* color variant helpers: purple */
+/* color variant utilities: purple */
 .c--purple-lighter { color: var(--c--purple-lighter); }
 .c--purple-light { color: var(--c--purple-light); }
 .c--purple-dark { color: var(--c--purple-dark); }
 .c--purple-darker { color: var(--c--purple-darker); }
 
-/* background color helpers */
+/* background color utilities */
 .c--bg-black { background: var(--c--black); }
 .c--bg-white { background: var(--c--white); }
 .c--bg-gray { background: var(--c--gray); }
@@ -121,43 +121,43 @@
 .c--bg-red { background: var(--c--red); }
 .c--bg-purple { background: var(--c--purple); }
 
-/* background color helpers: gray */
+/* background color utilities: gray */
 .c--bg-gray-lighter { background: var(--c--gray-lighter); }
 .c--bg-gray-light { background: var(--c--gray-light); }
 .c--bg-gray-dark { background: var(--c--gray-dark); }
 .c--bg-gray-darker { background: var(--c--gray-darker); }
 
-/* background color helpers: blue */
+/* background color utilities: blue */
 .c--bg-blue-lighter { background: var(--c--blue-lighter); }
 .c--bg-blue-light { background: var(--c--blue-light); }
 .c--bg-blue-dark { background: var(--c--blue-dark); }
 .c--bg-blue-darker { background: var(--c--blue-darker); }
 
-/* background color helpers: green */
+/* background color utilities: green */
 .c--bg-green-lighter { background: var(--c--green-lighter); }
 .c--bg-green-light { background: var(--c--green-light); }
 .c--bg-green-dark { background: var(--c--green-dark); }
 .c--bg-green-darker { background: var(--c--green-darker); }
 
-/* background color helpers: yellow */
+/* background color utilities: yellow */
 .c--bg-yellow-lighter { background: var(--c--yellow-lighter); }
 .c--bg-yellow-light { background: var(--c--yellow-light); }
 .c--bg-yellow-dark { background: var(--c--yellow-dark); }
 .c--bg-yellow-darker { background: var(--c--yellow-darker); }
 
-/* background color helpers: orange */
+/* background color utilities: orange */
 .c--bg-orange-lighter { background: var(--c--orange-lighter); }
 .c--bg-orange-light { background: var(--c--orange-light); }
 .c--bg-orange-dark { background: var(--c--orange-dark); }
 .c--bg-orange-darker { background: var(--c--orange-darker); }
 
-/* background color helpers: red */
+/* background color utilities: red */
 .c--bg-red-lighter { background: var(--c--red-lighter); }
 .c--bg-red-light { background: var(--c--red-light); }
 .c--bg-red-dark { background: var(--c--red-dark); }
 .c--bg-red-darker { background: var(--c--red-darker); }
 
-/* background color helpers: purple */
+/* background color utilities: purple */
 .c--bg-purple-lighter { background: var(--c--purple-lighter); }
 .c--bg-purple-light { background: var(--c--purple-light); }
 .c--bg-purple-dark { background: var(--c--purple-dark); }

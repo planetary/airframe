@@ -4,12 +4,21 @@ block title
     | Airframe Style Guide
 
 block content
-    .l--grid-container
-        .l--grid-row.l--mar-top-m.l--mar-bot-m
-            .l--grid-col-3
+    .l--container
+        .l--row.l--mar-top-m.l--mar-bot-m
+            .l--col-3
+                .t--size-l
+                    a(href="#layout") Layout
                 ul.t--list-unstyled
                     li
-                        strong Helper Classes
+                        a(href="#layout-grid") Grid
+                    li
+                        a(href="#layout-spacing") Spacing
+                .t--size-l
+                    a(href="#typography") Typography
+                ul.t--list-unstyled
+                    li
+                        strong Utility Classes
                     li
                         a(href="#typography-family") Family
                     li
@@ -30,24 +39,98 @@ block content
                         a(href="#typography-blockquotes") Block quotes
                     li
                         a(href="#typography-code") Code
-            .l--grid-col-auto
-                h2 Typography
-                    h3 Helper Classes
-                    h4(id="typography-family") Family
-                    p Type comes in three families, set by variables in <code class="docs--code-inline">assets/type.css</code>. By default, the <code class="docs--code-inline">body</code> element is set to sans.
-                    .docs--example
-                        .t--family-serif Serif text
-                        .t--family-sans Sans text
-                        .t--family-mono Monospace text
-                    pre.docs--code
-                        code.html.
-                            &lt;div class=&quot;t--family-serif&quot;&gt;Serif text&lt;/div&gt;
-                            &lt;div class=&quot;t--family-sans&quot;&gt;Sans text&lt;/div&gt;
-                            &lt;div class=&quot;t--family-mono&quot;&gt;Monospace text&lt;/div&gt;
-                    h4(id="typography-size") Size
-                    p Type comes in 5 sizes, set by a <a href="http://www.modularscale.com/">modular scale.</a> The variables that dictate each size are set in <code class="docs--code-inline">assets/type.css</code>.
-                    p
-                        table
+                .t--size-l
+                    a(href="#colors") Colors
+                ul.t--list-unstyled
+                    li
+                        strong Utility Classes
+                    li
+                        a(href="#colors-textcolor") Text Color
+                    li
+                        a(href="#colors-backgroundcolor") Background Color
+                .t--size-l
+                    a(href="#tables") Tables
+            .l--col-auto
+                .l--row.l--pad-top-m.l--pad-btm-m
+                    .l--col-auto
+                        h2(id="layout") Layout
+                        h3(id="layout-grid") Grid
+                        p The airframe grid system consists of 12 columns. The variables that dictate the grid width and column spacing can be found in <code class="docs--code-inline">assets/layout.css</code>.
+                        h4 Configuration Variables
+                        p
+                            table
+                                thead
+                                    tr
+                                        th Variable
+                                        th Description
+                                        th Default
+                                tbody
+                                    tr
+                                        td <code class="docs--code-inline">--l--grid-width</code>
+                                        td Grid Width
+                                        td 70rem
+                                    tr
+                                        td <code class="docs--code-inline">--l--gutter</code>
+                                        td Gutter width
+                                        td 2%
+                        h4 Utility Classes
+                        p
+                            table
+                                thead
+                                    tr
+                                        th Class
+                                        th Description
+                                        th Possible Values
+                                tbody
+                                    tr
+                                        td <code class="docs--code-inline">.l--container
+                                        td Container element
+                                        td
+                                    tr
+                                        td <code class="docs--code-inline">.l--row
+                                        td Row element
+                                        td
+                                    tr
+                                        td <code class="docs--code-inline">.l--col-{number}
+                                        td Column element
+                                        td 1-12 or "auto"
+                        .docs--example
+                            .l--container.t--align-center
+                                .l--row.l--pad-btm-s
+                                    .l--col-6.c--bg-gray-lighter 1/2 column
+                                    .l--col-6.c--bg-gray-lighter 1/2 column
+                                .l--row.l--pad-btm-s
+                                    .l--col-4.c--bg-gray-lighter 1/3 column
+                                    .l--col-4.c--bg-gray-lighter 1/3 column
+                                    .l--col-4.c--bg-gray-lighter 1/3 column
+                                .l--row.l--pad-btm-s
+                                    .l--col-3.c--bg-gray-lighter 1/4 column
+                                    .l--col-3.c--bg-gray-lighter 1/4 column
+                                    .l--col-3.c--bg-gray-lighter 1/4 column
+                                    .l--col-3.c--bg-gray-lighter 1/4 column
+                        pre.docs--code
+                            code.html.
+                                &lt;div class=&quot;l--container t--align-center&quot;&gt;
+                                    &lt;div class=&quot;l--row l--pad-btm-s&quot;&gt;
+                                        &lt;div class=&quot;l--col-6 c--bg-gray-lighter&quot;&gt;1/2 column&lt;/div&gt;
+                                        &lt;div class=&quot;l--col-6 c--bg-gray-lighter&quot;&gt;1/2 column&lt;/div&gt;
+                                    &lt;/div&gt;
+                                    &lt;div class=&quot;l--row l--pad-btm-s&quot;&gt;
+                                        &lt;div class=&quot;l--col-4 c--bg-gray-lighter&quot;&gt;1/3 column&lt;/div&gt;
+                                        &lt;div class=&quot;l--col-4 c--bg-gray-lighter&quot;&gt;1/3 column&lt;/div&gt;
+                                        &lt;div class=&quot;l--col-4 c--bg-gray-lighter&quot;&gt;1/3 column&lt;/div&gt;
+                                    &lt;/div&gt;
+                                    &lt;div class=&quot;l--row l--pad-btm-s&quot;&gt;
+                                        &lt;div class=&quot;l--col-3 c--bg-gray-lighter&quot;&gt;1/4 column&lt;/div&gt;
+                                        &lt;div class=&quot;l--col-3 c--bg-gray-lighter&quot;&gt;1/4 column&lt;/div&gt;
+                                        &lt;div class=&quot;l--col-3 c--bg-gray-lighter&quot;&gt;1/4 column&lt;/div&gt;
+                                        &lt;div class=&quot;l--col-3 c--bg-gray-lighter&quot;&gt;1/4 column&lt;/div&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                        h3(id="layout-spacing") Spacing
+                        p Spacing can be achieved by adding either margin or padding utility classes to an element. The spacing variables can be edited in <code class="docs--code-inline">assets/layout.css</code>.
+                        h4 Configuration Variables
+                        table.l--mar-btm-m
                             thead
                                 tr
                                     th Variable
@@ -55,149 +138,209 @@ block content
                                     th Default
                             tbody
                                 tr
-                                    td <code class="docs--code-inline">--t--base-size</code>
-                                    td Base Font Size
-                                    td 16px
+                                    td <code class="docs--code-inline">--l--space-l</code>
+                                    td Large spacing
+                                    td <code class="docs--code-inline">4 rem</code>
                                 tr
-                                    td <code class="docs--code-inline">--ms-base</code>
-                                    td Basis for modular scale
-                                    td 1rem
+                                    td <code class="docs--code-inline">--l--space-m</code>
+                                    td Medium spacing
+                                    td <code class="docs--code-inline">2 rem</code>
                                 tr
-                                    td <code class="docs--code-inline">--ms-ratio</code>
-                                    td Ratio of modular scale sizes
-                                    td 1.5
-                    .docs--example
-                        .t--size-xxl Huge text
-                        .t--size-xl XLarge text
-                        .t--size-l Large text
-                        .t--size-m Normal text
-                        .t--size-s Small text
-                    pre.docs--code
-                        code.html.
-                            &lt;div class=&quot;t--size-xxl&quot;&gt;Huge text&lt;/div&gt;
-                            &lt;div class=&quot;t--size-xl&quot;&gt;XLarge text&lt;/div&gt;
-                            &lt;div class=&quot;t--size-l&quot;&gt;Large text&lt;/div&gt;
-                            &lt;div class=&quot;t--size-m&quot;&gt;Normal text&lt;/div&gt;
-                            &lt;div class=&quot;t--size-s&quot;&gt;Small text&lt;/div&gt;
-                    h4(id="typography-weight") Weight
-                    p Type comes in 3 weights, set by the variables in  <code class="docs--code-inline">assets/type.css</code>.
-                    .docs--example
-                        .t--weight-bold Bold text
-                        .t--weight-normal Normal text
-                        .t--weight-light Light text
-                    pre.docs--code
-                        code.html.
-                            &lt;div class=&quot;t--weight-black&quot;&gt;Black text&lt;/div&gt;
-                            &lt;div class=&quot;t--weight-bold&quot;&gt;Bold text&lt;/div&gt;
-                            &lt;div class=&quot;t--weight-normal&quot;&gt;Normal text&lt;/div&gt;
-                            &lt;div class=&quot;t--weight-light&quot;&gt;Light text&lt;/div&gt;
-                            &lt;div class=&quot;t--weight-thin&quot;&gt;Thin text&lt;/div&gt;
-                    h4(id="typography-alignment") Alignment
-                    p Alignment can be set using one of three helper classes.
-                    .docs--example
-                        .t--align-left Left-aligned text
-                        .t--align-center Center-aligned text
-                        .t--align-right Right-aligned text
-                    pre.docs--code
-                        code.html.
-                            &lt;div class=&quot;t--align-left&quot;&gt;Left-aligned text&lt;/div&gt;
-                            &lt;div class=&quot;t--align-center&quot;&gt;Center-aligned text&lt;/div&gt;
-                            &lt;div class=&quot;t--align-right&quot;&gt;Right-aligned text&lt;/div&gt;&lt;/div&gt;
-                    h3 Elements
-                    h4(id="typography-headings") Headings
-                    p Headings 1-4 are available as shorthand for commonly-used size, weight, and color styles. Feel free to style these as you wish.
-                    .docs--example
-                        h1 Heading 1
-                        h2 Heading 2
-                        h3 Heading 3
-                        h4 Heading 4
-                    pre.docs--code
-                        code.html.
-                            &lt;h1&gt;Heading 1&lt;/h1&gt;
-                            &lt;h2&gt;Heading 2&lt;/h2&gt;
-                            &lt;h3&gt;Heading 3&lt;/h3&gt;
-                            &lt;h4&gt;Heading 4&lt;/h4&gt;
-                    h4(id="typography-paragraphs") Paragraphs
-                    p Paragraph text is styled at the <code class="docs--code-inline">body</code> level, with the exception of the addition of <code class="docs--code-inline">margin-bottom: 1rem</code> for <code class="docs--code-inline">&lt;p&gt;</code> tags.
-                    .docs--example
-                        p Paragraph Text. We work with clients as partners and collaborators on the way to a shared goal. While projects vary and methods evolve, our work is always characterized by a commitment to a few fundamentals.
-                    pre.docs--code
-                        code.html.
-                            &lt;p&gt;&#10;Paragraph Text. We work with clients as partners and collaborators &#10;on the way to a shared goal. While projects vary and methods evolve, &#10;our work is always characterized by a commitment to a few fundamentals.&#10;&lt;/p&gt;
-                    h4(id="typography-lists") Lists
-                    p By default, <code class="docs--code-inline">&lt;ul&gt;</code> is styled with bullets and <code class="docs--code-inline">&lt;ol&gt;</code> is styled with numerals. Additionally, there is a <code class="docs--code-inline">t--list-unstyled</code> helper class to remove styling from any list.
-                    .docs--example
-                        ul
-                            li Unordered list
-                            li Lorem ipsum dolor sit amet
-                            li Consectetur adipiscing elit
+                                    td <code class="docs--code-inline">--l--space-s</code>
+                                    td Small spacing
+                                    td <code class="docs--code-inline">1 rem</code>
+                        h4 Utility Classes
+                        table
+                            thead
+                                tr
+                                    th Class
+                                    th Description
+                                    th Possible Values
+                            tbody
+                                tr
+                                    td <code class="docs--code-inline">.l--pad-{size}
+                                    td Even padding
+                                    td l, m, s
+                                tr
+                                    td <code class="docs--code-inline">.l--mar-{size}
+                                    td Even margins
+                                    td l, m, s
+                                tr
+                                    td <code class="docs--code-inline">.l--pad-{side}-{size}
+                                    td Padding on one side
+                                    td side: top, right, btm, left <br/> size: l, m, s
+                                tr
+                                    td <code class="docs--code-inline">.l--mar-{side}-{size}
+                                    td Margin on one side
+                                    td side: top, right, btm, left <br/> size: l, m, s
+
+                .l--row.l--pad-top-m.l--pad-btm-m
+                    .l--col-auto
+                        h2(id="typography") Typography
+                        h3 Utility Classes
+                        h4(id="typography-family") Family
+                        p Type comes in three families, set by variables in <code class="docs--code-inline">assets/type.css</code>. By default, the <code class="docs--code-inline">body</code> element is set to sans.
+                        .docs--example
+                            .t--family-serif Serif text
+                            .t--family-sans Sans text
+                            .t--family-mono Monospace text
+                        pre.docs--code
+                            code.html.
+                                &lt;div class=&quot;t--family-serif&quot;&gt;Serif text&lt;/div&gt;
+                                &lt;div class=&quot;t--family-sans&quot;&gt;Sans text&lt;/div&gt;
+                                &lt;div class=&quot;t--family-mono&quot;&gt;Monospace text&lt;/div&gt;
+                        h4(id="typography-size") Size
+                        p Type comes in 5 sizes, set by a <a href="http://www.modularscale.com/">modular scale.</a> The variables that dictate each size are set in <code class="docs--code-inline">assets/type.css</code>.
+                        p
+                            table
+                                thead
+                                    tr
+                                        th Variable
+                                        th Description
+                                        th Default
+                                tbody
+                                    tr
+                                        td <code class="docs--code-inline">--t--base-size</code>
+                                        td Base Font Size
+                                        td <code class="docs--code-inline">16px</code>
+                                    tr
+                                        td <code class="docs--code-inline">--ms-base</code>
+                                        td Basis for modular scale
+                                        td <code class="docs--code-inline">1rem</code>
+                                    tr
+                                        td <code class="docs--code-inline">--ms-ratio</code>
+                                        td Ratio of modular scale sizes
+                                        td <code class="docs--code-inline">1.5</code>
+                        .docs--example
+                            .t--size-xxl Huge text
+                            .t--size-xl XLarge text
+                            .t--size-l Large text
+                            .t--size-m Normal text
+                            .t--size-s Small text
+                        pre.docs--code
+                            code.html.
+                                &lt;div class=&quot;t--size-xxl&quot;&gt;Huge text&lt;/div&gt;
+                                &lt;div class=&quot;t--size-xl&quot;&gt;XLarge text&lt;/div&gt;
+                                &lt;div class=&quot;t--size-l&quot;&gt;Large text&lt;/div&gt;
+                                &lt;div class=&quot;t--size-m&quot;&gt;Normal text&lt;/div&gt;
+                                &lt;div class=&quot;t--size-s&quot;&gt;Small text&lt;/div&gt;
+                        h4(id="typography-weight") Weight
+                        p Type comes in 3 weights, set by the variables in  <code class="docs--code-inline">assets/type.css</code>.
+                        .docs--example
+                            .t--weight-bold Bold text
+                            .t--weight-normal Normal text
+                            .t--weight-light Light text
+                        pre.docs--code
+                            code.html.
+                                &lt;div class=&quot;t--weight-black&quot;&gt;Black text&lt;/div&gt;
+                                &lt;div class=&quot;t--weight-bold&quot;&gt;Bold text&lt;/div&gt;
+                                &lt;div class=&quot;t--weight-normal&quot;&gt;Normal text&lt;/div&gt;
+                                &lt;div class=&quot;t--weight-light&quot;&gt;Light text&lt;/div&gt;
+                                &lt;div class=&quot;t--weight-thin&quot;&gt;Thin text&lt;/div&gt;
+                        h4(id="typography-alignment") Alignment
+                        p Alignment can be set using one of three Utility classes.
+                        .docs--example
+                            .t--align-left Left-aligned text
+                            .t--align-center Center-aligned text
+                            .t--align-right Right-aligned text
+                        pre.docs--code
+                            code.html.
+                                &lt;div class=&quot;t--align-left&quot;&gt;Left-aligned text&lt;/div&gt;
+                                &lt;div class=&quot;t--align-center&quot;&gt;Center-aligned text&lt;/div&gt;
+                                &lt;div class=&quot;t--align-right&quot;&gt;Right-aligned text&lt;/div&gt;&lt;/div&gt;
+                        h3 Elements
+                        h4(id="typography-headings") Headings
+                        p Headings 1-4 are available as shorthand for commonly-used size, weight, and color styles. Feel free to style these as you wish.
+                        .docs--example
+                            h1 Heading 1
+                            h2 Heading 2
+                            h3 Heading 3
+                            h4 Heading 4
+                        pre.docs--code
+                            code.html.
+                                &lt;h1&gt;Heading 1&lt;/h1&gt;
+                                &lt;h2&gt;Heading 2&lt;/h2&gt;
+                                &lt;h3&gt;Heading 3&lt;/h3&gt;
+                                &lt;h4&gt;Heading 4&lt;/h4&gt;
+                        h4(id="typography-paragraphs") Paragraphs
+                        p Paragraph text is styled at the <code class="docs--code-inline">body</code> level, with the exception of the addition of <code class="docs--code-inline">margin-bottom: 1rem</code> for <code class="docs--code-inline">&lt;p&gt;</code> tags.
+                        .docs--example
+                            p Paragraph Text. We work with clients as partners and collaborators on the way to a shared goal. While projects vary and methods evolve, our work is always characterized by a commitment to a few fundamentals.
+                        pre.docs--code
+                            code.html.
+                                &lt;p&gt;&#10;Paragraph Text. We work with clients as partners and collaborators &#10;on the way to a shared goal. While projects vary and methods evolve, &#10;our work is always characterized by a commitment to a few fundamentals.&#10;&lt;/p&gt;
+                        h4(id="typography-lists") Lists
+                        p By default, <code class="docs--code-inline">&lt;ul&gt;</code> is styled with bullets and <code class="docs--code-inline">&lt;ol&gt;</code> is styled with numerals. Additionally, there is a <code class="docs--code-inline">t--list-unstyled</code> Utility class to remove styling from any list.
+                        .docs--example
                             ul
-                                li Nested list
+                                li Unordered list
+                                li Lorem ipsum dolor sit amet
+                                li Consectetur adipiscing elit
+                                ul
+                                    li Nested list
+                                    li Consectetur adipiscing elit
+                                    li Integer molestie lorem at massa
+                                li Lorem ipsum dolor sit amet
                                 li Consectetur adipiscing elit
                                 li Integer molestie lorem at massa
-                            li Lorem ipsum dolor sit amet
-                            li Consectetur adipiscing elit
-                            li Integer molestie lorem at massa
-                        ol
-                            li Ordered List
-                            li Consectetur adipiscing elit
-                            li Integer molestie lorem at massa
-                        ul.t--list-unstyled
-                            li Unstyled List
-                            li Consectetur adipiscing elit
-                            li Integer molestie lorem at massa
-                    pre.docs--code
-                        code.html.
-                            &lt;ul&gt;
-                                &lt;li&gt;Unordered list&lt;/li&gt;
-                                &lt;li&gt;Lorem ipsum dolor sit amet&lt;/li&gt;
-                                &lt;li&gt;Consectetur adipiscing elit&lt;/li&gt;
+                            ol
+                                li Ordered List
+                                li Consectetur adipiscing elit
+                                li Integer molestie lorem at massa
+                            ul.t--list-unstyled
+                                li Unstyled List
+                                li Consectetur adipiscing elit
+                                li Integer molestie lorem at massa
+                        pre.docs--code
+                            code.html.
                                 &lt;ul&gt;
-                                    &lt;li&gt;Nested list&lt;/li&gt;
+                                    &lt;li&gt;Unordered list&lt;/li&gt;
+                                    &lt;li&gt;Lorem ipsum dolor sit amet&lt;/li&gt;
+                                    &lt;li&gt;Consectetur adipiscing elit&lt;/li&gt;
+                                    &lt;ul&gt;
+                                        &lt;li&gt;Nested list&lt;/li&gt;
+                                        &lt;li&gt;Consectetur adipiscing elit&lt;/li&gt;
+                                        &lt;li&gt;Integer molestie lorem at massa&lt;/li&gt;
+                                    &lt;/ul&gt;
+                                    &lt;li&gt;Lorem ipsum dolor sit amet&lt;/li&gt;
                                     &lt;li&gt;Consectetur adipiscing elit&lt;/li&gt;
                                     &lt;li&gt;Integer molestie lorem at massa&lt;/li&gt;
                                 &lt;/ul&gt;
-                                &lt;li&gt;Lorem ipsum dolor sit amet&lt;/li&gt;
-                                &lt;li&gt;Consectetur adipiscing elit&lt;/li&gt;
-                                &lt;li&gt;Integer molestie lorem at massa&lt;/li&gt;
-                            &lt;/ul&gt;
-                            &lt;ol&gt;
-                                &lt;li&gt;Ordered List&lt;/li&gt;
-                                &lt;li&gt;Consectetur adipiscing elit&lt;/li&gt;
-                                &lt;li&gt;Integer molestie lorem at massa&lt;/li&gt;
-                            &lt;/ol&gt;
-                            &lt;ul class=&quot;t--list-unstyled&quot;&gt;
-                                &lt;li&gt;Unstyled List&lt;/li&gt;
-                                &lt;li&gt;Consectetur adipiscing elit&lt;/li&gt;
-                                &lt;li&gt;Integer molestie lorem at massa&lt;/li&gt;
-                            &lt;/ul&gt;
-                    h4(id="typography-blockquotes") Block Quotes
-                    p The <code class="docs--code-inline">&lt;blockquote&gt;</code> element is styled simply to provide differentiation from text.
-                    .docs--example
-                        blockquote Planetary helps us design, counsel, and build products for our and our clients' future.
-                    pre.docs--code
-                        code.html.
-                            &lt;blockquote&gt;
-                                Planetary helps us design, counsel, and build
-                                products for our and our clients&apos; future.
-                            &lt;/blockquote&gt;
-                    h4(id="typography-code") Code
-                    p Preformated text and code can be styled using the <code class="docs--code-inline">&lt;pre&gt;</code> and <code class="docs--code-inline">&lt;code&gt;</code> tags.
-                    .docs--example
-                        pre Preformatted text
-                        code Code text
-                    pre.docs--code
-                        code.html.
-                            &lt;pre&gt;Preformatted text&lt;/pre&gt;
-                            &lt;code&gt;Code text&lt;/code&gt;
-        .l--grid-row.l--mar-top-m.l--mar-bot-m
-            .l--grid-col-3
-            .l--grid-col-auto
-                .l--col-full
-                    h2 Colors
-                    p 6 colors are provided. Each has two variants: lighter, light, dark, and darker.
-                .l--grid-row
-                    .l--grid-col-auto
+                                &lt;ol&gt;
+                                    &lt;li&gt;Ordered List&lt;/li&gt;
+                                    &lt;li&gt;Consectetur adipiscing elit&lt;/li&gt;
+                                    &lt;li&gt;Integer molestie lorem at massa&lt;/li&gt;
+                                &lt;/ol&gt;
+                                &lt;ul class=&quot;t--list-unstyled&quot;&gt;
+                                    &lt;li&gt;Unstyled List&lt;/li&gt;
+                                    &lt;li&gt;Consectetur adipiscing elit&lt;/li&gt;
+                                    &lt;li&gt;Integer molestie lorem at massa&lt;/li&gt;
+                                &lt;/ul&gt;
+                        h4(id="typography-blockquotes") Block Quotes
+                        p The <code class="docs--code-inline">&lt;blockquote&gt;</code> element is styled simply to provide differentiation from text.
+                        .docs--example
+                            blockquote Planetary helps us design, counsel, and build products for our and our clients' future.
+                        pre.docs--code
+                            code.html.
+                                &lt;blockquote&gt;
+                                    Planetary helps us design, counsel, and build
+                                    products for our and our clients&apos; future.
+                                &lt;/blockquote&gt;
+                        h4(id="typography-code") Code
+                        p Preformated text and code can be styled using the <code class="docs--code-inline">&lt;pre&gt;</code> and <code class="docs--code-inline">&lt;code&gt;</code> tags.
+                        .docs--example
+                            pre Preformatted text
+                            code Code text
+                        pre.docs--code
+                            code.html.
+                                &lt;pre&gt;Preformatted text&lt;/pre&gt;
+                                &lt;code&gt;Code text&lt;/code&gt;
+                .l--row.l--pad-top-m.l--pad-btm-m
+                    .l--col-auto
+                        h2 Colors
+                        p 6 colors are provided. Each has two variants: lighter, light, dark, and darker.
+                .l--row
+                    .l--col-auto
                         .docs--swatch.c--bg-blue-lighter.c--blue-darker
                             |Lighter Blue
                         .docs--swatch.c--bg-blue-light.c--blue-darker
@@ -208,7 +351,7 @@ block content
                             |Dark Blue
                         .docs--swatch.c--bg-blue-darker.c--blue-lighter
                             |Darker Blue
-                    .l--grid-col-auto
+                    .l--col-auto
                         .docs--swatch.c--bg-green-lighter.c--green-darker
                             |Lighter Green
                         .docs--swatch.c--bg-green-light.c--green-darker
@@ -219,7 +362,7 @@ block content
                             |Dark Green
                         .docs--swatch.c--bg-green-darker.c--green-lighter
                             |Darker Green
-                    .l--grid-col-auto
+                    .l--col-auto
                         .docs--swatch.c--bg-yellow-lighter.c--yellow-darker
                             |Lighter Yellow
                         .docs--swatch.c--bg-yellow-light.c--yellow-darker
@@ -230,7 +373,7 @@ block content
                             |Dark Yellow
                         .docs--swatch.c--bg-yellow-darker.c--yellow-lighter
                             |Darker Yellow
-                    .l--grid-col-auto
+                    .l--col-auto
                         .docs--swatch.c--bg-orange-lighter.c--orange-darker
                             |Lighter Orange
                         .docs--swatch.c--bg-orange-light.c--orange-darker
@@ -241,7 +384,7 @@ block content
                             |Dark Orange
                         .docs--swatch.c--bg-orange-darker.c--orange-lighter
                             |Darker Orange
-                    .l--grid-col-auto
+                    .l--col-auto
                         .docs--swatch.c--bg-red-lighter.c--red-darker
                             |Lighter Red
                         .docs--swatch.c--bg-red-light.c--red-darker
@@ -252,7 +395,7 @@ block content
                             |Dark Red
                         .docs--swatch.c--bg-red-darker.c--red-lighter
                             |Darker Red
-                    .l--grid-col-auto
+                    .l--col-auto
                         .docs--swatch.c--bg-purple-lighter.c--purple-darker
                             |Lighter Purple
                         .docs--swatch.c--bg-purple-light.c--purple-darker
@@ -263,60 +406,83 @@ block content
                             |Dark Purple
                         .docs--swatch.c--bg-purple-darker.c--purple-lighter
                             |Darker Purple
-        .l--grid-row.l--mar-top-m.l--mar-bot-m
-            .l--grid-col-3
-            .l--grid-col-auto
-                .l--col-full
-                    h2 Tables
-                    p Tables are styled with the fewest elements possible. For more styling, including text alignment and color, use helper classes. For guidelines on how to style tables, read <a href="https://medium.com/mission-log/design-better-data-tables-430a30a00d8c#.od49lsyoa">Design Better Data Tables</a>.
-                    .docs--example
-                        table
-                            thead
-                                tr
-                                    th Flavor
-                                    th.t--align-right Inventory
-                                    th.t--align-right Sales
-                            tbody
-                                tr
-                                    td Vanilla
-                                    td.t--align-right 120
-                                    td.t--align-right $300.23
-                                tr
-                                    td Chocolate
-                                    td.t--align-right 20
-                                    td.t--align-right 203.39
-                                tr
-                                    td Pistachio
-                                    td.t--align-right 139
-                                    td.t--align-right 192.29
-                    pre.docs--code
-                        code.html.
-                            &lt;table&gt;
-                                &lt;thead&gt;
-                                    &lt;tr&gt;
-                                        &lt;th&gt;Flavor&lt;/th&gt;
-                                        &lt;th class=&quot;t--align-right&quot;&gt;Inventory&lt;/th&gt;
-                                        &lt;th class=&quot;t--align-right&quot;&gt;Sales&lt;/th&gt;
-                                    &lt;/tr&gt;
-                                &lt;/thead&gt;
-                                &lt;tbody&gt;
-                                    &lt;tr&gt;
-                                        &lt;td&gt;Vanilla&lt;/td&gt;
-                                        &lt;td class=&quot;t--align-right&quot;&gt;120&lt;/td&gt;
-                                        &lt;td class=&quot;t--align-right&quot;&gt;$300.23&lt;/td&gt;
-                                    &lt;/tr&gt;
-                                    &lt;tr&gt;
-                                        &lt;td&gt;Chocolate&lt;/td&gt;
-                                        &lt;td class=&quot;t--align-right&quot;&gt;20&lt;/td&gt;
-                                        &lt;td class=&quot;t--align-right&quot;&gt;203.39&lt;/td&gt;
-                                    &lt;/tr&gt;
-                                    &lt;tr&gt;
-                                        &lt;td&gt;Pistachio&lt;/td&gt;
-                                        &lt;td class=&quot;t--align-right&quot;&gt;139&lt;/td&gt;
-                                        &lt;td class=&quot;t--align-right&quot;&gt;192.29&lt;/td&gt;
-                                    &lt;/tr&gt;
-                                &lt;/tbody&gt;
-                            &lt;/table&gt;
+                .l--row
+                    .l--col-auto
+                        h3 Utility Classes
+                        h4(id="colors-textcolor") Text Color
+                        p Text color can be set using the <code class="docs--code-inline">c--{color}</code> Utility classes.
+                        .docs--example
+                            .c--red Red Text
+                            .c--blue-light Light Blue Text
+                            .c--green-dark Dark Green Text
+                        pre.docs--code
+                            code.html.
+                                &lt;div class=&quot;c--red&quot;&gt;Red Text&lt;/div&gt;
+                                &lt;div class=&quot;c--blue-light&quot;&gt;Light Blue Text&lt;/div&gt;
+                                &lt;div class=&quot;c--green-dark&quot;&gt;Dark Green Text&lt;/div&gt;
+                        h4(id="colors-textcolor") Background Color
+                        p Background color can be set using the <code class="docs--code-inline">c--bg-{color}</code> Utility classes.
+                        .docs--example
+                            .c--bg-yellow Yellow Background
+                            .c--bg-orange-light Light Orange Background
+                            .c--bg-purple-dark.c--white Dark Purple Background
+                        pre.docs--code
+                            code.html.
+                                &lt;div class=&quot;c--bg-yellow&quot;&gt;Yellow Background&lt;/div&gt;
+                                &lt;div class=&quot;c--bg-orange-light&quot;&gt;Light Orange Background&lt;/div&gt;
+                                &lt;div class=&quot;c--bg-purple-dark c--white&quot;&gt;Dark Purple Background&lt;/div&gt;
+                .l--row.l--pad-top-m.l--pad-btm-m
+                    .l--col-full
+                        h2(id="tables") Tables
+                        p Tables are styled with the fewest elements possible. For more styling, including text alignment and color, use Utility classes. For guidelines on how to style tables, read <a href="https://medium.com/mission-log/design-better-data-tables-430a30a00d8c#.od49lsyoa">Design Better Data Tables</a>.
+                        .docs--example
+                            table
+                                thead
+                                    tr
+                                        th Flavor
+                                        th.t--align-right Inventory
+                                        th.t--align-right Sales
+                                tbody
+                                    tr
+                                        td Vanilla
+                                        td.t--align-right 120
+                                        td.t--align-right $300.23
+                                    tr
+                                        td Chocolate
+                                        td.t--align-right 20
+                                        td.t--align-right 203.39
+                                    tr
+                                        td Pistachio
+                                        td.t--align-right 139
+                                        td.t--align-right 192.29
+                        pre.docs--code
+                            code.html.
+                                &lt;table&gt;
+                                    &lt;thead&gt;
+                                        &lt;tr&gt;
+                                            &lt;th&gt;Flavor&lt;/th&gt;
+                                            &lt;th class=&quot;t--align-right&quot;&gt;Inventory&lt;/th&gt;
+                                            &lt;th class=&quot;t--align-right&quot;&gt;Sales&lt;/th&gt;
+                                        &lt;/tr&gt;
+                                    &lt;/thead&gt;
+                                    &lt;tbody&gt;
+                                        &lt;tr&gt;
+                                            &lt;td&gt;Vanilla&lt;/td&gt;
+                                            &lt;td class=&quot;t--align-right&quot;&gt;120&lt;/td&gt;
+                                            &lt;td class=&quot;t--align-right&quot;&gt;$300.23&lt;/td&gt;
+                                        &lt;/tr&gt;
+                                        &lt;tr&gt;
+                                            &lt;td&gt;Chocolate&lt;/td&gt;
+                                            &lt;td class=&quot;t--align-right&quot;&gt;20&lt;/td&gt;
+                                            &lt;td class=&quot;t--align-right&quot;&gt;203.39&lt;/td&gt;
+                                        &lt;/tr&gt;
+                                        &lt;tr&gt;
+                                            &lt;td&gt;Pistachio&lt;/td&gt;
+                                            &lt;td class=&quot;t--align-right&quot;&gt;139&lt;/td&gt;
+                                            &lt;td class=&quot;t--align-right&quot;&gt;192.29&lt;/td&gt;
+                                        &lt;/tr&gt;
+                                    &lt;/tbody&gt;
+                                &lt;/table&gt;
 
 block scripts
     script(src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js")
