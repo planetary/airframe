@@ -50,6 +50,8 @@ block content
                         a(href="#colors-backgroundcolor") Background Color
                 .t--size-l
                     a(href="#tables") Tables
+                .t--size-l
+                    a(href="#scripts") Scripts
             .l--col-auto
                 .l--row.l--pad-top-m.l--pad-btm-m
                     .l--col-auto
@@ -393,7 +395,7 @@ block content
                                 &lt;code&gt;Code text&lt;/code&gt;
                 .l--row.l--pad-top-m.l--pad-btm-m
                     .l--col-auto
-                        h2 Colors
+                        h2(id="colors") Colors
                         p 6 colors are provided. Each has two variants: lighter, light, dark, and darker.
                 .l--row.l--mar-btm-s
                     .l--col-auto
@@ -539,7 +541,21 @@ block content
                                         &lt;/tr&gt;
                                     &lt;/tbody&gt;
                                 &lt;/table&gt;
+                .l--row.l--pad-top-m.l--pad-btm-m
+                    .l--col-auto
+                        h2(id="scripts") Scripts
+                        p NPM scripts are included for developing and building to production.
+                        pre.docs--code
+                            code.bash.
+                                # runs airframe in development mode
+                                # hot reloads scripts and styles and auto-refreshes template changes
+                                # open `http://localhost:8080` to view it in the browser
+                                npm run dev
 
+                                # builds airframe to production
+                                # optimizes the build for best performance
+                                # filenames include hashes for long-term caching
+                                npm run build
 block scripts
     script(src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js")
     script(type="text/javascript")
