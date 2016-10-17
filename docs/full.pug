@@ -83,15 +83,15 @@ block content
                                         th Possible Values
                                 tbody
                                     tr
-                                        td <code class="docs--code-inline">.l--container
+                                        td <code class="docs--code-inline">.l--container</code>
                                         td Container element
                                         td
                                     tr
-                                        td <code class="docs--code-inline">.l--row
+                                        td <code class="docs--code-inline">.l--row</code>
                                         td Row element
                                         td
                                     tr
-                                        td <code class="docs--code-inline">.l--col-{number}
+                                        td <code class="docs--code-inline">.l--col-{number}</code>
                                         td Column element
                                         td 1-12 or "auto"
                         .docs--example
@@ -125,6 +125,62 @@ block content
                                         &lt;div class=&quot;l--col-3 c--bg-gray-lighter&quot;&gt;1/4 column&lt;/div&gt;
                                         &lt;div class=&quot;l--col-3 c--bg-gray-lighter&quot;&gt;1/4 column&lt;/div&gt;
                                         &lt;div class=&quot;l--col-3 c--bg-gray-lighter&quot;&gt;1/4 column&lt;/div&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                        h4 Responsive utilities
+                        p Grid classes can be modified at various breakpoints using responsive utility classes. The breakpoints are set in <code class="docs--code-inline">assets/layout.css</code>.
+                        p
+                            table
+                                thead
+                                    tr
+                                        th Variable
+                                        th Description
+                                        th Default
+                                tbody
+                                    tr
+                                        td <code class="docs--code-inline">--mq-l</code>
+                                        td Media query for large screens
+                                        td <code class="docs--code-inline">width > 1024px</code>
+                                    tr
+                                        td <code class="docs--code-inline">--mq-m</code>
+                                        td Media query for medium screens
+                                        td <code class="docs--code-inline">width <= 1024px</code>
+                                    tr
+                                        td <code class="docs--code-inline">--mq-s</code>
+                                        td Media query for small screens
+                                        td <code class="docs--code-inline">width <= 768px</code>
+                        p Responsive utilities can be used instead of declaring a default column size, or in addition to a default column size; this allows you to create mobile-first or desktop-first layouts.
+                        p
+                            table
+                                thead
+                                    tr
+                                        th Class
+                                        th
+                                        th Possible Values
+                                tbody
+                                    tr
+                                        td <code class="docs--code-inline">.l--col-{number}-at-{size}
+                                        td
+                                        td.
+                                            number: 1-12 or "auto"<br/>
+                                            size: s, m, or l
+                        .docs--example
+                            .l--container.t--align-center
+                                .l--row
+                                    .l--col-6.l--col-12-at-s.c--bg-gray-lighter.l--mar-btm-s.
+                                        1/2 at large and medium sizes, full-width at small sizes.
+                                    .l--col-6.l--col-12-at-s.c--bg-gray-lighter.l--mar-btm-s.
+                                        1/2 at large and medium sizes, full-width at small sizes.
+                        pre.docs--code
+                            code.html.
+                                &lt;div class=&quot;l--container t--align-center&quot;&gt;
+                                    &lt;div class=&quot;l--row&quot;&gt;
+                                        &lt;div class=&quot;l--col-6 l--col-12-at-s c--bg-gray-lighter l--mar-btm-s&quot;&gt;
+                                            1/2 at large and medium sizes, full-width at small sizes.
+                                        &lt;/div&gt;
+                                        &lt;div class=&quot;l--col-6 l--col-12-at-s c--bg-gray-lighter l--mar-btm-s&quot;&gt;
+                                            1/2 at large and medium sizes, full-width at small sizes.
+                                        &lt;/div&gt;
                                     &lt;/div&gt;
                                 &lt;/div&gt;
                         h3(id="layout-spacing") Spacing
@@ -339,7 +395,7 @@ block content
                     .l--col-auto
                         h2 Colors
                         p 6 colors are provided. Each has two variants: lighter, light, dark, and darker.
-                .l--row
+                .l--row.l--mar-btm-s
                     .l--col-auto
                         .docs--swatch.c--bg-blue-lighter.c--blue-darker
                             |Lighter Blue
