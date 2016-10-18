@@ -7,18 +7,19 @@ block content
     .l--container
         .l--row.l--mar-top-m.l--mar-bot-m
             .l--col-3
-                .t--size-l
-                    a(href="#layout") Layout
+                .t--size-l Getting Started
+                a(href="#scripts") Scripts
+                .t--size-l Building
+                a(href="#layout") Layout
                 ul.t--list-unstyled
                     li
                         a(href="#layout-grid") Grid
                     li
                         a(href="#layout-spacing") Spacing
-                .t--size-l
-                    a(href="#typography") Typography
+                a(href="#typography") Typography
                 ul.t--list-unstyled
                     li
-                        strong Utility Classes
+                        | Utility Classes
                     li
                         a(href="#typography-family") Family
                     li
@@ -28,7 +29,7 @@ block content
                     li
                         a(href="#typography-alignment") Alignment
                     li
-                        strong Elements
+                        | Elements
                     li
                         a(href="#typography-headings") Headings
                     li
@@ -39,22 +40,39 @@ block content
                         a(href="#typography-blockquotes") Block quotes
                     li
                         a(href="#typography-code") Code
-                .t--size-l
-                    a(href="#colors") Colors
+                a(href="#colors") Colors
                 ul.t--list-unstyled
                     li
-                        strong Utility Classes
+                        | Utility Classes
                     li
                         a(href="#colors-textcolor") Text Color
                     li
                         a(href="#colors-backgroundcolor") Background Color
-                .t--size-l
-                    a(href="#tables") Tables
-                .t--size-l
-                    a(href="#scripts") Scripts
+                a(href="#tables") Tables
             .l--col-auto
                 .l--row.l--pad-top-m.l--pad-btm-m
                     .l--col-auto
+                        .c--gray.l--pad-btm-s Getting Started
+                        h2(id="scripts") Scripts
+                        p NPM scripts are included for developing and building to production.
+                        p
+                            table
+                                thead
+                                    tr
+                                        th Command
+                                        th Description
+                                tbody
+                                    tr
+                                        td
+                                            <code class="docs--code-inline">npm run dev</code>
+                                        td <strong>Runs airframe in development mode:</strong> hot reloads scripts and styles and auto-refreshes template changes. After running, open http://localhost:8080 in a browser to view your project.
+                                    tr
+                                        td
+                                            <code class="docs--code-inline">npm run build</code>
+                                        td <strong>Builds airframe for production:</strong> optimizes the build for best performance, including filename hashing for long-term caching.
+                .l--row.l--pad-top-m.l--pad-btm-m
+                    .l--col-auto
+                        .c--gray.l--pad-btm-s Building
                         h2(id="layout") Layout
                         h3(id="layout-grid") Grid
                         p The airframe grid system consists of 12 columns. The variables that dictate the grid width and column spacing can be found in <code class="docs--code-inline">assets/layout.css</code>.
@@ -541,21 +559,6 @@ block content
                                         &lt;/tr&gt;
                                     &lt;/tbody&gt;
                                 &lt;/table&gt;
-                .l--row.l--pad-top-m.l--pad-btm-m
-                    .l--col-auto
-                        h2(id="scripts") Scripts
-                        p NPM scripts are included for developing and building to production.
-                        pre.docs--code
-                            code.bash.
-                                # runs airframe in development mode
-                                # hot reloads scripts and styles and auto-refreshes template changes
-                                # open `http://localhost:8080` to view it in the browser
-                                npm run dev
-
-                                # builds airframe to production
-                                # optimizes the build for best performance
-                                # filenames include hashes for long-term caching
-                                npm run build
 block scripts
     script(src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js")
     script(type="text/javascript")
