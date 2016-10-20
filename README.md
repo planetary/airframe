@@ -13,7 +13,7 @@ compilation.
 In addition to the compilation tasks, Airframe includes:
 * A clear, concise default folder structure that is suggested but not prescribed.
 * A small amount of default CSS for normalization and to provide basic grid functionality.
-* A default style guide (at `/styles`) that can be used as a jumping-off point for design.
+* Documentation (at `/docs`) that can be used as a jumping-off point for design.
 
 ### Installation
 
