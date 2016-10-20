@@ -39,6 +39,8 @@ label {
 [type='email'],
 [type='password'],
 [type='search'],
+[type='number'],
+[type='date'],
 textarea {
     width: 100%;
     padding: 0.25em 0.5em;

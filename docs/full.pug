@@ -48,7 +48,14 @@ block content
                         a(href="#colors-textcolor") Text Color
                     li
                         a(href="#colors-backgroundcolor") Background Color
-                a(href="#tables") Tables
+                a(href="#tables") Tables<br/>
+                a(href="#forms") Forms
+                ul.t--list-unstyled
+                    li
+                        a(href="#forms-baseelements") Base elements
+                    li
+                        a(href="#forms-styledelements") Styled elements
+
             .l--col-auto
                 .l--row.l--pad-top-m.l--pad-btm-m
                     .l--col-auto
@@ -559,6 +566,64 @@ block content
                                         &lt;/tr&gt;
                                     &lt;/tbody&gt;
                                 &lt;/table&gt;
+                .l--row.l--pad-top-m.l--pad-btm-m
+                    .l--col-full
+                        h2(id="forms") Forms
+                        h3(id="forms-baseelements") Base Elements
+                        p Most form elements have been normalized and can be used without the need for additional classes. This includes text-based inputs, such as search, password, textarea, number, and date fields.
+                        .docs--example
+                            form
+                                label
+                                    span Name
+                                    input(type="text", placeholder="Enter your full name")
+                                label
+                                    span Birthday
+                                    input(type="date")
+                                label
+                                    span Password
+                                    input(type="password")
+                                label
+                                    span Search
+                                    input(type="search", placeholder="e.g. 'Puppies'")
+                        pre.docs--code
+                            code.html.
+                                &lt;form&gt;&#10;    &lt;label&gt;&#10;        &lt;span&gt;Name&lt;/span&gt;&#10;        &lt;input type=&quot;text&quot; placeholder=&quot;Enter your full name&quot;&gt;&#10;    &lt;/label&gt;&#10;    &lt;label&gt;&#10;        &lt;span&gt;Birthday&lt;/span&gt;&#10;        &lt;input type=&quot;date&quot;&gt;&#10;    &lt;/label&gt;&#10;    &lt;label&gt;&#10;        &lt;span&gt;Password&lt;/span&gt;&#10;        &lt;input type=&quot;password&quot;&gt;&#10;    &lt;/label&gt;&#10;    &lt;label&gt;&#10;        &lt;span&gt;Search&lt;/span&gt;&#10;        &lt;input type=&quot;search&quot; placeholder=&quot;e.g. &apos;Puppies&apos;&quot;&gt;&#10;    &lt;/label&gt;&#10;&lt;/form&gt;
+                        h3(id="forms-styledelements") Styled Elements
+                        p Elements with differing browser chrome can be re-styled using classes. This includes radio buttons (<code class="docs--code-inline">.form--radio</code>) and check boxes (<code class="docs--code-inline">.form--checkbox</code>).
+                        .docs--example
+                            form
+                                span.l--mar-btm-s Flavor:
+                                .form--radio
+                                    label
+                                        input(type="radio", name="flavor", value="vanilla")
+                                        |  Vanilla
+                                .form--radio
+                                    label
+                                        input(type="radio", name="flavor", value="chocolate")
+                                        |  Chocolate
+                                .form--radio
+                                    label
+                                        input(type="radio", name="flavor", value="pistachio")
+                                        |  Pistachio
+                                span.l--mar-btm-s Toppings:
+                                .form--checkbox
+                                    label
+                                        input(type="checkbox", value="sprinkles")
+                                        |  Sprinkles
+                                .form--checkbox
+                                    label
+                                        input(type="checkbox", value="hot fudge")
+                                        |  Hot Fudge
+                                .form--checkbox
+                                    label
+                                        input(type="checkbox", value="cherry on top")
+                                        |  Cherry on Top
+                        pre.docs--code
+                            code.html.
+                                &lt;form&gt;&#10;    &lt;span class=&quot;l--mar-btm-s&quot;&gt;Flavor:&lt;/span&gt;&#10;    &lt;div class=&quot;form--radio&quot;&gt;&#10;        &lt;label&gt;&#10;            &lt;input type=&quot;radio&quot; name=&quot;flavor&quot; value=&quot;vanilla&quot;&gt;&#10;             Vanilla&#10;        &lt;/label&gt;&#10;            &lt;/div&gt;&#10;    &lt;div class=&quot;form--radio&quot;&gt;&#10;        &lt;label&gt;&#10;            &lt;input type=&quot;radio&quot; name=&quot;flavor&quot; value=&quot;chocolate&quot;&gt;&#10;             Chocolate&#10;        &lt;/label&gt;&#10;    &lt;/div&gt;&#10;    &lt;div class=&quot;form--radio&quot;&gt;&#10;        &lt;label&gt;&#10;            &lt;input type=&quot;radio&quot; name=&quot;flavor&quot; value=&quot;pistachio&quot;&gt;&#10;             Pistachio&#10;        &lt;/label&gt;&#10;    &lt;/div&gt;&#10;    &lt;span class=&quot;l--mar-btm-s&quot;&gt;Toppings:&lt;/span&gt;&#10;    &lt;div class=&quot;form--checkbox&quot;&gt;&#10;        &lt;label&gt;&#10;            &lt;input type=&quot;checkbox&quot; value=&quot;sprinkles&quot;&gt;&#10;             Sprinkles&#10;        &lt;/label&gt;&#10;    &lt;/div&gt;&#10;    &lt;div class=&quot;form--checkbox&quot;&gt;&#10;        &lt;label&gt;&#10;            &lt;input type=&quot;checkbox&quot; value=&quot;hot fudge&quot;&gt;&#10;             Hot Fudge&#10;        &lt;/label&gt;&#10;    &lt;/div&gt;&#10;    &lt;div class=&quot;form--checkbox&quot;&gt;&#10;        &lt;label&gt;&#10;            &lt;input type=&quot;checkbox&quot; value=&quot;cherry on top&quot;&gt;&#10;             Cherry on Top&#10;        &lt;/label&gt;&#10;    &lt;/div&gt;
+                                &lt;/form&gt;
+
+
 block scripts
     script(src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js")
     script(type="text/javascript")
