@@ -116,10 +116,15 @@ module.exports = webpackValidator({
         ifProd(new ExtractTextPlugin('styles/styles-[chunkhash:8].css')),
         ifProd(new PurifyPlugin({
             basePath: __dirname,
-            paths: [
-                'assets/templates/**/*.pug',
-                propIf(process.env.WITH_DOCS || false, 'docs/**/*.pug')
-            ],
+            paths: propIf(process.env.WITH_DOCS || false,
+                [
+                    'assets/templates/**/*.pug',
+                    'docs/**/*.pug'
+                ],
+                [
+                    'assets/templates/**/*.pug'
+                ]
+            ),
             purifyOptions: {
                 minify: true
             }
