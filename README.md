@@ -17,7 +17,6 @@ In addition to the compilation tasks, Airframe includes:
 
 ### Installation
 
-
 ```bash
 $ git clone --depth=1 https://github.com/planetary/airframe.git
 $ cd airframe
@@ -26,9 +25,21 @@ $ npm install
 ```
 
 ### Developing
-Run `npm run dev` to continuously watch and re-build the project. Airframe will automatically run a server
+
+Use `npm run dev` to continuously watch and re-build the project. Airframe will automatically run a server
 from the `build` folder at `localhost:8080`. Webpack will hot-reload styles and scripts and will refresh
 the browser automatically when templates are updated.
+
+### Building
+
+#### For Production
+Use `npm run build` to build a production ready bundle with hashed and minified assets with support for long-term caching. Also excludes
+development tools such as the documentation and strips out any other unused css rules.
+
+#### With Development Config
+Use `npm run build:dev` to build a bundle that uses the same config as `npm run dev`. Useful for generating
+a bundle that reflects your development environment. The output can be inspected to see exactly what `npm run dev`
+is producing, or deployed to a development staging server.
 
 ### Installing Sublime Text Helpers
 

@@ -24,7 +24,7 @@
     "build:docs": "cross-env NODE_ENV=prod WITH_DOCS=true webpack -p",
     "postbuild:docs": "imagemin assets/images/* --out-dir=build/images",
     "prebuild:dev": "rimraf build",
-    "build:dev": "cross-env NODE_ENV=dev webpack",
+    "build:dev": "cross-env NODE_ENV=dev MODE=build webpack",
     "postbuild:dev": "imagemin assets/images/* --out-dir=build/images",
     "dev": "cross-env NODE_ENV=dev webpack-dev-server --inline --hot",
     "validate": "npm-run-all --parallel lint build",

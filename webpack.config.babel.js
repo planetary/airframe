@@ -14,6 +14,7 @@ const WebpackMD5Hash = require('webpack-md5-hash');
 const webpackValidator = require('webpack-validator');
 const {getIfUtils, removeEmpty, propIf} = require('webpack-config-utils');
 const {ifProd, ifNotProd} = getIfUtils(process.env.NODE_ENV);
+const isBuild = process.env.MODE === 'build';
 
 // Loads an HtmlWebpackPlugin for each template in the assets/views directory
 const loadHtmlPlugin = (src, base = '') => {
@@ -112,7 +113,7 @@ module.exports = webpackValidator({
     },
     plugins: removeEmpty([
         ifNotProd(new ProgressBarPlugin()),
-        ifNotProd(new ReloadPlugin()),
+        isBuild ? undefined : ifNotProd(new ReloadPlugin()), // eslint-disable-line
         ifProd(new ExtractTextPlugin('styles/styles-[chunkhash:8].css')),
         ifProd(new PurifyPlugin({
             basePath: __dirname,
@@ -149,6 +150,7 @@ module.exports = webpackValidator({
         new CopyPlugin(removeEmpty([
             // Copy fonts to build directory
             {from: 'fonts', to: 'fonts'},
+            {from: 'favicons', to: '../build'},
             ifNotProd({from: 'images', to: 'images'})
         ]), {
             ignore: [
