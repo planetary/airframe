@@ -273,7 +273,7 @@ block content
                                 &lt;div class=&quot;t--family-sans&quot;&gt;Sans text&lt;/div&gt;
                                 &lt;div class=&quot;t--family-mono&quot;&gt;Monospace text&lt;/div&gt;
                         h4(id="typography-size") Size
-                        p Type comes in 5 sizes, set by a <a href="http://www.modularscale.com/">modular scale.</a> The variables that dictate each size are set in <code class="docs--code-inline">assets/type.css</code>.
+                        p Type comes in 4 sizes, set by a <a href="http://www.modularscale.com/">modular scale.</a> The variables that dictate each size are set in <code class="docs--code-inline">assets/type.css</code>.
                         p
                             table
                                 thead
@@ -287,6 +287,30 @@ block content
                                         td Base Font Size
                                         td <code class="docs--code-inline">16px</code>
                                     tr
+                                        td <code class="docs--code-inline">--t--base-leading</code>
+                                        td Base Line Height
+                                        td <code class="docs--code-inline">1.6</code>
+                        .docs--example
+                            .t--size-xl XLarge text
+                            .t--size-l Large text
+                            .t--size-m Normal text
+                            .t--size-s Small text
+                        pre.docs--code
+                            code.html.
+                                &lt;div class=&quot;t--size-xl&quot;&gt;XLarge text&lt;/div&gt;
+                                &lt;div class=&quot;t--size-l&quot;&gt;Large text&lt;/div&gt;
+                                &lt;div class=&quot;t--size-m&quot;&gt;Normal text&lt;/div&gt;
+                                &lt;div class=&quot;t--size-s&quot;&gt;Small text&lt;/div&gt;
+                        p Type utilities also come in a <a href="http://alistapart.com/article/more-meaningful-typography">modular</a> scale flavor.
+                        p
+                            table
+                                thead
+                                    tr
+                                        th Variable
+                                        th Description
+                                        th Default
+                                tbody
+                                    tr
                                         td <code class="docs--code-inline">--ms-base</code>
                                         td Basis for modular scale
                                         td <code class="docs--code-inline">1rem</code>
@@ -295,18 +319,16 @@ block content
                                         td Ratio of modular scale sizes
                                         td <code class="docs--code-inline">1.5</code>
                         .docs--example
-                            .t--size-xxl Huge text
-                            .t--size-xl XLarge text
-                            .t--size-l Large text
-                            .t--size-m Normal text
-                            .t--size-s Small text
+                            .t--size-ms-xl XLarge text
+                            .t--size-ms-l Large text
+                            .t--size-ms-m Normal text
+                            .t--size-ms-s Small text
                         pre.docs--code
                             code.html.
-                                &lt;div class=&quot;t--size-xxl&quot;&gt;Huge text&lt;/div&gt;
-                                &lt;div class=&quot;t--size-xl&quot;&gt;XLarge text&lt;/div&gt;
-                                &lt;div class=&quot;t--size-l&quot;&gt;Large text&lt;/div&gt;
-                                &lt;div class=&quot;t--size-m&quot;&gt;Normal text&lt;/div&gt;
-                                &lt;div class=&quot;t--size-s&quot;&gt;Small text&lt;/div&gt;
+                                &lt;div class=&quot;t--size-ms-xl&quot;&gt;XLarge text&lt;/div&gt;
+                                &lt;div class=&quot;t--size-ms-l&quot;&gt;Large text&lt;/div&gt;
+                                &lt;div class=&quot;t--size-ms-m&quot;&gt;Normal text&lt;/div&gt;
+                                &lt;div class=&quot;t--size-ms-s&quot;&gt;Small text&lt;/div&gt;
                         h4(id="typography-weight") Weight
                         p Type comes in 3 weights, set by the variables in  <code class="docs--code-inline">assets/type.css</code>.
                         .docs--example
