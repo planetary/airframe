@@ -1,6 +1,6 @@
 [data-tooltip] {
-    border-bottom: 1px dashed currentColor;
     position: relative;
+    border-bottom: 1px dashed currentColor;
 
     &::after {
         content: attr(data-tooltip);

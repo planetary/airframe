@@ -53,13 +53,13 @@
     }
 
     @define-mixin column-fixed $span {
-        flex: 0 0 calc(($(span) * 100%) - var(--l--gutter));
         margin: 0 calc(var(--l--gutter) / 2);
+        flex: 0 0 calc(($(span) * 100%) - var(--l--gutter));
     }
 
     @define-mixin column-flex {
-        flex: 1;
         margin: 0 calc(var(--l--gutter) / 2);
+        flex: 1;
     }
 
     @define-mixin visible-grid {

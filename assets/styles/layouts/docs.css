@@ -5,8 +5,8 @@
 }
 
 .docs--example {
-    border: 2px solid var(--c--gray-lighter);
     padding: 1rem;
+    border: 2px solid var(--c--gray-lighter);
 }
 
 .docs--code-inline {
@@ -17,11 +17,11 @@
 }
 
 .docs--code {
+    margin: 0 0 2rem;
+    padding: 1rem;
     background: var(--c--gray-darker);
     border: 2px solid var(--c--gray-lighter);
     border-top: 0;
-    margin: 0 0 2rem;
-    padding: 1rem;
     color: var(--c--white);
     font-size: inherit;
     line-height: 1.2;
