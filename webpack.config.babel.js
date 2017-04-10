@@ -41,7 +41,7 @@ module.exports = (env) => {
             './assets/scripts/index.js'
         ],
         output: {
-            filename: ifProd('scripts/bundle-[chunkhash:8].js', 'scripts/bundle.js'),
+            filename: ifProd('assets/scripts/bundle-[chunkhash:8].js', 'scripts/bundle.js'),
             path: path.resolve('build'),
             pathinfo: ifNotProd(),
             publicPath: process.env.PUBLIC_PATH || '/'
@@ -117,7 +117,7 @@ module.exports = (env) => {
                     ]
                 }
             }),
-            ifProd(new ExtractTextPlugin('styles/styles-[chunkhash:8].css')),
+            ifProd(new ExtractTextPlugin('assets/styles/styles-[chunkhash:8].css')),
             ifProd(new PurifyPlugin({
                 basePath: __dirname,
                 paths: propIf(env.docs || false,

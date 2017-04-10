@@ -19,16 +19,17 @@
   "scripts": {
     "prebuild": "rimraf build",
     "build": "webpack --env.prod -p",
-    "postbuild": "imagemin assets/images/* --out-dir=build/images",
+    "postbuild": "imagemin assets/images/* --out-dir=build/assets/images",
     "prebuild:docs": "rimraf build",
     "build:docs": "webpack --env.prod --env.docs -p",
-    "postbuild:docs": "imagemin assets/images/* --out-dir=build/images",
+    "postbuild:docs": "imagemin assets/images/* --out-dir=build/assets/images",
     "prebuild:dev": "rimraf build",
     "build:dev": "webpack --env.dev --env.build",
-    "postbuild:dev": "imagemin assets/images/* --out-dir=build/images",
+    "postbuild:dev": "imagemin assets/images/* --out-dir=build/assets/images",
     "dev": "webpack-dev-server --inline --hot --env.dev",
     "validate": "npm-run-all --parallel lint build",
-    "lint": "eslint assets"
+    "lint": "eslint assets",
+    "start:build": "serve build"
   },
   "dependencies": {
     "babel-core": "^6.13.2",
@@ -59,6 +60,7 @@
     "purifycss-webpack-plugin": "^2.0.3",
     "reload-html-webpack-plugin": "^0.1.2",
     "rimraf": "^2.5.4",
+    "serve": "^5.1.2",
     "style-loader": "^0.13.1",
     "stylelint": "7.8.0",
     "stylelint-config-planetary": "^1.0.1",
